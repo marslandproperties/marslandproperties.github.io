@@ -5,36 +5,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Marsland Properties | Premium Real Estate in Trichy</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #1a237e;
-            --primary-dark: #0d1440;
-            --secondary: #ff5722;
-            --secondary-light: #ff8a50;
-            --accent: #00bcd4;
-            --light: #f5f5f5;
-            --dark: #212121;
-            --gray: #757575;
-            --gray-light: #eeeeee;
-            --success: #4caf50;
-            --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            --shadow-heavy: 0 8px 24px rgba(0, 0, 0, 0.15);
+            --primary: #0A174E;
+            --primary-dark: #050B2E;
+            --primary-light: #1D2671;
+            --secondary: #D4AF37;
+            --secondary-dark: #B8941F;
+            --accent: #00A8CC;
+            --light: #F8F9FA;
+            --dark: #212529;
+            --gray: #6C757D;
+            --gray-light: #E9ECEF;
+            --success: #28A745;
+            --shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+            --shadow-heavy: 0 12px 30px rgba(0, 0, 0, 0.15);
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            --border-radius: 12px;
+            --container-width: 1320px;
         }
         
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', 'Poppins', sans-serif;
+        }
+        
+        html {
+            scroll-behavior: smooth;
         }
         
         body {
+            font-family: 'Inter', sans-serif;
             color: var(--dark);
             line-height: 1.6;
             overflow-x: hidden;
+            background-color: #fff;
         }
         
-        h1, h2, h3, h4, h5 {
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
             font-weight: 700;
             line-height: 1.2;
         }
@@ -42,50 +55,50 @@
         a {
             text-decoration: none;
             color: inherit;
+            transition: var(--transition);
+        }
+        
+        ul {
+            list-style: none;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
         }
         
         .container {
             width: 100%;
-            max-width: 1200px;
+            max-width: var(--container-width);
             margin: 0 auto;
             padding: 0 20px;
         }
         
-        .btn {
-            display: inline-block;
-            background: var(--secondary);
-            color: white;
-            padding: 12px 30px;
-            border-radius: 4px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-            font-size: 1rem;
-        }
-        
-        .btn:hover {
-            background: var(--secondary-light);
-            transform: translateY(-3px);
-            box-shadow: var(--shadow);
-        }
-        
-        .btn-secondary {
-            background: transparent;
-            border: 2px solid var(--secondary);
-            color: var(--secondary);
-        }
-        
-        .btn-secondary:hover {
-            background: var(--secondary);
-            color: white;
+        .section-padding {
+            padding: 100px 0;
         }
         
         .section-title {
             text-align: center;
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             margin-bottom: 1rem;
             color: var(--primary);
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background: var(--secondary);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
         }
         
         .section-subtitle {
@@ -93,132 +106,329 @@
             color: var(--gray);
             margin-bottom: 3rem;
             font-size: 1.1rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--secondary);
+            color: var(--primary-dark);
+            padding: 14px 32px;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            font-size: 1rem;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            gap: 8px;
+            box-shadow: 0 4px 12px rgba(212, 175, 55, 0.2);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.7s;
+            z-index: -1;
+        }
+        
+        .btn:hover::before {
+            left: 100%;
+        }
+        
+        .btn:hover {
+            background: var(--secondary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.3);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid var(--secondary);
+            color: var(--secondary);
+            box-shadow: none;
+        }
+        
+        .btn-secondary:hover {
+            background: var(--secondary);
+            color: var(--primary-dark);
+        }
+        
+        .btn-accent {
+            background: var(--accent);
+            color: white;
+        }
+        
+        .btn-accent:hover {
+            background: #0093B8;
+        }
+        
+        /* Floating Contact Buttons */
+        .floating-contact {
+            position: fixed;
+            right: 25px;
+            bottom: 25px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            z-index: 999;
+        }
+        
+        .floating-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            box-shadow: var(--shadow-heavy);
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        .floating-btn:hover {
+            transform: translateY(-5px) scale(1.05);
+        }
+        
+        .floating-btn.whatsapp {
+            background: var(--success);
+        }
+        
+        .floating-btn.phone {
+            background: var(--accent);
+        }
+        
+        .floating-tooltip {
+            position: absolute;
+            right: 70px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--primary-dark);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            pointer-events: none;
+        }
+        
+        .floating-tooltip::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: -6px;
+            transform: translateY(-50%);
+            border-width: 6px 0 6px 6px;
+            border-style: solid;
+            border-color: transparent transparent transparent var(--primary-dark);
+        }
+        
+        .floating-btn:hover .floating-tooltip {
+            opacity: 1;
+            visibility: visible;
         }
         
         /* Header Styles */
         header {
-            background: white;
-            box-shadow: var(--shadow);
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
+            transition: var(--transition);
+        }
+        
+        header.scrolled {
+            padding: 10px 0;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.08);
         }
         
         .header-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 20px;
+            padding: 20px 0;
+            transition: var(--transition);
         }
         
         .logo {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
         }
         
         .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             color: var(--secondary);
-            font-size: 2rem;
+            font-size: 1.8rem;
+            box-shadow: 0 4px 12px rgba(10, 23, 78, 0.15);
         }
         
         .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .logo-text h1 {
             font-size: 1.8rem;
-            font-weight: 800;
+            color: var(--primary);
+            line-height: 1.1;
+        }
+        
+        .logo-text span {
+            font-size: 0.75rem;
+            color: var(--gray);
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+        
+        nav {
+            display: flex;
+            align-items: center;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 35px;
+        }
+        
+        .nav-links a {
+            font-weight: 600;
+            color: var(--dark);
+            font-size: 1rem;
+            position: relative;
+            padding: 5px 0;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--secondary);
+            bottom: 0;
+            left: 0;
+            transition: width 0.3s;
+        }
+        
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+        
+        .nav-links a:hover,
+        .nav-links a.active {
             color: var(--primary);
         }
         
-        .logo-subtitle {
-            font-size: 0.8rem;
-            color: var(--gray);
-        }
-        
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 30px;
-        }
-        
-        nav a {
-            font-weight: 600;
-            color: var(--dark);
-            transition: color 0.3s;
-        }
-        
-        nav a:hover {
-            color: var(--secondary);
-        }
-        
-        .contact-header {
+        .header-contact {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 20px;
         }
         
-        .contact-header a {
+        .header-contact-item {
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
             font-weight: 600;
+            color: var(--primary);
         }
         
-        .whatsapp-header {
-            color: var(--success);
-        }
-        
-        .phone-header {
+        .header-contact-item i {
             color: var(--secondary);
+            font-size: 1.1rem;
+        }
+        
+        .mobile-toggle {
+            display: none;
+            font-size: 1.5rem;
+            color: var(--primary);
+            cursor: pointer;
         }
         
         /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(26, 35, 126, 0.9), rgba(13, 20, 64, 0.9)), url('https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+            background: linear-gradient(rgba(10, 23, 78, 0.9), rgba(5, 11, 46, 0.9)), url('https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
             background-size: cover;
             background-position: center;
+            background-attachment: fixed;
             color: white;
-            padding: 150px 0 100px;
-            text-align: center;
-            margin-top: 70px;
+            padding: 180px 0 120px;
+            margin-top: 90px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 50%, rgba(212, 175, 55, 0.15) 0%, transparent 50%);
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            position: relative;
+            z-index: 1;
         }
         
         .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
+            font-size: 3.8rem;
+            margin-bottom: 25px;
+            line-height: 1.1;
+        }
+        
+        .hero h1 span {
+            color: var(--secondary);
         }
         
         .hero p {
-            font-size: 1.2rem;
-            max-width: 700px;
-            margin: 0 auto 40px;
+            font-size: 1.25rem;
+            margin-bottom: 40px;
             opacity: 0.9;
+            max-width: 700px;
         }
         
         .hero-btns {
             display: flex;
             gap: 20px;
-            justify-content: center;
-        }
-        
-        .hero .btn {
-            background: var(--secondary);
-        }
-        
-        .hero .btn-secondary {
-            border-color: white;
-            color: white;
-        }
-        
-        .hero .btn-secondary:hover {
-            background: white;
-            color: var(--primary);
+            flex-wrap: wrap;
         }
         
         /* Mars Galaxy Section */
         .mars-section {
             position: relative;
             overflow: hidden;
-            padding: 100px 0;
+            padding: 120px 0;
             background: #000;
             color: white;
         }
@@ -256,27 +466,18 @@
         
         .mars-planet {
             position: absolute;
-            width: 400px;
-            height: 400px;
+            width: 450px;
+            height: 450px;
             border-radius: 50%;
-            background: radial-gradient(circle at 30% 30%, #ff5722, #8B0000);
-            right: -100px;
+            background: radial-gradient(circle at 30% 30%, var(--secondary), #8B0000);
+            right: -50px;
             top: 50%;
             transform: translateY(-50%);
             box-shadow: 
-                0 0 80px rgba(255, 87, 34, 0.7),
+                0 0 100px rgba(212, 175, 55, 0.6),
                 inset 10px 0 40px rgba(0, 0, 0, 0.5);
             z-index: 1;
             animation: planet-rotate 40s linear infinite;
-        }
-        
-        .mars-planet::after {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            background: radial-gradient(circle at 70% 20%, rgba(139, 0, 0, 0.6), transparent 70%);
         }
         
         @keyframes planet-rotate {
@@ -287,60 +488,83 @@
         .mars-content {
             position: relative;
             z-index: 2;
-            max-width: 600px;
+            max-width: 650px;
         }
         
         .mars-content h2 {
-            font-size: 3rem;
-            margin-bottom: 20px;
+            font-size: 3.2rem;
+            margin-bottom: 25px;
             color: white;
         }
         
         .mars-content h2 span {
-            color: #ff8a50;
+            color: var(--secondary);
         }
         
         .mars-content p {
             font-size: 1.2rem;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
             line-height: 1.8;
             opacity: 0.9;
         }
         
         .mars-stats {
-            display: flex;
-            gap: 40px;
-            margin-top: 40px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 50px;
         }
         
         .mars-stat {
             text-align: center;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            padding: 25px 20px;
+            border-radius: var(--border-radius);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: var(--transition);
+        }
+        
+        .mars-stat:hover {
+            transform: translateY(-5px);
+            border-color: rgba(212, 175, 55, 0.3);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
         }
         
         .mars-stat-number {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             font-weight: 800;
-            color: #ff8a50;
+            color: var(--secondary);
             display: block;
             line-height: 1;
+            margin-bottom: 5px;
         }
         
         .mars-stat-label {
-            font-size: 0.9rem;
-            opacity: 0.8;
-            margin-top: 5px;
+            font-size: 0.95rem;
+            opacity: 0.9;
         }
         
         /* About Section */
         .about {
-            padding: 100px 0;
             background: var(--light);
+            position: relative;
+        }
+        
+        .about::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 150px;
+            background: linear-gradient(to bottom, white, var(--light));
         }
         
         .about-container {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 50px;
+            gap: 70px;
             align-items: center;
         }
         
@@ -348,6 +572,12 @@
             font-size: 2.5rem;
             color: var(--primary);
             margin-bottom: 20px;
+        }
+        
+        .about-content > p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            color: var(--gray);
         }
         
         .about-features {
@@ -359,36 +589,98 @@
         
         .about-feature {
             background: white;
-            padding: 20px;
-            border-radius: 8px;
+            padding: 25px;
+            border-radius: var(--border-radius);
             box-shadow: var(--shadow);
-            border-left: 4px solid var(--secondary);
+            border-top: 4px solid var(--secondary);
+            transition: var(--transition);
+        }
+        
+        .about-feature:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-heavy);
         }
         
         .about-feature i {
             color: var(--secondary);
-            font-size: 1.5rem;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+        
+        .about-feature h4 {
+            font-size: 1.2rem;
             margin-bottom: 10px;
+            color: var(--primary);
+        }
+        
+        .about-image {
+            position: relative;
+        }
+        
+        .about-img-main {
+            height: 500px;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-heavy);
+            position: relative;
+        }
+        
+        .about-img-main img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .about-image:hover .about-img-main img {
+            transform: scale(1.05);
+        }
+        
+        .about-img-badge {
+            position: absolute;
+            bottom: -25px;
+            right: -25px;
+            background: var(--primary);
+            color: white;
+            padding: 25px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-heavy);
+            width: 200px;
+            text-align: center;
+        }
+        
+        .about-img-badge h3 {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 5px;
+        }
+        
+        .about-img-badge p {
+            font-size: 0.9rem;
+            opacity: 0.9;
         }
         
         /* Projects Section */
         .projects {
-            padding: 100px 0;
+            position: relative;
         }
         
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
             gap: 30px;
-            margin-top: 40px;
+            margin-top: 50px;
         }
         
         .project-card {
             background: white;
-            border-radius: 8px;
+            border-radius: var(--border-radius);
             overflow: hidden;
             box-shadow: var(--shadow);
-            transition: transform 0.3s, box-shadow 0.3s;
+            transition: var(--transition);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
         }
         
         .project-card:hover {
@@ -397,18 +689,43 @@
         }
         
         .project-img {
-            height: 220px;
-            background: var(--gray-light);
-            background-size: cover;
-            background-position: center;
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .project-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .project-card:hover .project-img img {
+            transform: scale(1.05);
+        }
+        
+        .project-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--secondary);
+            color: var(--primary-dark);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.85rem;
         }
         
         .project-content {
-            padding: 25px;
+            padding: 30px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
         }
         
         .project-content h3 {
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             margin-bottom: 10px;
             color: var(--primary);
         }
@@ -420,6 +737,12 @@
             display: flex;
             align-items: center;
             gap: 8px;
+        }
+        
+        .project-content p {
+            margin-bottom: 20px;
+            color: var(--gray);
+            flex-grow: 1;
         }
         
         .project-features {
@@ -447,120 +770,183 @@
         
         /* Amenities Section */
         .amenities {
-            padding: 100px 0;
             background: var(--light);
+            position: relative;
         }
         
         .amenities-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 25px;
-            margin-top: 40px;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
         }
         
         .amenity-card {
             background: white;
-            padding: 30px 20px;
-            border-radius: 8px;
+            padding: 40px 30px;
+            border-radius: var(--border-radius);
             text-align: center;
             box-shadow: var(--shadow);
-            transition: transform 0.3s;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .amenity-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary) 100%);
+            opacity: 0;
+            transition: var(--transition);
+            z-index: -1;
+        }
+        
+        .amenity-card:hover::before {
+            opacity: 1;
         }
         
         .amenity-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-8px);
+            color: white;
+        }
+        
+        .amenity-card:hover .amenity-icon,
+        .amenity-card:hover h3,
+        .amenity-card:hover p {
+            color: white;
         }
         
         .amenity-icon {
-            width: 70px;
-            height: 70px;
+            width: 80px;
+            height: 80px;
             background: var(--gray-light);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 20px;
-            font-size: 1.8rem;
+            margin: 0 auto 25px;
+            font-size: 2rem;
             color: var(--secondary);
+            transition: var(--transition);
+        }
+        
+        .amenity-card:hover .amenity-icon {
+            background: rgba(255, 255, 255, 0.2);
+        }
+        
+        .amenity-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+            transition: var(--transition);
+        }
+        
+        .amenity-card p {
+            color: var(--gray);
+            transition: var(--transition);
         }
         
         /* Contact Section */
-        .contact {
-            padding: 100px 0;
-        }
-        
         .contact-container {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 50px;
+            gap: 60px;
         }
         
         .contact-info {
-            background: var(--primary);
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
             color: white;
-            padding: 40px;
-            border-radius: 8px;
+            padding: 50px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-heavy);
         }
         
         .contact-info h3 {
             font-size: 1.8rem;
-            margin-bottom: 25px;
+            margin-bottom: 30px;
+            color: white;
         }
         
         .contact-detail {
             display: flex;
             align-items: flex-start;
-            margin-bottom: 25px;
+            margin-bottom: 30px;
         }
         
         .contact-detail i {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             margin-right: 15px;
-            color: var(--accent);
+            color: var(--secondary);
             margin-top: 5px;
+            min-width: 24px;
+        }
+        
+        .contact-detail h4 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
         }
         
         .contact-form {
             background: white;
-            padding: 40px;
-            border-radius: 8px;
+            padding: 50px;
+            border-radius: var(--border-radius);
             box-shadow: var(--shadow);
         }
         
+        .contact-form h3 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+        
+        .contact-form > p {
+            color: var(--gray);
+            margin-bottom: 30px;
+        }
+        
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
         
         .form-group label {
             display: block;
             margin-bottom: 8px;
             font-weight: 600;
+            color: var(--dark);
         }
         
         .form-control {
             width: 100%;
-            padding: 12px 15px;
+            padding: 15px 20px;
             border: 1px solid var(--gray-light);
-            border-radius: 4px;
+            border-radius: 8px;
             font-size: 1rem;
-            transition: border 0.3s;
+            transition: var(--transition);
+            font-family: 'Inter', sans-serif;
         }
         
         .form-control:focus {
             outline: none;
             border-color: var(--secondary);
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
         }
         
         /* Map Section */
         .map-section {
-            padding: 0 0 100px;
+            padding-bottom: 100px;
         }
         
         .map-container {
-            height: 400px;
-            border-radius: 8px;
+            height: 450px;
+            border-radius: var(--border-radius);
             overflow: hidden;
             box-shadow: var(--shadow-heavy);
+            margin-top: 30px;
         }
         
         .map-frame {
@@ -573,20 +959,43 @@
         footer {
             background: var(--primary-dark);
             color: white;
-            padding: 70px 0 30px;
+            padding: 80px 0 30px;
+            position: relative;
+        }
+        
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--secondary), var(--accent));
         }
         
         .footer-container {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 40px;
-            margin-bottom: 50px;
+            gap: 50px;
+            margin-bottom: 60px;
         }
         
         .footer-col h4 {
             font-size: 1.3rem;
             margin-bottom: 25px;
             color: white;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .footer-col h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: var(--secondary);
         }
         
         .footer-links {
@@ -594,45 +1003,62 @@
         }
         
         .footer-links li {
-            margin-bottom: 12px;
+            margin-bottom: 15px;
         }
         
         .footer-links a {
             opacity: 0.8;
-            transition: opacity 0.3s;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
         }
         
         .footer-links a:hover {
             opacity: 1;
-            color: var(--accent);
+            color: var(--secondary);
+            transform: translateX(5px);
         }
         
         .footer-contact a {
             display: flex;
             align-items: center;
-            gap: 10px;
-            margin-bottom: 15px;
+            gap: 12px;
+            margin-bottom: 20px;
+            opacity: 0.8;
+            transition: var(--transition);
+        }
+        
+        .footer-contact a:hover {
+            opacity: 1;
+            color: var(--secondary);
+        }
+        
+        .footer-contact i {
+            width: 20px;
         }
         
         .social-icons {
             display: flex;
             gap: 15px;
-            margin-top: 20px;
+            margin-top: 25px;
         }
         
         .social-icons a {
-            width: 40px;
-            height: 40px;
+            width: 42px;
+            height: 42px;
             background: rgba(255, 255, 255, 0.1);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: background 0.3s;
+            transition: var(--transition);
         }
         
         .social-icons a:hover {
             background: var(--secondary);
+            color: var(--primary-dark);
+            transform: translateY(-3px);
         }
         
         .copyright {
@@ -644,13 +1070,119 @@
         }
         
         /* Responsive Design */
+        @media (max-width: 1200px) {
+            .container {
+                max-width: 1140px;
+            }
+            
+            .mars-planet {
+                width: 400px;
+                height: 400px;
+                right: -100px;
+            }
+            
+            .about-img-badge {
+                right: 0;
+                bottom: -20px;
+            }
+        }
+        
         @media (max-width: 992px) {
+            .section-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero h1 {
+                font-size: 3.2rem;
+            }
+            
             .about-container, .contact-container {
                 grid-template-columns: 1fr;
             }
             
             .footer-container {
                 grid-template-columns: repeat(2, 1fr);
+                gap: 40px;
+            }
+            
+            .mars-planet {
+                width: 350px;
+                height: 350px;
+                right: -150px;
+            }
+            
+            .mars-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .about-img-badge {
+                position: relative;
+                bottom: 0;
+                right: 0;
+                margin-top: 30px;
+                width: 100%;
+            }
+            
+            .about-features {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-toggle {
+                display: block;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 90px;
+                left: 0;
+                width: 100%;
+                background: white;
+                flex-direction: column;
+                padding: 30px;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+                transform: translateY(-100%);
+                opacity: 0;
+                visibility: hidden;
+                transition: var(--transition);
+                z-index: 999;
+            }
+            
+            .nav-links.active {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+            
+            .header-contact {
+                display: none;
+            }
+            
+            .hero {
+                padding: 150px 0 100px;
+                margin-top: 80px;
+            }
+            
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .hero-btns {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .mars-section {
+                padding: 100px 0;
+            }
+            
+            .mars-content h2 {
+                font-size: 2.5rem;
             }
             
             .mars-planet {
@@ -658,54 +1190,53 @@
                 height: 300px;
                 right: -150px;
             }
-        }
-        
-        @media (max-width: 768px) {
-            .header-container {
-                flex-direction: column;
-                gap: 15px;
-            }
             
-            nav ul {
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-            
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            
-            .hero-btns {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .about-features, .mars-stats {
+            .projects-grid {
                 grid-template-columns: 1fr;
             }
             
-            .project-features {
-                flex-direction: column;
-                gap: 15px;
+            .section-padding {
+                padding: 80px 0;
             }
             
-            .mars-planet {
-                width: 250px;
-                height: 250px;
-                right: -100px;
+            .floating-contact {
+                right: 15px;
+                bottom: 15px;
             }
             
-            .mars-content h2 {
-                font-size: 2.5rem;
+            .floating-btn {
+                width: 55px;
+                height: 55px;
+                font-size: 1.3rem;
             }
         }
         
         @media (max-width: 576px) {
             .section-title {
+                font-size: 2.2rem;
+            }
+            
+            .hero h1 {
+                font-size: 2.3rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .mars-content h2 {
                 font-size: 2rem;
             }
             
-            .projects-grid {
+            .mars-planet {
+                display: none;
+            }
+            
+            .mars-stats {
+                grid-template-columns: 1fr;
+            }
+            
+            .amenities-grid {
                 grid-template-columns: 1fr;
             }
             
@@ -713,27 +1244,45 @@
                 grid-template-columns: 1fr;
             }
             
-            .mars-planet {
-                display: none;
+            .contact-info, .contact-form {
+                padding: 30px 25px;
+            }
+            
+            .about-img-main {
+                height: 400px;
             }
         }
     </style>
 </head>
 <body>
+    <!-- Floating Contact Buttons -->
+    <div class="floating-contact">
+        <a href="https://wa.me/919876543210" target="_blank" class="floating-btn whatsapp">
+            <i class="fab fa-whatsapp"></i>
+            <span class="floating-tooltip">Chat on WhatsApp</span>
+        </a>
+        <a href="tel:+919876543210" class="floating-btn phone">
+            <i class="fas fa-phone-alt"></i>
+            <span class="floating-tooltip">Call +91 98765 43210</span>
+        </a>
+    </div>
+
     <!-- Header -->
-    <header>
+    <header id="header">
         <div class="container header-container">
             <div class="logo">
-                <i class="fas fa-building logo-icon"></i>
-                <div>
-                    <div class="logo-text">MARSLAND PROPERTIES</div>
-                    <div class="logo-subtitle">Premium Real Estate in Trichy</div>
+                <div class="logo-icon">
+                    <i class="fas fa-building"></i>
+                </div>
+                <div class="logo-text">
+                    <h1>MARSLAND PROPERTIES</h1>
+                    <span>Premium Real Estate in Trichy</span>
                 </div>
             </div>
             
             <nav>
-                <ul>
-                    <li><a href="#home">Home</a></li>
+                <ul class="nav-links">
+                    <li><a href="#home" class="active">Home</a></li>
                     <li><a href="#about">About</a></li>
                     <li><a href="#projects">Projects</a></li>
                     <li><a href="#amenities">Amenities</a></li>
@@ -741,13 +1290,19 @@
                 </ul>
             </nav>
             
-            <div class="contact-header">
-                <a href="https://wa.me/919876543210" class="whatsapp-header" target="_blank">
-                    <i class="fab fa-whatsapp"></i> <span>WhatsApp</span>
+            <div class="header-contact">
+                <a href="https://wa.me/919876543210" target="_blank" class="header-contact-item">
+                    <i class="fab fa-whatsapp"></i>
+                    <span>WhatsApp</span>
                 </a>
-                <a href="tel:+919876543210" class="phone-header">
-                    <i class="fas fa-phone-alt"></i> <span>+91 98765 43210</span>
+                <a href="tel:+919876543210" class="header-contact-item">
+                    <i class="fas fa-phone-alt"></i>
+                    <span>+91 98765 43210</span>
                 </a>
+            </div>
+            
+            <div class="mobile-toggle" id="mobileToggle">
+                <i class="fas fa-bars"></i>
             </div>
         </div>
     </header>
@@ -755,11 +1310,13 @@
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="container">
-            <h1>Premium Residential Properties in Trichy</h1>
-            <p>Marsland Properties - Creating exceptional living spaces with unmatched quality, transparency, and celestial inspiration</p>
-            <div class="hero-btns">
-                <a href="#projects" class="btn">View Our Projects</a>
-                <a href="#contact" class="btn btn-secondary">Contact Us</a>
+            <div class="hero-content">
+                <h1>Premium Residential <span>Properties</span> in Trichy</h1>
+                <p>Marsland Properties - Creating exceptional living spaces with unmatched quality, transparency, and celestial inspiration. From initial planning to final handover, we ensure every project meets the highest standards.</p>
+                <div class="hero-btns">
+                    <a href="#projects" class="btn">View Our Projects <i class="fas fa-arrow-right"></i></a>
+                    <a href="#contact" class="btn btn-secondary">Contact Us <i class="fas fa-phone-alt"></i></a>
+                </div>
             </div>
         </div>
     </section>
@@ -773,7 +1330,7 @@
         <div class="container">
             <div class="mars-content">
                 <h2>Inspired by <span>Mars</span>, Built for Earth</h2>
-                <p>At Marsland Properties, we draw inspiration from the grandeur of the cosmos to create living spaces that are truly out of this world. Our designs incorporate futuristic elements, sustainable technologies, and visionary architecture that pushes the boundaries of conventional real estate.</p>
+                <p>At Marsland Properties, we draw inspiration from the grandeur of the cosmos to create living spaces that are truly out of this world. Our designs incorporate futuristic elements, sustainable technologies, and visionary architecture.</p>
                 <p>Just as Mars represents the next frontier in human exploration, our properties represent the next frontier in luxury living—blending innovation, comfort, and awe-inspiring design.</p>
                 
                 <div class="mars-stats">
@@ -795,7 +1352,7 @@
     </section>
 
     <!-- About Section -->
-    <section class="about" id="about">
+    <section class="about section-padding" id="about">
         <div class="container">
             <h2 class="section-title">About Marsland Properties</h2>
             <p class="section-subtitle">Trusted real estate developers with years of experience in Trichy's property market</p>
@@ -831,21 +1388,30 @@
                 </div>
                 
                 <div class="about-image">
-                    <div style="height: 500px; background: var(--gray-light); border-radius: 8px; background-image: url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'); background-size: cover; background-position: center;"></div>
+                    <div class="about-img-main">
+                        <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Marsland Properties Office">
+                    </div>
+                    <div class="about-img-badge">
+                        <h3>15+</h3>
+                        <p>Years of Excellence</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Projects Section -->
-    <section class="projects" id="projects">
+    <section class="projects section-padding" id="projects">
         <div class="container">
             <h2 class="section-title">Our Featured Properties</h2>
             <p class="section-subtitle">Explore our premium residential properties in prime locations across Trichy</p>
             
             <div class="projects-grid">
                 <div class="project-card">
-                    <div class="project-img" style="background-image: url('https://images.unsplash.com/photo-1568605114967-8130f3a36994?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+                    <div class="project-img">
+                        <img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Mars Vista Residences">
+                        <div class="project-badge">DTCP Approved</div>
+                    </div>
                     <div class="project-content">
                         <h3>Mars Vista Residences</h3>
                         <div class="project-location">
@@ -870,7 +1436,10 @@
                 </div>
                 
                 <div class="project-card">
-                    <div class="project-img" style="background-image: url('https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&auto=format&fit=crop&w-800&q=80');"></div>
+                    <div class="project-img">
+                        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Galaxy Gardens">
+                        <div class="project-badge">Gated Community</div>
+                    </div>
                     <div class="project-content">
                         <h3>Galaxy Gardens</h3>
                         <div class="project-location">
@@ -895,7 +1464,10 @@
                 </div>
                 
                 <div class="project-card">
-                    <div class="project-img" style="background-image: url('https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+                    <div class="project-img">
+                        <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Cosmic Heights">
+                        <div class="project-badge">Premium Township</div>
+                    </div>
                     <div class="project-content">
                         <h3>Cosmic Heights</h3>
                         <div class="project-location">
@@ -923,7 +1495,7 @@
     </section>
 
     <!-- Amenities Section -->
-    <section class="amenities" id="amenities">
+    <section class="amenities section-padding" id="amenities">
         <div class="container">
             <h2 class="section-title">Premium Amenities</h2>
             <p class="section-subtitle">Our residential layouts come with comprehensive amenities for modern living</p>
@@ -981,7 +1553,7 @@
     </section>
 
     <!-- Contact Section -->
-    <section class="contact" id="contact">
+    <section class="contact section-padding" id="contact">
         <div class="container">
             <h2 class="section-title">Contact Us</h2>
             <p class="section-subtitle">Get in touch to schedule a site visit or inquire about our projects</p>
@@ -1050,7 +1622,7 @@
                             <textarea id="message" class="form-control" rows="4" placeholder="Tell us about your requirements"></textarea>
                         </div>
                         
-                        <button type="submit" class="btn" style="width: 100%;">Send Inquiry</button>
+                        <button type="submit" class="btn" style="width: 100%;">Send Inquiry <i class="fas fa-paper-plane"></i></button>
                     </form>
                 </div>
             </div>
@@ -1067,8 +1639,8 @@
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.7008734042964!2d78.69353817595547!3d10.820503889316332!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3baaf5a6d6c6c3b9%3A0x4c10a9c8c5f7f7d7!2sHead%20Post%20Office%2C%20Tiruchirappalli%2C%20Tamil%20Nadu%20620001!5e0!3m2!1sen!2sin!4v1682586475111!5m2!1sen!2sin" class="map-frame" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
             
-            <div style="text-align: center; margin-top: 30px;">
-                <a href="https://goo.gl/maps/yfq8aLkA4ftMUzha6" target="_blank" class="btn">Open in Google Maps</a>
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="https://goo.gl/maps/yfq8aLkA4ftMUzha6" target="_blank" class="btn btn-accent">Open in Google Maps <i class="fas fa-external-link-alt"></i></a>
             </div>
         </div>
     </section>
@@ -1091,21 +1663,21 @@
                 <div class="footer-col">
                     <h4>Quick Links</h4>
                     <ul class="footer-links">
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#about">About Us</a></li>
-                        <li><a href="#projects">Our Projects</a></li>
-                        <li><a href="#amenities">Amenities</a></li>
-                        <li><a href="#contact">Contact Us</a></li>
+                        <li><a href="#home"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="#about"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                        <li><a href="#projects"><i class="fas fa-chevron-right"></i> Our Projects</a></li>
+                        <li><a href="#amenities"><i class="fas fa-chevron-right"></i> Amenities</a></li>
+                        <li><a href="#contact"><i class="fas fa-chevron-right"></i> Contact Us</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-col">
                     <h4>Our Projects</h4>
                     <ul class="footer-links">
-                        <li><a href="#projects">Mars Vista Residences</a></li>
-                        <li><a href="#projects">Galaxy Gardens</a></li>
-                        <li><a href="#projects">Cosmic Heights</a></li>
-                        <li><a href="#projects">Orion Commercial Hub</a></li>
+                        <li><a href="#projects"><i class="fas fa-chevron-right"></i> Mars Vista Residences</a></li>
+                        <li><a href="#projects"><i class="fas fa-chevron-right"></i> Galaxy Gardens</a></li>
+                        <li><a href="#projects"><i class="fas fa-chevron-right"></i> Cosmic Heights</a></li>
+                        <li><a href="#projects"><i class="fas fa-chevron-right"></i> Orion Commercial Hub</a></li>
                     </ul>
                 </div>
                 
@@ -1139,6 +1711,35 @@
     </footer>
 
     <script>
+        // Mobile menu toggle
+        const mobileToggle = document.getElementById('mobileToggle');
+        const navLinks = document.querySelector('.nav-links');
+        
+        mobileToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            mobileToggle.innerHTML = navLinks.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                mobileToggle.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+        
+        // Header scroll effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
         // Form submission handling
         document.getElementById('inquiryForm').addEventListener('submit', function(e) {
             e.preventDefault();
@@ -1149,8 +1750,7 @@
             const email = document.getElementById('email').value;
             const message = document.getElementById('message').value;
             
-            // In a real application, you would send this data to a server
-            // For now, we'll just show an alert
+            // Show success message
             alert(`Thank you ${name}! Your inquiry has been received. We will contact you at ${phone} within 24 hours.`);
             
             // Reset the form
@@ -1158,7 +1758,7 @@
         });
         
         // Smooth scrolling for navigation links
-        document.querySelectorAll('nav a').forEach(anchor => {
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
                 
@@ -1168,7 +1768,7 @@
                 const targetElement = document.querySelector(targetId);
                 if(targetElement) {
                     window.scrollTo({
-                        top: targetElement.offsetTop - 80,
+                        top: targetElement.offsetTop - 100,
                         behavior: 'smooth'
                     });
                 }
@@ -1177,15 +1777,15 @@
         
         // Add active class to navigation links on scroll
         window.addEventListener('scroll', function() {
-            const sections = document.querySelectorAll('section');
-            const navLinks = document.querySelectorAll('nav a');
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-links a');
             
             let current = '';
             
             sections.forEach(section => {
                 const sectionTop = section.offsetTop;
                 const sectionHeight = section.clientHeight;
-                if(scrollY >= (sectionTop - 100)) {
+                if(scrollY >= (sectionTop - 150)) {
                     current = section.getAttribute('id');
                 }
             });
