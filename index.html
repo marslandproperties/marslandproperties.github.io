@@ -1,0 +1,1303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gowtham Estates | Premium Residential Layout | B Square Developers</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #0c2d57;
+            --secondary: #fc6736;
+            --accent: #ffb0b0;
+            --light: #f8f9fa;
+            --dark: #1a1a2e;
+            --gray: #6c757d;
+            --gold: #ffd700;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.7;
+            color: var(--dark);
+            background-color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        h1 {
+            font-size: 3.2rem;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        h2:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background: var(--secondary);
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        h4 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+            color: var(--gray);
+            font-size: 1rem;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--secondary), #e55a28);
+            color: white;
+            padding: 14px 32px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 0.95rem;
+            box-shadow: 0 5px 15px rgba(252, 103, 54, 0.3);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(252, 103, 54, 0.4);
+            background: linear-gradient(135deg, #e55a28, var(--secondary));
+        }
+
+        .btn i {
+            margin-right: 10px;
+            font-size: 1.1rem;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--secondary);
+            color: var(--secondary);
+            box-shadow: none;
+        }
+
+        .btn-outline:hover {
+            background: var(--secondary);
+            color: white;
+        }
+
+        section {
+            padding: 80px 0;
+            position: relative;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--primary);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            padding: 15px 0;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .logo-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: white;
+            line-height: 1;
+        }
+
+        .logo-text span {
+            color: var(--secondary);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-menu li {
+            margin-left: 25px;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 500;
+            transition: var(--transition);
+            font-size: 0.95rem;
+            padding: 5px 0;
+            position: relative;
+        }
+
+        .nav-menu a:hover {
+            color: var(--secondary);
+        }
+
+        .nav-menu a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--secondary);
+            bottom: 0;
+            left: 0;
+            transition: var(--transition);
+        }
+
+        .nav-menu a:hover:after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: white;
+            background: none;
+            border: none;
+        }
+
+        /* Hero Video Section */
+        .hero {
+            padding: 0;
+            margin-top: 0;
+            height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .video-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .video-container video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(12, 45, 87, 0.85), rgba(12, 45, 87, 0.7));
+            z-index: 2;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            color: white;
+            text-align: center;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+
+        .hero-content h1 {
+            color: white;
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-content p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-text {
+            padding-right: 20px;
+        }
+
+        .about-image {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: var(--transition);
+        }
+
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Features Section */
+        .features {
+            background-color: #f8f9fa;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 35px 25px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--secondary), #e55a28);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            color: white;
+            font-size: 1.8rem;
+        }
+
+        /* Plots Section */
+        .plots-table-container {
+            overflow-x: auto;
+            margin-top: 40px;
+        }
+
+        .plots-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .plots-table th {
+            background-color: var(--primary);
+            color: white;
+            padding: 18px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .plots-table td {
+            padding: 15px 18px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .plots-table tr:hover {
+            background-color: rgba(252, 103, 54, 0.05);
+        }
+
+        .status-available {
+            color: #28a745;
+            font-weight: 600;
+        }
+
+        .status-reserved {
+            color: #ff9800;
+            font-weight: 600;
+        }
+
+        /* Location Section */
+        .location-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .location-card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .location-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .location-name {
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .location-distance {
+            color: var(--secondary);
+            font-weight: 700;
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+        }
+
+        /* Amenities Section */
+        .amenities {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .amenities h2, .amenities h3, .amenities h4 {
+            color: white;
+        }
+
+        .amenities h2:after {
+            background: var(--secondary);
+        }
+
+        .amenities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .amenity-card {
+            background-color: rgba(255, 255, 255, 0.08);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            transition: var(--transition);
+            border: 1px solid rgba(252, 103, 54, 0.1);
+        }
+
+        .amenity-card:hover {
+            background-color: rgba(252, 103, 54, 0.15);
+            transform: translateY(-5px);
+        }
+
+        .amenity-icon {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 20px;
+        }
+
+        /* Contact Section */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .contact-icon {
+            background: linear-gradient(135deg, var(--secondary), #e55a28);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 1.2rem;
+        }
+
+        .contact-form {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: var(--shadow);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--secondary);
+            box-shadow: 0 0 0 3px rgba(252, 103, 54, 0.1);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 70px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 20px;
+            display: block;
+            text-decoration: none;
+        }
+
+        .footer-logo span {
+            color: var(--secondary);
+        }
+
+        .footer-column h3 {
+            color: white;
+            margin-bottom: 25px;
+            font-size: 1.3rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h3:after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 2px;
+            background-color: var(--secondary);
+            bottom: 0;
+            left: 0;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary);
+            padding-left: 5px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.08);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 1.1rem;
+        }
+
+        .social-icons a:hover {
+            background-color: var(--secondary);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9rem;
+        }
+
+        /* Floating WhatsApp */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            width: 60px;
+            height: 60px;
+            background: #25d366;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4);
+            z-index: 999;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.5);
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            h1 {
+                font-size: 2.8rem;
+            }
+            
+            h2 {
+                font-size: 2.2rem;
+            }
+            
+            .hero-content h1 {
+                font-size: 3rem;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .about-text {
+                padding-right: 0;
+            }
+            
+            .contact-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                background-color: var(--primary);
+                flex-direction: column;
+                text-align: center;
+                transition: var(--transition);
+                padding: 30px 0;
+                z-index: 999;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            }
+            
+            .nav-menu.active {
+                left: 0;
+            }
+            
+            .nav-menu li {
+                margin: 15px 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.3rem;
+            }
+            
+            h2 {
+                font-size: 1.9rem;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-content p {
+                font-size: 1.1rem;
+            }
+            
+            .hero-btns {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            section {
+                padding: 60px 0;
+            }
+            
+            .contact-form {
+                padding: 30px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .logo-text {
+                font-size: 1.5rem;
+            }
+            
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+            
+            .hero-content p {
+                font-size: 1rem;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .plots-table th, .plots-table td {
+                padding: 12px 8px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- WhatsApp Float -->
+    <a href="https://wa.me/919943150533" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Header -->
+    <header id="header">
+        <div class="container header-container">
+            <a href="#" class="logo">
+                <div class="logo-text">B Square<span>Developers</span></div>
+            </a>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#plots">Plots</a></li>
+                <li><a href="#location">Location</a></li>
+                <li><a href="#amenities">Amenities</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#contact" class="btn">Book Site Visit</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Video Section -->
+    <section class="hero" id="home">
+        <div class="video-container">
+            <video autoplay muted loop playsinline>
+                <source src="https://bsquarepropertydevelopers.com/BGowthamEstates.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="video-overlay"></div>
+        </div>
+        <div class="hero-content">
+            <h1 class="fade-in">Gowtham Estates</h1>
+            <p class="fade-in">Premium Residential Layout at Sakthi Nagar, KK Nagar - Trichy</p>
+            <div class="hero-btns">
+                <a href="#plots" class="btn fade-in"><i class="fas fa-map-marked-alt"></i> View Plots</a>
+                <a href="#contact" class="btn btn-outline fade-in"><i class="fas fa-phone-alt"></i> Contact Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2 class="fade-in">About Gowtham Estates</h2>
+            <div class="about-content">
+                <div class="about-text fade-in">
+                    <p>Gowtham Estates, developed and marketed by B Square Developers, is a premium residential layout situated in the prime location of Sakthi Nagar, KK Nagar, Trichy. Our vision is to create sustainable, well-planned residential spaces that offer quality living for families.</p>
+                    <p>The layout is meticulously planned with wide roads, proper infrastructure, and all essential amenities. Every plot is designed to provide optimal space utilization, excellent ventilation, and a green environment.</p>
+                    <p>With clear titles, legal approvals, and transparent dealings, we ensure complete peace of mind for our customers. Our commitment to quality and customer satisfaction makes us the preferred choice for home buyers in Trichy.</p>
+                    <a href="#contact" class="btn" style="margin-top: 20px;"><i class="fas fa-info-circle"></i> More Details</a>
+                </div>
+                <div class="about-image fade-in">
+                    <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Gowtham Estates Layout">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <h2 class="fade-in">Why Choose Gowtham Estates</h2>
+            <div class="features-grid">
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-road"></i>
+                    </div>
+                    <h4>Wide Roads</h4>
+                    <p>30ft & 40ft wide concrete roads with proper drainage system</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h4>Secure Community</h4>
+                    <p>Gated layout with 24/7 security and boundary wall</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h4>Underground Wiring</h4>
+                    <p>Modern underground electricity cabling system</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-water"></i>
+                    </div>
+                    <h4>Water Supply</h4>
+                    <p>Individual water tap connection for each plot</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <h4>Legal Approvals</h4>
+                    <p>DTP approved layout with clear titles and documents</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-tree"></i>
+                    </div>
+                    <h4>Green Environment</h4>
+                    <p>Dedicated green spaces and tree plantation</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Plots Section -->
+    <section id="plots">
+        <div class="container">
+            <h2 class="fade-in">Available Plots</h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 30px;" class="fade-in">Premium residential plots available in various sizes to suit your requirements. All plots come with complete infrastructure and legal approvals.</p>
+            
+            <div class="plots-table-container fade-in">
+                <table class="plots-table">
+                    <thead>
+                        <tr>
+                            <th>Plot No.</th>
+                            <th>Size (Sq. Ft.)</th>
+                            <th>Plot No.</th>
+                            <th>Size (Sq. Ft.)</th>
+                            <th>Plot No.</th>
+                            <th>Size (Sq. Ft.)</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>1200</td>
+                            <td>2</td>
+                            <td>1500</td>
+                            <td>3</td>
+                            <td>1800</td>
+                            <td><span class="status-available">Available</span></td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>2100</td>
+                            <td>5</td>
+                            <td>2400</td>
+                            <td>6</td>
+                            <td>2700</td>
+                            <td><span class="status-available">Available</span></td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td>3000</td>
+                            <td>8</td>
+                            <td>3300</td>
+                            <td>9</td>
+                            <td>3600</td>
+                            <td><span class="status-available">Available</span></td>
+                        </tr>
+                        <tr>
+                            <td>10</td>
+                            <td>3900</td>
+                            <td>11</td>
+                            <td>4200</td>
+                            <td>12</td>
+                            <td>4500</td>
+                            <td><span class="status-reserved">Reserved</span></td>
+                        </tr>
+                        <tr>
+                            <td>13</td>
+                            <td>4800</td>
+                            <td>14</td>
+                            <td>5100</td>
+                            <td>15</td>
+                            <td>5400</td>
+                            <td><span class="status-available">Available</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div style="text-align: center; margin-top: 40px;" class="fade-in">
+                <a href="#contact" class="btn"><i class="fas fa-calendar-alt"></i> Book Site Visit</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location Section -->
+    <section id="location">
+        <div class="container">
+            <h2 class="fade-in">Strategic Location</h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 30px;" class="fade-in">Gowtham Estates is strategically located in Sakthi Nagar, KK Nagar with excellent connectivity to all major landmarks in Trichy.</p>
+            
+            <div class="location-grid">
+                <div class="location-card fade-in">
+                    <div class="location-name">KK Nagar Main Road</div>
+                    <div class="location-distance">1.5 kms</div>
+                    <div class="location-time">3 mins drive</div>
+                </div>
+                <div class="location-card fade-in">
+                    <div class="location-name">Trichy Airport</div>
+                    <div class="location-distance">8 kms</div>
+                    <div class="location-time">15 mins drive</div>
+                </div>
+                <div class="location-card fade-in">
+                    <div class="location-name">Railway Junction</div>
+                    <div class="location-distance">7 kms</div>
+                    <div class="location-time">12 mins drive</div>
+                </div>
+                <div class="location-card fade-in">
+                    <div class="location-name">Central Bus Stand</div>
+                    <div class="location-distance">6 kms</div>
+                    <div class="location-time">10 mins drive</div>
+                </div>
+                <div class="location-card fade-in">
+                    <div class="location-name">Bharathidasan University</div>
+                    <div class="location-distance">4 kms</div>
+                    <div class="location-time">8 mins drive</div>
+                </div>
+                <div class="location-card fade-in">
+                    <div class="location-name">Annamalai Hospital</div>
+                    <div class="location-distance">3 kms</div>
+                    <div class="location-time">6 mins drive</div>
+                </div>
+                <div class="location-card fade-in">
+                    <div class="location-name">Velammal School</div>
+                    <div class="location-distance">2.5 kms</div>
+                    <div class="location-time">5 mins drive</div>
+                </div>
+                <div class="location-card fade-in">
+                    <div class="location-name">Big Bazaar</div>
+                    <div class="location-distance">2 kms</div>
+                    <div class="location-time">4 mins drive</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Amenities Section -->
+    <section class="amenities" id="amenities">
+        <div class="container">
+            <h2 class="fade-in">Layout Amenities</h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 30px; color: rgba(255, 255, 255, 0.8);" class="fade-in">Gowtham Estates offers comprehensive amenities designed for comfortable and modern living.</p>
+            
+            <div class="amenities-grid">
+                <div class="amenity-card fade-in">
+                    <div class="amenity-icon">
+                        <i class="fas fa-road"></i>
+                    </div>
+                    <h4>Concrete Roads</h4>
+                    <p>30ft & 40ft wide concrete roads with drainage</p>
+                </div>
+                <div class="amenity-card fade-in">
+                    <div class="amenity-icon">
+                        <i class="fas fa-water"></i>
+                    </div>
+                    <h4>Water Supply</h4>
+                    <p>Individual water tap connection for each plot</p>
+                </div>
+                <div class="amenity-card fade-in">
+                    <div class="amenity-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h4>Electricity</h4>
+                    <p>Underground cabling with LED street lights</p>
+                </div>
+                <div class="amenity-card fade-in">
+                    <div class="amenity-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h4>Security</h4>
+                    <p>Gated community with 24/7 security</p>
+                </div>
+                <div class="amenity-card fade-in">
+                    <div class="amenity-icon">
+                        <i class="fas fa-tree"></i>
+                    </div>
+                    <h4>Green Spaces</h4>
+                    <p>Parks, tree plantation and walking tracks</p>
+                </div>
+                <div class="amenity-card fade-in">
+                    <div class="amenity-icon">
+                        <i class="fas fa-drain"></i>
+                    </div>
+                    <h4>Drainage</h4>
+                    <p>Storm water drainage system</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2 class="fade-in">Contact Us</h2>
+            
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="fade-in">
+                        <h3>Visit Our Site</h3>
+                        <p>Schedule a site visit to experience Gowtham Estates firsthand. Our team will guide you through the layout and available plots.</p>
+                    </div>
+                    
+                    <div class="contact-item fade-in">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h4>Address</h4>
+                            <p>No. 89, Sakthi Nagar,<br>Olaiyur Ring Road, K.K.Nagar,<br>Trichy - 620021</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item fade-in">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div>
+                            <h4>Phone</h4>
+                            <p>+91 99431 50533<br>+91 87549 46908</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item fade-in">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h4>Email</h4>
+                            <p>info@bsquaredevelopers.com<br>sales@gowthamestates.com</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form fade-in">
+                    <h3>Request Details</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" class="form-control" placeholder="Phone Number" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="Email Address" required>
+                        </div>
+                        <div class="form-group">
+                            <select class="form-control" required>
+                                <option value="" disabled selected>Plot Size Interest</option>
+                                <option value="1200-3000">1200 - 3000 Sq. Ft.</option>
+                                <option value="3000-6000">3000 - 6000 Sq. Ft.</option>
+                                <option value="6000+">6000+ Sq. Ft.</option>
+                                <option value="corner">Corner Plots</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" rows="4" placeholder="Message / Requirements"></textarea>
+                        </div>
+                        <button type="submit" class="btn" style="width: 100%;">
+                            <i class="fas fa-paper-plane"></i> Send Inquiry
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <a href="#" class="footer-logo">B Square<span>Developers</span></a>
+                    <p style="color: rgba(255, 255, 255, 0.7);">Creating quality residential spaces in Trichy with a commitment to excellence, transparency, and customer satisfaction.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#plots">Plots</a></li>
+                        <li><a href="#location">Location</a></li>
+                        <li><a href="#amenities">Amenities</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Project Info</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">DTP Approved Layout</a></li>
+                        <li><a href="#">Clear Title Deeds</a></li>
+                        <li><a href="#">Wide Concrete Roads</a></li>
+                        <li><a href="#">24/7 Security</a></li>
+                        <li><a href="#">Underground Electricity</a></li>
+                        <li><a href="#">Individual Water Supply</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contact Info</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt" style="margin-right: 10px;"></i> Sakthi Nagar, KK Nagar, Trichy</li>
+                        <li><i class="fas fa-phone" style="margin-right: 10px;"></i> +91 99431 50533</li>
+                        <li><i class="fas fa-phone" style="margin-right: 10px;"></i> +91 87549 46908</li>
+                        <li><i class="fas fa-envelope" style="margin-right: 10px;"></i> info@bsquaredevelopers.com</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 B Square Developers | Gowtham Estates - Premium Residential Layout | All Rights Reserved</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navMenu = document.getElementById('navMenu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navMenu.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Close mobile menu on link click
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+        
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.style.padding = '10px 0';
+                header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.padding = '15px 0';
+                header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.1)';
+            }
+            
+            // Fade in animation on scroll
+            const fadeElements = document.querySelectorAll('.fade-in');
+            fadeElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.classList.add('visible');
+                }
+            });
+        });
+        
+        // Contact Form Submission
+        const contactForm = document.getElementById('contactForm');
+        
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Get form values
+            const name = contactForm.querySelector('input[type="text"]').value;
+            const phone = contactForm.querySelector('input[type="tel"]').value;
+            
+            // Show success message
+            alert(`Thank you ${name}! We have received your inquiry. Our team will contact you at ${phone} within 24 hours.`);
+            
+            // Reset form
+            contactForm.reset();
+        });
+        
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                if (this.getAttribute('href') === '#') return;
+                
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Initialize animations on load
+        window.dispatchEvent(new Event('scroll'));
+        
+        // Video fallback if not playing
+        const video = document.querySelector('video');
+        if (video) {
+            video.addEventListener('error', function() {
+                const hero = document.querySelector('.hero');
+                hero.style.backgroundImage = 'url(https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80)';
+                hero.style.backgroundSize = 'cover';
+                hero.style.backgroundPosition = 'center';
+            });
+        }
+    </script>
+</body>
+</html>
