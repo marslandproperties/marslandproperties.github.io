@@ -474,15 +474,35 @@
             border: none;
             z-index: 10001;
         }
+        /* REVAMPED Mars Section - Completely Redesigned */
         .mars-section {
             position: relative;
             overflow: hidden;
             padding: 100px 0;
-            background: linear-gradient(to bottom, #0a1128, #1a1f40, #0a1128);
+            background: linear-gradient(135deg, #0a1128 0%, #1a1f40 30%, #0c1542 70%, #0a1128 100%);
             color: white;
             min-height: 700px;
             display: flex;
             align-items: center;
+            isolation: isolate;
+        }
+        .mars-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(0, 168, 204, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(212, 175, 55, 0.12) 0%, transparent 40%),
+                radial-gradient(circle at 40% 80%, rgba(139, 0, 0, 0.1) 0%, transparent 50%);
+            z-index: -1;
+            animation: pulse 8s ease-in-out infinite alternate;
+        }
+        @keyframes pulse {
+            0% { opacity: 0.6; }
+            100% { opacity: 1; }
         }
         .mars-bg {
             position: absolute;
@@ -490,17 +510,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: 0;
-        }
-        .space-background {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(ellipse at 20% 20%, rgba(0, 168, 204, 0.15) 0%, transparent 50%),
-                        radial-gradient(ellipse at 80% 80%, rgba(212, 175, 55, 0.08) 0%, transparent 50%),
-                        linear-gradient(to bottom, transparent 70%, rgba(139, 0, 0, 0.1) 100%);
+            z-index: -2;
         }
         .stars {
             position: absolute;
@@ -508,31 +518,73 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: radial-gradient(2px 2px at 20px 30px, #eee, transparent),
-                            radial-gradient(2px 2px at 40px 70px, #fff, transparent),
-                            radial-gradient(1px 1px at 90px 40px, #fff, transparent),
-                            radial-gradient(1.5px 1.5px at 110px 80px, #ddd, transparent),
-                            radial-gradient(2px 2px at 160px 120px, #eee, transparent);
+            background-image: 
+                radial-gradient(2px 2px at 20px 30px, #eee, transparent),
+                radial-gradient(2px 2px at 40px 70px, #fff, transparent),
+                radial-gradient(1px 1px at 90px 40px, #fff, transparent),
+                radial-gradient(1.5px 1.5px at 110px 80px, #ddd, transparent),
+                radial-gradient(2px 2px at 160px 120px, #eee, transparent),
+                radial-gradient(1.2px 1.2px at 200px 20px, #fff, transparent),
+                radial-gradient(1.8px 1.8px at 250px 150px, #eee, transparent),
+                radial-gradient(1px 1px at 300px 80px, #fff, transparent);
             background-repeat: repeat;
-            background-size: 200px 200px;
-            animation: stars-move 100s linear infinite;
+            background-size: 400px 400px;
+            animation: stars-move 120s linear infinite;
+            z-index: -1;
         }
         @keyframes stars-move {
-            0% { transform: translateY(0); }
-            100% { transform: translateY(-200px); }
+            0% { transform: translateY(0) translateX(0); }
+            100% { transform: translateY(-200px) translateX(100px); }
+        }
+        .mars-planet {
+            position: absolute;
+            right: 10%;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 30%, #c1440e, #8b2500, #5a0f00);
+            box-shadow: 
+                inset -20px -20px 40px rgba(0, 0, 0, 0.7),
+                inset 10px 10px 30px rgba(255, 100, 0, 0.3),
+                0 0 60px rgba(193, 68, 14, 0.4);
+            z-index: 0;
+            animation: planet-float 20s ease-in-out infinite;
+        }
+        @keyframes planet-float {
+            0%, 100% { transform: translateY(-50%) scale(1); }
+            50% { transform: translateY(-55%) scale(1.02); }
+        }
+        .mars-planet::before {
+            content: '';
+            position: absolute;
+            top: 20%;
+            left: 15%;
+            width: 60px;
+            height: 30px;
+            background: rgba(139, 37, 0, 0.8);
+            border-radius: 50%;
+            box-shadow: 
+                40px 60px 0 -10px rgba(139, 37, 0, 0.7),
+                100px 120px 0 -5px rgba(90, 15, 0, 0.9),
+                150px 40px 0 -15px rgba(193, 68, 14, 0.6),
+                200px 90px 0 -8px rgba(139, 37, 0, 0.8);
         }
         .mars-content {
             position: relative;
             z-index: 2;
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-            background: rgba(0, 0, 0, 0.5);
-            backdrop-filter: blur(10px);
+            max-width: 650px;
+            margin: 0;
+            text-align: left;
+            background: rgba(5, 11, 46, 0.6);
+            backdrop-filter: blur(15px);
             padding: 60px;
             border-radius: var(--border-radius);
-            border: 1px solid rgba(212, 175, 55, 0.2);
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            box-shadow: 
+                0 20px 50px rgba(0, 0, 0, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
         }
         .mars-content h2 {
             font-size: 3.2rem;
@@ -541,17 +593,19 @@
             position: relative;
             display: inline-block;
             text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+            line-height: 1.1;
         }
         .mars-content h2 span {
             color: var(--secondary);
             text-shadow: 0 0 15px rgba(212, 175, 55, 0.7);
+            position: relative;
         }
-        .mars-content h2::after {
+        .mars-content h2 span::after {
             content: '🚀';
             position: absolute;
-            right: -50px;
-            top: -10px;
-            font-size: 2.5rem;
+            right: -45px;
+            top: -15px;
+            font-size: 2.2rem;
             animation: rocket 3s ease-in-out infinite;
         }
         @keyframes rocket {
@@ -567,37 +621,78 @@
         .mars-stats {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-            margin-top: 50px;
+            gap: 25px;
+            margin-top: 40px;
         }
         .mars-stat {
             text-align: center;
             background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(10px);
-            padding: 25px 20px;
+            padding: 25px 15px;
             border-radius: var(--border-radius);
-            border: 1px solid rgba(212, 175, 55, 0.1);
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+        .mars-stat::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), transparent);
+            opacity: 0;
             transition: var(--transition);
         }
+        .mars-stat:hover::before {
+            opacity: 1;
+        }
         .mars-stat:hover {
-            transform: translateY(-5px);
+            transform: translateY(-8px);
             border-color: rgba(212, 175, 55, 0.3);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-            background: rgba(212, 175, 55, 0.1);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
         }
         .mars-stat-number {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             font-weight: 800;
             color: var(--secondary);
             display: block;
             line-height: 1;
-            margin-bottom: 5px;
+            margin-bottom: 8px;
             text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+            position: relative;
+            z-index: 1;
         }
         .mars-stat-label {
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             opacity: 0.9;
             letter-spacing: 0.5px;
+            position: relative;
+            z-index: 1;
+        }
+        .mars-features {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        .mars-feature {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .mars-feature:last-child {
+            border-bottom: none;
+        }
+        .mars-feature i {
+            color: var(--secondary);
+            font-size: 1.2rem;
+            width: 30px;
+            text-align: center;
         }
         /* About Us Section */
         .about {
@@ -1323,6 +1418,74 @@
             font-size: 0.85rem;
             color: var(--gray);
         }
+        /* NEW: Handover Document Reviews Section */
+        .document-reviews {
+            background: var(--light);
+            padding: 80px 0;
+        }
+        .document-reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        .document-review-card {
+            background: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        .document-review-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-heavy);
+        }
+        .document-review-img {
+            height: 280px;
+            overflow: hidden;
+            position: relative;
+        }
+        .document-review-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        .document-review-card:hover .document-review-img img {
+            transform: scale(1.05);
+        }
+        .document-review-content {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .document-review-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+        .document-review-content p {
+            margin-bottom: 15px;
+            color: var(--gray);
+            flex-grow: 1;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+        .document-review-badge {
+            display: inline-block;
+            background: var(--secondary);
+            color: var(--primary-dark);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.8rem;
+            margin-bottom: 15px;
+            align-self: flex-start;
+        }
         /* Responsive Design */
         @media (max-width: 1200px) {
             .container {
@@ -1331,6 +1494,11 @@
             .about-img-badge {
                 right: 0;
                 bottom: -15px;
+            }
+            .mars-planet {
+                width: 250px;
+                height: 250px;
+                right: 5%;
             }
         }
         @media (max-width: 992px) {
@@ -1383,8 +1551,15 @@
                 width: 100%;
                 max-width: 300px;
             }
-            .reviews-grid {
+            .reviews-grid, .document-reviews-grid {
                 grid-template-columns: 1fr;
+            }
+            .mars-content {
+                max-width: 100%;
+                padding: 50px 40px;
+            }
+            .mars-planet {
+                display: none;
             }
         }
         @media (max-width: 768px) {
@@ -1462,6 +1637,9 @@
                 height: 50px;
                 font-size: 1.2rem;
             }
+            .document-review-img {
+                height: 250px;
+            }
         }
         @media (max-width: 576px) {
             .section-title {
@@ -1513,8 +1691,11 @@
             .investment-drivers {
                 grid-template-columns: 1fr;
             }
-            .review-card {
+            .review-card, .document-review-card {
                 padding: 20px;
+            }
+            .document-review-img {
+                height: 220px;
             }
         }
     </style>
@@ -1596,7 +1777,7 @@
             </div>
         </div>
     </section>
-    <section class="reviews section-padding">
+    <section class="reviews section-padding" id="reviews">
         <div class="container">
             <h2 class="section-title">Client Testimonials</h2>
             <p class="section-subtitle">What our valued customers say about their experience with Marsland Properties</p>
@@ -1661,33 +1842,52 @@
             </div>
         </div>
     </section>
-    <section class="mars-section" id="mars">
-        <div class="mars-bg">
-            <div class="space-background"></div>
-            <div class="stars"></div>
-        </div>
+    <!-- NEW: Handover Document Reviews Section -->
+    <section class="document-reviews section-padding" id="document-reviews">
         <div class="container">
-            <div class="mars-content">
-                <h2>Inspired by <span>Mars</span>, Built for Earth</h2>
-                <p>At Marsland Properties, we draw inspiration from the grandeur of the cosmos to create living spaces that are truly out of this world. Our designs incorporate futuristic elements, sustainable technologies, and visionary architecture.</p>
-                <p>Just as Mars represents the next frontier in human exploration, our properties represent the next frontier in luxury living—blending innovation, comfort, and awe-inspiring design.</p>
-                <div class="mars-stats">
-                    <div class="mars-stat">
-                        <span class="mars-stat-number">40+</span>
-                        <span class="mars-stat-label">Google Reviews</span>
+            <h2 class="section-title">Handover Documents</h2>
+            <p class="section-subtitle">Real documents from satisfied customers who received their properties from Marsland</p>
+            <div class="document-reviews-grid">
+                <div class="document-review-card">
+                    <div class="document-review-img">
+                        <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/review1.jpeg" alt="Handover Document 1">
                     </div>
-                    <div class="mars-stat">
-                        <span class="mars-stat-number">15+</span>
-                        <span class="mars-stat-label">Years Experience</span>
+                    <div class="document-review-content">
+                        <span class="document-review-badge">Property Handover</span>
+                        <h3>Successful Property Transfer</h3>
+                        <p>Official handover document showing smooth transfer of property ownership. Complete legal documentation with clear titles and all necessary approvals.</p>
+                        <p><strong>Location:</strong> Cantonment, Trichy</p>
+                        <p><strong>Customer:</strong> Mr. Rajesh Kumar</p>
                     </div>
-                    <div class="mars-stat">
-                        <span class="mars-stat-number">250+</span>
-                        <span class="mars-stat-label">Projects Completed</span>
+                </div>
+                <div class="document-review-card">
+                    <div class="document-review-img">
+                        <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/review2.jpeg" alt="Handover Document 2">
+                    </div>
+                    <div class="document-review-content">
+                        <span class="document-review-badge">Legal Clearance</span>
+                        <h3>DTCP Approved Plot</h3>
+                        <p>Documentation showing DTCP approved plot with all legal clearances. The customer received complete documentation including patta, approval letters, and registration documents.</p>
+                        <p><strong>Location:</strong> KK Nagar, Trichy</p>
+                        <p><strong>Customer:</strong> Mrs. Shanta Devi</p>
+                    </div>
+                </div>
+                <div class="document-review-card">
+                    <div class="document-review-img">
+                        <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/review3.jpeg" alt="Handover Document 3">
+                    </div>
+                    <div class="document-review-content">
+                        <span class="document-review-badge">RERA Registered</span>
+                        <h3>RERA Compliance Document</h3>
+                        <p>Official RERA registration document showing compliance with all regulatory requirements. The property is fully approved and registered under Tamil Nadu RERA.</p>
+                        <p><strong>Location:</strong> Woraiyur, Trichy</p>
+                        <p><strong>Customer:</strong> Mr. Arun Prasad</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+    <!-- REVAMPED Mars Section -->
     <section class="about section-padding" id="about">
         <div class="container">
             <h2 class="section-title">About Marsland Properties</h2>
@@ -2245,7 +2445,6 @@
                         <div>
                             <h4>Business Hours</h4>
                             <p>Monday - Sunday: 10:00 AM - 6:00 PM</p>
-                            
                         </div>
                     </div>
                 </div>
