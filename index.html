@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -389,12 +390,13 @@
             border: none;
             padding: 5px;
         }
-        /* Hero Section - Updated with new banner */
+        /* Hero Section - Updated with new banner and fixed background */
         .hero {
             background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url('https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/bannerfinalized.jpeg');
             background-size: cover;
-            background-position: center;
+            background-position: center center;
             background-repeat: no-repeat;
+            background-attachment: fixed;
             color: white;
             padding: 150px 0 100px;
             margin-top: 70px;
@@ -487,11 +489,12 @@
         }
         .msme-badge h5 {
             color: var(--primary);
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             margin-bottom: 15px;
+            line-height: 1.2;
         }
         .msme-badge p {
-            font-size: 1.1rem;
+            font-size: 1rem;
             color: var(--gray);
             margin-bottom: 10px;
         }
@@ -501,11 +504,6 @@
             border-radius: 8px;
             margin-top: 20px;
             border-left: 4px solid var(--secondary);
-        }
-        .udyam-number h5 {
-            color: var(--primary);
-            font-size: 1.2rem;
-            margin-bottom: 10px;
         }
         .udyam-number p {
             font-size: 1rem;
@@ -1462,6 +1460,9 @@
             .project-gallery {
                 grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
             }
+            .hero {
+                background-attachment: scroll;
+            }
         }
         @media (max-width: 768px) {
             .mobile-toggle {
@@ -1527,6 +1528,7 @@
             .hero {
                 padding: 120px 0 80px;
                 margin-top: 70px;
+                background-attachment: scroll;
             }
             .hero h1 {
                 font-size: 2.3rem;
@@ -1560,6 +1562,9 @@
             }
             .project-location-map {
                 height: 200px;
+            }
+            .msme-badge h5 {
+                font-size: 1.3rem;
             }
         }
         @media (max-width: 576px) {
@@ -1610,7 +1615,7 @@
                 padding: 25px 20px;
             }
             .msme-badge h5 {
-                font-size: 1.5rem;
+                font-size: 1.2rem;
             }
             .project-gallery {
                 grid-template-columns: repeat(2, 1fr);
@@ -1697,10 +1702,9 @@
             <p class="section-subtitle">We operate with full transparency and legal compliance</p>
             <div class="certification-container">
                 <div class="msme-badge">
-                    <h6>MSME UDYAM REGISTERED COMPANY</h6>
+                    <h5>MSME UDYAM REGISTERED COMPANY</h5>
                     <p>Officially recognized by the Ministry of Micro, Small & Medium Enterprises, Government of India</p>
                     <div class="udyam-number">
-                        <h6>UDYAM Registration Number: Available on request</h6>
                         <p>Our certification ensures we meet all government standards for quality and business operations</p>
                     </div>
                 </div>
@@ -1871,6 +1875,17 @@
                         <li><i class="fas fa-tint"></i> Reliable Water Facility – Hassle-free daily needs</li>
                         <li><i class="fas fa-check-circle"></i> DTCP Approved & RERA Registered – 100% legal investment</li>
                     </ul>
+                    
+                    <h4>Project Images:</h4>
+                    <div class="project-gallery">
+                        <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/sr1.png" alt="Sri Lakshmi Nagar Image 1" onclick="openImageLightbox(this.src)">
+                        <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/sr2.png" alt="Sri Lakshmi Nagar Image 2" onclick="openImageLightbox(this.src)">
+                        <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/sr3.png" alt="Sri Lakshmi Nagar Image 3" onclick="openImageLightbox(this.src)">
+                        <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/sr4.png" alt="Sri Lakshmi Nagar Image 4" onclick="openImageLightbox(this.src)">
+                        <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/sr5.png" alt="Sri Lakshmi Nagar Image 5" onclick="openImageLightbox(this.src)">
+                        <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/sr6.png" alt="Sri Lakshmi Nagar Image 6" onclick="openImageLightbox(this.src)">
+                        <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/sr7.png" alt="Sri Lakshmi Nagar Image 7" onclick="openImageLightbox(this.src)">
+                    </div>
                 </div>
             </div>
             <div id="alamelu-nagar" class="project-tab-content">
@@ -1934,7 +1949,7 @@
                 </ul>
                 
                 <div class="project-location-map">
-                    <iframe src="https://maps.app.goo.gl/oT4Ea4hg36wezFfDA" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3918.722416696786!2d78.7000191!3d10.819317999999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTDCsDQ5JzA5LjUiTiA3OMKwNDInMDAuMSJF!5e0!3m2!1sen!2sin!4v1710000000000!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
                 
                 <h4>Project Images:</h4>
@@ -1943,6 +1958,7 @@
                     <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/anotny3.jpeg" alt="Antony Garden Image 2" onclick="openImageLightbox(this.src)">
                     <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/antony2.jpeg" alt="Antony Garden Image 3" onclick="openImageLightbox(this.src)">
                     <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/antony4.png" alt="Antony Garden Image 4" onclick="openImageLightbox(this.src)">
+                    <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/antonynew.png" alt="Antony Garden Image 5" onclick="openImageLightbox(this.src)">
                 </div>
             </div>
             
@@ -1953,7 +1969,7 @@
                 <p>Premium Gated Community residential plots located on the Trichy – Pudukkottai NH Road, near IIM Trichy, Anna University (BIT Campus), and Bharathidasan University</p>
                 
                 <div class="project-location-map">
-                    <iframe src="https://maps.app.goo.gl/D1to47y7jzHiAJfG7" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3918.732416696786!2d78.7100191!3d10.818317999999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTDCsDQ5JzA5LjUiTiA3OMKwNDInMDAuMSJF!5e0!3m2!1sen!2sin!4v1710000000000!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
                 
                 <h4>Project Images:</h4>
@@ -1970,7 +1986,7 @@
                 <p><strong>Location:</strong> Panjappur - Thuvakudi Ring Road, Trichy</p>
                 
                 <div class="project-location-map">
-                    <iframe src="https://maps.app.goo.gl/VmanVHvVApRHgjbS9" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3918.742416696786!2d78.7200191!3d10.817317999999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTDCsDQ5JzA5LjUiTiA3OMKwNDInMDAuMSJF!5e0!3m2!1sen!2sin!4v1710000000000!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
                 
                 <h4>Project Images:</h4>
@@ -1978,6 +1994,7 @@
                     <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/arunachalm1.jpeg" alt="Arunachala Nagar Image 1" onclick="openImageLightbox(this.src)">
                     <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/arunachalm2.jpeg" alt="Arunachala Nagar Image 2" onclick="openImageLightbox(this.src)">
                     <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/arunachalm3.jpeg" alt="Arunachala Nagar Image 3" onclick="openImageLightbox(this.src)">
+                    <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/arunachalm4.jpeg" alt="Arunachala Nagar Image 4" onclick="openImageLightbox(this.src)">
                 </div>
             </div>
             
@@ -1986,15 +2003,19 @@
                 <p><strong>Location:</strong> Near Famous Vayalur Murugan Kovil, Trichy</p>
                 
                 <div class="project-location-map">
-                    <iframe src="https://maps.app.goo.gl/Pkntr9CCpFD8Tm7i8" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3918.752416696786!2d78.7300191!3d10.816317999999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTDCsDQ5JzA5LjUiTiA3OMKwNDInMDAuMSJF!5e0!3m2!1sen!2sin!4v1710000000000!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
                 
                 <h4>Project Images:</h4>
                 <div class="project-gallery">
-                    <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/sairam%206.jpg" alt="Sai Ram Garden Image 1" onclick="openImageLightbox(this.src)">
-                    <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/sairam1.png" alt="Sai Ram Garden Image 2" onclick="openImageLightbox(this.src)">
-                    <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/sairam2.png" alt="Sai Ram Garden Image 3" onclick="openImageLightbox(this.src)">
-                    <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/side%20view.jpg" alt="Sai Ram Garden Image 4" onclick="openImageLightbox(this.src)">
+                    <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/sairamnew1.jpg" alt="Sai Ram Garden Image 1" onclick="openImageLightbox(this.src)">
+                    <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/sairamnew2.png" alt="Sai Ram Garden Image 2" onclick="openImageLightbox(this.src)">
+                    <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/sairamnew3.png" alt="Sai Ram Garden Image 3" onclick="openImageLightbox(this.src)">
+                    <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/sairamnew4.png" alt="Sai Ram Garden Image 4" onclick="openImageLightbox(this.src)">
+                    <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/sairamnew5.jpg" alt="Sai Ram Garden Image 5" onclick="openImageLightbox(this.src)">
+                    <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/sairamnew6.jpg" alt="Sai Ram Garden Image 6" onclick="openImageLightbox(this.src)">
+                    <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/sairamnew7.jpg" alt="Sai Ram Garden Image 7" onclick="openImageLightbox(this.src)">
+                    <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/sairamnew8.png" alt="Sai Ram Garden Image 8" onclick="openImageLightbox(this.src)">
                 </div>
             </div>
             
@@ -2003,7 +2024,7 @@
                 <p><strong>Location:</strong> Alampattipudur, Trichy–Dindigul NH Road</p>
                 
                 <div class="project-location-map">
-                    <iframe src="https://maps.app.goo.gl/SaKgonV99hoVzsc26" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3918.762416696786!2d78.7400191!3d10.815317999999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTDCsDQ5JzA5LjUiTiA3OMKwNDInMDAuMSJF!5e0!3m2!1sen!2sin!4v1710000000000!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
                 
                 <h4>Project Images:</h4>
