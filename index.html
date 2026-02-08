@@ -26,6 +26,9 @@
             --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
             --border-radius: 12px;
             --container-width: 1320px;
+            --merun: #8B0000;
+            --merun-dark: #660000;
+            --merun-light: #A52A2A;
         }
         * {
             margin: 0;
@@ -221,9 +224,10 @@
             opacity: 1;
             visibility: visible;
         }
+        /* Header with merun background */
         header {
-            background: rgba(255, 255, 255, 0.98);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            background: var(--merun);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
             position: fixed;
             width: 100%;
             top: 0;
@@ -234,9 +238,9 @@
             align-items: center;
         }
         header.scrolled {
-            background: rgba(255, 255, 255, 0.98);
+            background: var(--merun);
             backdrop-filter: blur(10px);
-            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
             height: 65px;
         }
         .header-container {
@@ -273,18 +277,19 @@
         }
         .logo-text h1 {
             font-size: 1.5rem;
-            color: var(--primary);
+            color: white;
             line-height: 1.1;
         }
         .logo-text span {
             font-size: 0.7rem;
-            color: var(--gray);
+            color: rgba(255, 255, 255, 0.8);
             font-weight: 500;
             letter-spacing: 0.5px;
         }
         nav {
             display: flex;
             align-items: center;
+            position: relative;
         }
         .nav-links {
             display: flex;
@@ -292,7 +297,7 @@
         }
         .nav-links a {
             font-weight: 600;
-            color: var(--dark);
+            color: white;
             font-size: 0.95rem;
             position: relative;
             padding: 5px 0;
@@ -313,7 +318,44 @@
         }
         .nav-links a:hover,
         .nav-links a.active {
-            color: var(--primary);
+            color: var(--secondary);
+        }
+        /* Projects Dropdown */
+        .projects-dropdown {
+            position: relative;
+        }
+        .projects-dropdown .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            min-width: 220px;
+            box-shadow: var(--shadow-heavy);
+            border-radius: var(--border-radius);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: var(--transition);
+            z-index: 100;
+            padding: 10px 0;
+        }
+        .projects-dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        .dropdown-menu a {
+            display: block;
+            padding: 12px 20px;
+            color: var(--dark);
+            font-size: 0.9rem;
+            transition: var(--transition);
+            border-left: 3px solid transparent;
+        }
+        .dropdown-menu a:hover {
+            background: var(--light);
+            color: var(--merun);
+            border-left: 3px solid var(--secondary);
         }
         .header-contact {
             display: flex;
@@ -325,7 +367,7 @@
             align-items: center;
             gap: 8px;
             font-weight: 600;
-            color: var(--primary);
+            color: white;
             font-size: 0.9rem;
         }
         .header-contact-item i {
@@ -335,15 +377,15 @@
         .mobile-toggle {
             display: none;
             font-size: 1.5rem;
-            color: var(--primary);
+            color: white;
             cursor: pointer;
             background: none;
             border: none;
             padding: 5px;
         }
-        /* Updated Hero Section with new background */
+        /* Hero Section with improved background */
         .hero {
-            background: linear-gradient(rgba(10, 23, 78, 0.75), rgba(5, 11, 46, 0.85)), url('https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/bannerfinal.jpeg');
+            background: linear-gradient(rgba(139, 0, 0, 0.75), rgba(102, 0, 0, 0.85)), url('https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/bannerfinal.jpeg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -428,18 +470,34 @@
             max-width: 900px;
             margin: 0 auto;
         }
-        .certification-image {
+        .msme-badge {
+            background: white;
             border-radius: var(--border-radius);
             box-shadow: var(--shadow-heavy);
-            cursor: pointer;
-            transition: transform 0.3s ease;
+            padding: 40px;
             margin: 30px auto;
-            border: 1px solid var(--gray-light);
-            max-width: 100%;
-            height: auto;
+            border: 2px solid var(--secondary);
+            max-width: 600px;
         }
-        .certification-image:hover {
-            transform: scale(1.02);
+        .msme-badge h3 {
+            color: var(--primary);
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+        .msme-badge p {
+            font-size: 1.1rem;
+            color: var(--gray);
+            margin-bottom: 10px;
+        }
+        .udyam-number {
+            background: var(--light);
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+            border-left: 4px solid var(--secondary);
+        }
+        .udyam-number strong {
+            color: var(--primary);
         }
         .lightbox {
             display: none;
@@ -474,225 +532,25 @@
             border: none;
             z-index: 10001;
         }
-        /* REVAMPED Mars Section - Completely Redesigned */
-        .mars-section {
-            position: relative;
-            overflow: hidden;
-            padding: 100px 0;
-            background: linear-gradient(135deg, #0a1128 0%, #1a1f40 30%, #0c1542 70%, #0a1128 100%);
-            color: white;
-            min-height: 700px;
-            display: flex;
-            align-items: center;
-            isolation: isolate;
-        }
-        .mars-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: 
-                radial-gradient(circle at 20% 30%, rgba(0, 168, 204, 0.15) 0%, transparent 40%),
-                radial-gradient(circle at 80% 70%, rgba(212, 175, 55, 0.12) 0%, transparent 40%),
-                radial-gradient(circle at 40% 80%, rgba(139, 0, 0, 0.1) 0%, transparent 50%);
-            z-index: -1;
-            animation: pulse 8s ease-in-out infinite alternate;
-        }
-        @keyframes pulse {
-            0% { opacity: 0.6; }
-            100% { opacity: 1; }
-        }
-        .mars-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -2;
-        }
-        .stars {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                radial-gradient(2px 2px at 20px 30px, #eee, transparent),
-                radial-gradient(2px 2px at 40px 70px, #fff, transparent),
-                radial-gradient(1px 1px at 90px 40px, #fff, transparent),
-                radial-gradient(1.5px 1.5px at 110px 80px, #ddd, transparent),
-                radial-gradient(2px 2px at 160px 120px, #eee, transparent),
-                radial-gradient(1.2px 1.2px at 200px 20px, #fff, transparent),
-                radial-gradient(1.8px 1.8px at 250px 150px, #eee, transparent),
-                radial-gradient(1px 1px at 300px 80px, #fff, transparent);
-            background-repeat: repeat;
-            background-size: 400px 400px;
-            animation: stars-move 120s linear infinite;
-            z-index: -1;
-        }
-        @keyframes stars-move {
-            0% { transform: translateY(0) translateX(0); }
-            100% { transform: translateY(-200px) translateX(100px); }
-        }
-        .mars-planet {
-            position: absolute;
-            right: 10%;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 300px;
-            height: 300px;
-            border-radius: 50%;
-            background: radial-gradient(circle at 30% 30%, #c1440e, #8b2500, #5a0f00);
-            box-shadow: 
-                inset -20px -20px 40px rgba(0, 0, 0, 0.7),
-                inset 10px 10px 30px rgba(255, 100, 0, 0.3),
-                0 0 60px rgba(193, 68, 14, 0.4);
-            z-index: 0;
-            animation: planet-float 20s ease-in-out infinite;
-        }
-        @keyframes planet-float {
-            0%, 100% { transform: translateY(-50%) scale(1); }
-            50% { transform: translateY(-55%) scale(1.02); }
-        }
-        .mars-planet::before {
-            content: '';
-            position: absolute;
-            top: 20%;
-            left: 15%;
-            width: 60px;
-            height: 30px;
-            background: rgba(139, 37, 0, 0.8);
-            border-radius: 50%;
-            box-shadow: 
-                40px 60px 0 -10px rgba(139, 37, 0, 0.7),
-                100px 120px 0 -5px rgba(90, 15, 0, 0.9),
-                150px 40px 0 -15px rgba(193, 68, 14, 0.6),
-                200px 90px 0 -8px rgba(139, 37, 0, 0.8);
-        }
-        .mars-content {
-            position: relative;
-            z-index: 2;
-            max-width: 650px;
-            margin: 0;
-            text-align: left;
-            background: rgba(5, 11, 46, 0.6);
-            backdrop-filter: blur(15px);
-            padding: 60px;
-            border-radius: var(--border-radius);
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            box-shadow: 
-                0 20px 50px rgba(0, 0, 0, 0.4),
-                inset 0 1px 0 rgba(255, 255, 255, 0.1);
-        }
-        .mars-content h2 {
-            font-size: 3.2rem;
-            margin-bottom: 25px;
-            color: white;
-            position: relative;
-            display: inline-block;
-            text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
-            line-height: 1.1;
-        }
-        .mars-content h2 span {
-            color: var(--secondary);
-            text-shadow: 0 0 15px rgba(212, 175, 55, 0.7);
-            position: relative;
-        }
-        .mars-content h2 span::after {
-            content: '🚀';
-            position: absolute;
-            right: -45px;
-            top: -15px;
-            font-size: 2.2rem;
-            animation: rocket 3s ease-in-out infinite;
-        }
-        @keyframes rocket {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-10px) rotate(5deg); }
-        }
-        .mars-content p {
-            font-size: 1.25rem;
-            margin-bottom: 25px;
-            line-height: 1.8;
-            opacity: 0.9;
-        }
-        .mars-stats {
+        /* Project Images Gallery */
+        .project-gallery {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
-            margin-top: 40px;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 25px;
         }
-        .mars-stat {
-            text-align: center;
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            padding: 25px 15px;
-            border-radius: var(--border-radius);
-            border: 1px solid rgba(212, 175, 55, 0.15);
-            transition: var(--transition);
-            position: relative;
-            overflow: hidden;
-        }
-        .mars-stat::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
+        .project-gallery img {
             width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), transparent);
-            opacity: 0;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+            cursor: pointer;
             transition: var(--transition);
+            box-shadow: var(--shadow);
         }
-        .mars-stat:hover::before {
-            opacity: 1;
-        }
-        .mars-stat:hover {
-            transform: translateY(-8px);
-            border-color: rgba(212, 175, 55, 0.3);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-        }
-        .mars-stat-number {
-            font-size: 2.8rem;
-            font-weight: 800;
-            color: var(--secondary);
-            display: block;
-            line-height: 1;
-            margin-bottom: 8px;
-            text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
-            position: relative;
-            z-index: 1;
-        }
-        .mars-stat-label {
-            font-size: 0.95rem;
-            opacity: 0.9;
-            letter-spacing: 0.5px;
-            position: relative;
-            z-index: 1;
-        }
-        .mars-features {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            margin-top: 30px;
-        }
-        .mars-feature {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            padding: 12px 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        .mars-feature:last-child {
-            border-bottom: none;
-        }
-        .mars-feature i {
-            color: var(--secondary);
-            font-size: 1.2rem;
-            width: 30px;
-            text-align: center;
+        .project-gallery img:hover {
+            transform: scale(1.05);
+            box-shadow: var(--shadow-heavy);
         }
         /* About Us Section */
         .about {
@@ -724,6 +582,34 @@
             margin-bottom: 30px;
             color: var(--gray);
             line-height: 1.8;
+        }
+        .about-features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-top: 30px;
+        }
+        .about-feature {
+            background: white;
+            padding: 25px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            border-top: 4px solid var(--secondary);
+            transition: var(--transition);
+        }
+        .about-feature:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-heavy);
+        }
+        .about-feature i {
+            color: var(--secondary);
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+        .about-feature h4 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--primary);
         }
         .about-founder {
             background: white;
@@ -763,34 +649,6 @@
         .founder-details p {
             color: var(--gray);
             line-height: 1.6;
-        }
-        .about-features {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-            margin-top: 30px;
-        }
-        .about-feature {
-            background: white;
-            padding: 25px;
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow);
-            border-top: 4px solid var(--secondary);
-            transition: var(--transition);
-        }
-        .about-feature:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-heavy);
-        }
-        .about-feature i {
-            color: var(--secondary);
-            font-size: 1.8rem;
-            margin-bottom: 15px;
-        }
-        .about-feature h4 {
-            font-size: 1.2rem;
-            margin-bottom: 10px;
-            color: var(--primary);
         }
         .about-image {
             position: relative;
@@ -923,46 +781,9 @@
             background: var(--light);
             padding: 80px 0;
         }
-        .why-invest {
+        .upcoming-projects {
             background: white;
             padding: 80px 0;
-        }
-        .why-invest-content {
-            max-width: 900px;
-            margin: 0 auto;
-        }
-        .why-invest-content h3 {
-            color: var(--primary);
-            font-size: 1.8rem;
-            margin: 30px 0 15px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid var(--secondary);
-        }
-        .why-invest-content p {
-            line-height: 1.8;
-            margin-bottom: 15px;
-            color: var(--dark);
-        }
-        .investment-drivers {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 20px;
-            margin-top: 30px;
-        }
-        .driver-card {
-            background: var(--light);
-            padding: 25px;
-            border-radius: var(--border-radius);
-            border-top: 4px solid var(--accent);
-            transition: var(--transition);
-        }
-        .driver-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow);
-        }
-        .driver-card h4 {
-            color: var(--primary);
-            margin-bottom: 10px;
         }
         .why-choose {
             background: var(--light);
@@ -1250,6 +1071,39 @@
             height: 100%;
             border: none;
         }
+        /* Privacy Policy Section */
+        .privacy-policy {
+            background: var(--light);
+            padding: 80px 0;
+        }
+        .privacy-content {
+            background: white;
+            padding: 40px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+        .privacy-content h3 {
+            color: var(--primary);
+            margin: 25px 0 15px;
+            font-size: 1.4rem;
+        }
+        .privacy-content h3:first-child {
+            margin-top: 0;
+        }
+        .privacy-content p {
+            margin-bottom: 15px;
+            line-height: 1.7;
+            color: var(--dark);
+        }
+        .privacy-content ul {
+            list-style: disc;
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+        .privacy-content li {
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
         footer {
             background: var(--primary-dark);
             color: white;
@@ -1350,6 +1204,12 @@
             color: rgba(255, 255, 255, 0.7);
             font-size: 0.85rem;
         }
+        .developer-credit {
+            text-align: center;
+            margin-top: 10px;
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
         /* Reviews Section */
         .reviews {
             background: white;
@@ -1418,7 +1278,7 @@
             font-size: 0.85rem;
             color: var(--gray);
         }
-        /* NEW: Handover Document Reviews Section */
+        /* Handover Document Reviews Section */
         .document-reviews {
             background: var(--light);
             padding: 80px 0;
@@ -1495,11 +1355,6 @@
                 right: 0;
                 bottom: -15px;
             }
-            .mars-planet {
-                width: 250px;
-                height: 250px;
-                right: 5%;
-            }
         }
         @media (max-width: 992px) {
             .section-title {
@@ -1522,9 +1377,6 @@
             .footer-container {
                 grid-template-columns: repeat(2, 1fr);
                 gap: 30px;
-            }
-            .mars-stats {
-                grid-template-columns: repeat(2, 1fr);
             }
             .about-img-badge {
                 position: relative;
@@ -1554,12 +1406,8 @@
             .reviews-grid, .document-reviews-grid {
                 grid-template-columns: 1fr;
             }
-            .mars-content {
-                max-width: 100%;
-                padding: 50px 40px;
-            }
-            .mars-planet {
-                display: none;
+            .project-gallery {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
             }
         }
         @media (max-width: 768px) {
@@ -1571,7 +1419,7 @@
                 top: 70px;
                 left: 0;
                 width: 100%;
-                background: white;
+                background: var(--merun);
                 flex-direction: column;
                 padding: 25px;
                 box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
@@ -1584,7 +1432,7 @@
             }
             .nav-links li {
                 width: 100%;
-                border-bottom: 1px solid var(--gray-light);
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             }
             .nav-links li:last-child {
                 border-bottom: none;
@@ -1593,6 +1441,26 @@
                 display: block;
                 padding: 15px 0;
                 font-size: 1rem;
+            }
+            .projects-dropdown .dropdown-menu {
+                position: static;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                box-shadow: none;
+                background: transparent;
+                padding: 0;
+                margin-left: 20px;
+            }
+            .dropdown-menu a {
+                padding: 10px 0;
+                color: rgba(255, 255, 255, 0.9);
+                border-left: none;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            }
+            .dropdown-menu a:hover {
+                background: transparent;
+                color: var(--secondary);
             }
             .nav-links.active {
                 transform: translateY(0);
@@ -1615,13 +1483,6 @@
             .hero-btns {
                 justify-content: center;
             }
-            .mars-section {
-                padding: 80px 0;
-                min-height: 600px;
-            }
-            .mars-content h2 {
-                font-size: 2.2rem;
-            }
             .projects-grid {
                 grid-template-columns: 1fr;
             }
@@ -1640,6 +1501,9 @@
             .document-review-img {
                 height: 250px;
             }
+            .project-gallery {
+                grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            }
         }
         @media (max-width: 576px) {
             .section-title {
@@ -1650,12 +1514,6 @@
             }
             .hero p {
                 font-size: 1rem;
-            }
-            .mars-content h2 {
-                font-size: 1.9rem;
-            }
-            .mars-stats {
-                grid-template-columns: 1fr;
             }
             .amenities-grid {
                 grid-template-columns: 1fr;
@@ -1669,9 +1527,6 @@
             }
             .about-img-main {
                 height: 350px;
-            }
-            .mars-content {
-                padding: 30px 20px;
             }
             .floating-contact {
                 right: 10px;
@@ -1688,14 +1543,20 @@
             .team-strength {
                 grid-template-columns: 1fr;
             }
-            .investment-drivers {
-                grid-template-columns: 1fr;
-            }
             .review-card, .document-review-card {
                 padding: 20px;
             }
             .document-review-img {
                 height: 220px;
+            }
+            .msme-badge {
+                padding: 25px 20px;
+            }
+            .msme-badge h3 {
+                font-size: 1.5rem;
+            }
+            .project-gallery {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
     </style>
@@ -1703,7 +1564,7 @@
 <body>
     <div class="lightbox" id="certificateLightbox">
         <button class="close-lightbox" onclick="closeLightbox()">×</button>
-        <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/companycertificate.jpeg" alt="Company Certificate">
+        <img src="" alt="Project Image" id="lightboxImage">
     </div>
     <div class="floating-contact">
         <a href="https://wa.me/919894980940" target="_blank" class="floating-btn whatsapp">
@@ -1722,19 +1583,25 @@
                     <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/marslandlogo.png" alt="Marsland Properties Logo">
                 </div>
                 <div class="logo-text">
-                    <h1>MARSLAND</h1>
-                    <span>Premium Real Estate</span>
+                    <h1>MARSLAND PROPERTIES</h1>
+                    <span>Entrust your dreams with us</span>
                 </div>
             </div>
             <nav>
                 <ul class="nav-links">
                     <li><a href="#home" class="active">Home</a></li>
                     <li><a href="#about">About</a></li>
-                    <li><a href="#completed-projects">Completed Projects</a></li>
-                    <li><a href="#ongoing-projects">Ongoing Projects</a></li>
-                    <li><a href="#projects">Featured</a></li>
-                    <li><a href="#amenities">Amenities</a></li>
+                    <li class="projects-dropdown">
+                        <a href="#projects">Projects <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-menu">
+                            <a href="#completed-projects">Completed Projects</a>
+                            <a href="#ongoing-projects">Ongoing Projects</a>
+                            <a href="#upcoming-projects">Upcoming Projects</a>
+                        </div>
+                    </li>
+                    <li><a href="#reviews">Reviews</a></li>
                     <li><a href="#contact">Contact</a></li>
+                    <li><a href="#privacy-policy">Privacy Policy</a></li>
                 </ul>
             </nav>
             <div class="header-contact">
@@ -1769,11 +1636,14 @@
             <h2 class="section-title">Company Certification</h2>
             <p class="section-subtitle">We operate with full transparency and legal compliance</p>
             <div class="certification-container">
-                <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/companycertificate.jpeg" 
-                     alt="Company Certificate" 
-                     class="certification-image"
-                     onclick="openLightbox()">
-                <p>Click on the certificate to view in full size</p>
+                <div class="msme-badge">
+                    <h3>MSME UDYAM REGISTERED COMPANY</h3>
+                    <p>Officially recognized by the Ministry of Micro, Small & Medium Enterprises, Government of India</p>
+                    <div class="udyam-number">
+                        <p><strong>UDYAM Registration Number:</strong> Available on request</p>
+                        <p>Our certification ensures we meet all government standards for quality and business operations</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -1842,7 +1712,6 @@
             </div>
         </div>
     </section>
-    <!-- NEW: Handover Document Reviews Section -->
     <section class="document-reviews section-padding" id="document-reviews">
         <div class="container">
             <h2 class="section-title">Handover Documents</h2>
@@ -1856,7 +1725,8 @@
                         <span class="document-review-badge">Property Handover</span>
                         <h3>Successful Property Transfer</h3>
                         <p>Official handover document showing smooth transfer of property ownership. Complete legal documentation with clear titles and all necessary approvals.</p>
-                        
+                        <p><strong>Location:</strong> Cantonment, Trichy</p>
+                        <p><strong>Customer:</strong> Mr. Rajesh Kumar</p>
                     </div>
                 </div>
                 <div class="document-review-card">
@@ -1867,7 +1737,8 @@
                         <span class="document-review-badge">Legal Clearance</span>
                         <h3>DTCP Approved Plot</h3>
                         <p>Documentation showing DTCP approved plot with all legal clearances. The customer received complete documentation including patta, approval letters, and registration documents.</p>
-                        
+                        <p><strong>Location:</strong> KK Nagar, Trichy</p>
+                        <p><strong>Customer:</strong> Mrs. Shanta Devi</p>
                     </div>
                 </div>
                 <div class="document-review-card">
@@ -1878,13 +1749,13 @@
                         <span class="document-review-badge">RERA Registered</span>
                         <h3>RERA Compliance Document</h3>
                         <p>Official RERA registration document showing compliance with all regulatory requirements. The property is fully approved and registered under Tamil Nadu RERA.</p>
-                      
+                        <p><strong>Location:</strong> Woraiyur, Trichy</p>
+                        <p><strong>Customer:</strong> Mr. Arun Prasad</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <!-- REVAMPED Mars Section -->
     <section class="about section-padding" id="about">
         <div class="container">
             <h2 class="section-title">About Marsland Properties</h2>
@@ -1919,7 +1790,7 @@
                     <div class="about-founder">
                         <div class="founder-info">
                             <div class="founder-image">
-                                <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/founder.png" alt="Founder">
+                                <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/founderimage.jpeg" alt="Founder">
                             </div>
                             <div class="founder-details">
                                 <h3>Founder & Managing Director</h3>
@@ -1934,7 +1805,7 @@
                         <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Modern Luxury Villa">
                     </div>
                     <div class="about-img-badge">
-                        <h3>15+</h3>
+                        <h3>5+</h3>
                         <p>Years of Excellence</p>
                     </div>
                 </div>
@@ -1951,7 +1822,6 @@
                 <button class="tab-btn" onclick="scrollToProject('tamil-garden')">TAMIL GARDEN</button>
                 <button class="tab-btn" onclick="scrollToProject('sai-ram-garden')">SAI RAM GARDEN</button>
                 <button class="tab-btn" onclick="scrollToProject('arunachala-nagar')">ARUNACHALA NAGAR</button>
-                <button class="tab-btn" onclick="scrollToProject('kumaran-nagar')">KUMARAN NAGAR</button>
                 <button class="tab-btn" onclick="scrollToProject('alamelu-nagar')">ALAMELU MANGAI NAGAR</button>
                 <button class="tab-btn" onclick="scrollToProject('officers-town')">OFFICER'S TOWN</button>
                 <button class="tab-btn" onclick="scrollToProject('sri-lakshmi-nagar')">SRI LAKSHMI NAGAR</button>
@@ -1962,6 +1832,16 @@
                     <p>KRS Avenue is a premium residential layout strategically located near Trichy–Chennai NH 45, offering both convenience and connectivity. Just 3 km from the Chennai National Highway, the location ensures effortless access to the city and major destinations.</p>
                     <p>The layout is surrounded by reputed colleges, schools, and educational institutions, making it an ideal choice for families. Its prime positioning offers a perfect balance between a peaceful living environment and urban accessibility.</p>
                     <p>The area is poised for rapid appreciation, making it an excellent investment opportunity. Wide roads, planned plots, and a well-structured layout ensure a modern and organized community.</p>
+                    
+                    <h4>Project Images:</h4>
+                    <div class="project-gallery">
+                        <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/krs2.jpeg" alt="KRS Avenue Image 1" onclick="openImageLightbox(this.src)">
+                        <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/krs1.jpeg" alt="KRS Avenue Image 2" onclick="openImageLightbox(this.src)">
+                        <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/krs3.jpeg" alt="KRS Avenue Image 3" onclick="openImageLightbox(this.src)">
+                        <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/krs4.jpeg" alt="KRS Avenue Image 4" onclick="openImageLightbox(this.src)">
+                        <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/krs5.jpeg" alt="KRS Avenue Image 5" onclick="openImageLightbox(this.src)">
+                        <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/krs6.jpeg" alt="KRS Avenue Image 6" onclick="openImageLightbox(this.src)">
+                    </div>
                 </div>
             </div>
             <div id="kn-rasi-nagar" class="project-tab-content">
@@ -1981,6 +1861,18 @@
                     </ul>
                     <p><strong>Special Note:</strong> Already 10 houses have been built within the layout, making it a vibrant and secure neighborhood.</p>
                     <p><em>Smart location, secure investment, bright future.</em></p>
+                    
+                    <h4>Project Images:</h4>
+                    <div class="project-gallery">
+                        <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/kn1.png" alt="KN Rasi Nagar Image 1" onclick="openImageLightbox(this.src)">
+                        <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/kn2.png" alt="KN Rasi Nagar Image 2" onclick="openImageLightbox(this.src)">
+                        <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/kn3.png" alt="KN Rasi Nagar Image 3" onclick="openImageLightbox(this.src)">
+                        <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/kn4.png" alt="KN Rasi Nagar Image 4" onclick="openImageLightbox(this.src)">
+                        <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/kn5.png" alt="KN Rasi Nagar Image 5" onclick="openImageLightbox(this.src)">
+                        <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/kn6.png" alt="KN Rasi Nagar Image 6" onclick="openImageLightbox(this.src)">
+                        <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/kn7.png" alt="KN Rasi Nagar Image 7" onclick="openImageLightbox(this.src)">
+                        <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/kn8.png" alt="KN Rasi Nagar Image 8" onclick="openImageLightbox(this.src)">
+                    </div>
                 </div>
             </div>
             <div id="tamil-garden" class="project-tab-content">
@@ -2059,35 +1951,6 @@
                     </ul>
                 </div>
             </div>
-            <div id="kumaran-nagar" class="project-tab-content">
-                <div class="project-detail">
-                    <h3>KUMARAN NAGAR – DTCP & RERA Approved Plots</h3>
-                    <p><strong>Location:</strong> IIM COLLEGE BACKSIDE - CHINA SURIYR, Trichy</p>
-                    <p><strong>"Three Universities… One Smart Investment!"</strong></p>
-                    <p>Premium Gated Community residential plots located on the Trichy – Pudukkottai NH Road, near IIM Trichy, Anna University (BIT Campus), and Bharathidasan University</p>
-                    <h4>MEGA OFFER: Book now!</h4>
-                    <ul class="project-features-list">
-                        <li><i class="fas fa-times"></i> No Registration Charges</li>
-                        <li><i class="fas fa-times"></i> No Patta Charges</li>
-                        <li><i class="fas fa-check"></i> Registration & Patta – Absolutely FREE!</li>
-                    </ul>
-                    <p>There is no better location for rental income and long-term investment.</p>
-                    <h4>Triangular Education Hub:</h4>
-                    <ul class="project-features-list">
-                        <li><i class="fas fa-graduation-cap"></i> IIM Trichy</li>
-                        <li><i class="fas fa-university"></i> Anna University (BIT Campus)</li>
-                        <li><i class="fas fa-school"></i> Bharathidasan University</li>
-                        <li><i class="fas fa-plane"></i> Trichy Airport – Just 10 Minutes</li>
-                    </ul>
-                    <h4>Our Amenities:</h4>
-                    <ul class="project-features-list">
-                        <li><i class="fas fa-shield-alt"></i> Gated Community</li>
-                        <li><i class="fas fa-road"></i> 23-feet wide roads</li>
-                        <li><i class="fas fa-tint"></i> Good groundwater source</li>
-                        <li><i class="fas fa-tree"></i> Park</li>
-                    </ul>
-                </div>
-            </div>
             <div id="alamelu-nagar" class="project-tab-content">
                 <div class="project-detail">
                     <h3>ALAMELU MANGAI NAGAR – DTCP & RERA Approved Plots</h3>
@@ -2158,7 +2021,8 @@
         <div class="container">
             <h2 class="section-title">Ongoing Projects</h2>
             <p class="section-subtitle">Currently under development - Book your plot now!</p>
-            <div class="project-detail">
+            
+            <div id="antony-garden" class="project-detail">
                 <h3>ANTONY GARDEN – DTCP & RERA Approved Plots</h3>
                 <p><strong>Location:</strong> Manikandam, Trichy</p>
                 <ul class="project-features-list">
@@ -2178,237 +2042,143 @@
                     <li><i class="fas fa-tint"></i> Delicious Drinking Water</li>
                     <li><i class="fas fa-file-contract"></i> 100% Clear Title</li>
                 </ul>
+                
+                <h4>Project Images:</h4>
+                <div class="project-gallery">
+                    <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/antony1.jpeg" alt="Antony Garden Image 1" onclick="openImageLightbox(this.src)">
+                    <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/antony2.jpeg" alt="Antony Garden Image 2" onclick="openImageLightbox(this.src)">
+                </div>
+            </div>
+            
+            <div id="kumaran-nagar" class="project-detail">
+                <h3>KUMARAN NAGAR – DTCP & RERA Approved Plots</h3>
+                <p><strong>Location:</strong> IIM COLLEGE BACKSIDE - CHINA SURIYR, Trichy</p>
+                <p><strong>"Three Universities… One Smart Investment!"</strong></p>
+                <p>Premium Gated Community residential plots located on the Trichy – Pudukkottai NH Road, near IIM Trichy, Anna University (BIT Campus), and Bharathidasan University</p>
+                
+                <h4>Project Images:</h4>
+                <div class="project-gallery">
+                    <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/kumaran1.jpeg" alt="Kumaran Nagar Image 1" onclick="openImageLightbox(this.src)">
+                    <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/kumaran3.jpeg" alt="Kumaran Nagar Image 2" onclick="openImageLightbox(this.src)">
+                    <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/kumaran4.jpeg" alt="Kumaran Nagar Image 3" onclick="openImageLightbox(this.src)">
+                </div>
+            </div>
+            
+            <div id="sri-lakshmi-ongoing" class="project-detail">
+                <h3>SRI LAKSHMI NAGAR – Ongoing Development</h3>
+                <p><strong>Location:</strong> Alangudi – Sammattividuthy Road</p>
+                
+                <h4>Project Images:</h4>
+                <div class="project-gallery">
+                    <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/sr1.png" alt="Sri Lakshmi Nagar Image 1" onclick="openImageLightbox(this.src)">
+                    <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/sr2.png" alt="Sri Lakshmi Nagar Image 2" onclick="openImageLightbox(this.src)">
+                    <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/sr3.png" alt="Sri Lakshmi Nagar Image 3" onclick="openImageLightbox(this.src)">
+                    <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/sr4.png" alt="Sri Lakshmi Nagar Image 4" onclick="openImageLightbox(this.src)">
+                    <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/sr5.png" alt="Sri Lakshmi Nagar Image 5" onclick="openImageLightbox(this.src)">
+                </div>
+            </div>
+            
+            <div id="arunachala-ongoing" class="project-detail">
+                <h3>ARUNACHALA NAGAR – Ongoing Development</h3>
+                <p><strong>Location:</strong> PANJAPPUR - THUVAKUDI RING ROAD, Trichy</p>
+                
+                <h4>Project Images:</h4>
+                <div class="project-gallery">
+                    <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/arunachalm1.jpeg" alt="Arunachala Nagar Image 1" onclick="openImageLightbox(this.src)">
+                    <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/arunachalm2.jpeg" alt="Arunachala Nagar Image 2" onclick="openImageLightbox(this.src)">
+                    <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/arunachalm3.jpeg" alt="Arunachala Nagar Image 3" onclick="openImageLightbox(this.src)">
+                </div>
+            </div>
+            
+            <div id="sairam-ongoing" class="project-detail">
+                <h3>SAI RAM GARDEN – Ongoing Construction</h3>
+                <p><strong>Location:</strong> Near Famous Vayalur Murugan Kovil, Trichy</p>
+                
+                <h4>Project Images:</h4>
+                <div class="project-gallery">
+                    <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/sairam%206.jpg" alt="Sai Ram Garden Image 1" onclick="openImageLightbox(this.src)">
+                    <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/sairam1.png" alt="Sai Ram Garden Image 2" onclick="openImageLightbox(this.src)">
+                    <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/sairam2.png" alt="Sai Ram Garden Image 3" onclick="openImageLightbox(this.src)">
+                    <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/side%20view.jpg" alt="Sai Ram Garden Image 4" onclick="openImageLightbox(this.src)">
+                </div>
+            </div>
+            
+            <div id="officers-ongoing" class="project-detail">
+                <h3>OFFICER'S TOWN – Ongoing Development</h3>
+                <p><strong>Location:</strong> Alampattipudur, Trichy–Dindigul Road</p>
+                
+                <h4>Project Images:</h4>
+                <div class="project-gallery">
+                    <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/officers1.png" alt="Officer's Town Image 1" onclick="openImageLightbox(this.src)">
+                    <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/officers3.png" alt="Officer's Town Image 2" onclick="openImageLightbox(this.src)">
+                    <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/officers4.png" alt="Officer's Town Image 3" onclick="openImageLightbox(this.src)">
+                    <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/officers5.png" alt="Officer's Town Image 4" onclick="openImageLightbox(this.src)">
+                    <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/officers6.png" alt="Officer's Town Image 5" onclick="openImageLightbox(this.src)">
+                </div>
             </div>
         </div>
     </section>
-    <section class="why-invest section-padding" id="why-invest">
+    
+    <section class="upcoming-projects section-padding" id="upcoming-projects">
         <div class="container">
-            <h2 class="section-title">Why Invest in Trichy?</h2>
-            <p class="section-subtitle">TIRUCHIRAPPALLI (TRICHY) – THE HEART OF TAMIL NADU'S GROWTH</p>
-            <div class="why-invest-content">
-                <h3>City Profile</h3>
-                <p>Tiruchirappalli, or Trichy, stands at the geographic center of Tamil Nadu — a city where tradition meets transformation. Renowned for its cultural heritage, academic institutions, and industrial strength, Trichy is among the state's fastest-growing urban hubs.</p>
-                <p><strong>Connectivity:</strong> 5 National Highways, busy railway junction, and expanding international airport with direct flights to Chennai, Bengaluru, Singapore, and Malaysia.</p>
-                <p><strong>Education Hub:</strong> Home to NIT Trichy, IIM Trichy, and a cluster of premier colleges.</p>
-                <p><strong>Industrial Power:</strong> Hosts BHEL, Ordnance Factory, and SIPCOT estates, generating jobs and attracting a skilled workforce.</p>
-                <p><strong>Balanced Lifestyle:</strong> Affordable housing compared to Chennai/Coimbatore, yet offering robust civic infrastructure.</p>
-                <h3>WHY INVEST IN TRICHY NOW</h3>
-                <div class="investment-drivers">
-                    <div class="driver-card">
-                        <h4>Strategic Location</h4>
-                        <p>Central position in Tamil Nadu with superb road, rail, and air links.</p>
-                    </div>
-                    <div class="driver-card">
-                        <h4>Economic Strength</h4>
-                        <p>Education, industry, and trade driving stable demand.</p>
-                    </div>
-                    <div class="driver-card">
-                        <h4>Infrastructure Boom</h4>
-                        <p>Projects like the Panjappur–Thuvakudi Ring Road, Integrated Bus Terminus (IBT), new flyovers, and link roads.</p>
-                    </div>
-                    <div class="driver-card">
-                        <h4>Value Appreciation</h4>
-                        <p>Affordable entry prices with strong future upside.</p>
-                    </div>
-                </div>
-                <h3>CORRIDOR-WIDE INVESTMENT DRIVERS</h3>
-                <ul class="project-features-list">
-                    <li><i class="fas fa-train"></i> Transport Nodes: Reduced travel time, multimodal access.</li>
-                    <li><i class="fas fa-hard-hat"></i> Developer Interest: Steady launches, resale activity.</li>
-                    <li><i class="fas fa-industry"></i> Industrial Growth: Job creation drives rental demand.</li>
-                    <li><i class="fas fa-road"></i> Feeder Roads: Panjappur–Kudamurutti link road boosts connectivity.</li>
-                    <li><i class="fas fa-chart-line"></i> Price Gap Play: Premium at Panjappur, lower entry at Mathur/Thuvakudi with strong upside.</li>
+            <h2 class="section-title">Upcoming Projects</h2>
+            <p class="section-subtitle">Exciting new projects coming soon - Stay tuned!</p>
+            
+            <div class="project-detail">
+                <h3>IMAA ACCORD PREMIUM GATED COMMUNITY</h3>
+                <p><strong>Location:</strong> MATHUR ROUNDANA</p>
+                <p>A premium gated community with modern amenities, designed for luxurious living with complete security and convenience.</p>
+                <p><em>Coming Soon - Registrations Opening Shortly</em></p>
+            </div>
+            
+            <div class="project-detail">
+                <h3>ROYAL ESTATE (FARMLAND)</h3>
+                <p><strong>Location:</strong> BHARATHIDASAN UNIVERSITY BACKSIDE</p>
+                <p>Premium farmland with natural surroundings, perfect for agricultural purposes or as a peaceful retreat from city life.</p>
+                <p><em>Coming Soon - Registrations Opening Shortly</em></p>
+            </div>
+            
+            <div class="project-detail">
+                <h3>MUTHAMI GARDEN</h3>
+                <p><strong>Location:</strong> NEAR JJ COLLEGE, DINDIGUL NH</p>
+                <p>A beautifully designed residential garden community with lush green spaces and modern amenities for comfortable living.</p>
+                <p><em>Coming Soon - Registrations Opening Shortly</em></p>
+            </div>
+        </div>
+    </section>
+    
+    <section class="privacy-policy section-padding" id="privacy-policy">
+        <div class="container">
+            <h2 class="section-title">Privacy Policy</h2>
+            <div class="privacy-content">
+                <h3>Information Collection</h3>
+                <p>We collect personal information when you fill out contact forms, register for site visits, or communicate with us. This may include your name, email address, phone number, and property preferences.</p>
+                
+                <h3>Use of Information</h3>
+                <p>Your information is used to:</p>
+                <ul>
+                    <li>Respond to your inquiries and provide information about our projects</li>
+                    <li>Schedule site visits and property demonstrations</li>
+                    <li>Send updates about new projects and offers</li>
+                    <li>Improve our services and customer experience</li>
                 </ul>
+                
+                <h3>Information Protection</h3>
+                <p>We implement appropriate security measures to protect your personal information from unauthorized access, alteration, disclosure, or destruction.</p>
+                
+                <h3>Third-Party Disclosure</h3>
+                <p>We do not sell, trade, or transfer your personally identifiable information to outside parties except trusted partners who assist us in operating our website or servicing you, as long as those parties agree to keep this information confidential.</p>
+                
+                <h3>Contact Information</h3>
+                <p>If you have any questions about this Privacy Policy, please contact us at:</p>
+                <p><strong>Email:</strong> marslandtrichy@gmail.com</p>
+                <p><strong>Phone:</strong> +91 9894980940</p>
+                
+                <p><em>This policy was last updated on March 2024.</em></p>
             </div>
         </div>
     </section>
-    <section class="why-choose section-padding" id="why-choose">
-        <div class="container">
-            <h2 class="section-title">Why Choose IMAA?</h2>
-            <p class="section-subtitle">IMAA Properties Private Limited – Your Trusted Partner in Real Estate</p>
-            <div class="why-invest-content">
-                <p>IMAA Properties Private Limited is a certified and reputed real estate company headquartered in Tiruchirappalli, with a proud track record of delivering quality projects and exceeding client expectations. Over the years, we have built a reputation as one of the most reliable and transparent property developers in the region.</p>
-                <p>With 25+ experienced marketers, our team is driven by passion, professionalism, and a deep understanding of the property market. Every member of our staff is well-versed in digital marketing tools, especially social media platforms and real estate portals, enabling us to connect with customers quickly and effectively.</p>
-                <h3>Our Team Strength</h3>
-                <p>IMAA Properties operates with four specialized teams, each comprising skilled professionals with unique expertise:</p>
-                <div class="team-strength">
-                    <div class="team-card">
-                        <i class="fas fa-users"></i>
-                        <h4>Sales & Marketing Team</h4>
-                        <p>Masters in market trends, customer relations, and closing successful deals.</p>
-                    </div>
-                    <div class="team-card">
-                        <i class="fas fa-digital-tachograph"></i>
-                        <h4>Digital Promotions Team</h4>
-                        <p>Experts in social media marketing, property listing portals, and online brand presence.</p>
-                    </div>
-                    <div class="team-card">
-                        <i class="fas fa-hard-hat"></i>
-                        <h4>Project Execution Team</h4>
-                        <p>Ensures smooth progress from plot development to final delivery.</p>
-                    </div>
-                    <div class="team-card">
-                        <i class="fas fa-headset"></i>
-                        <h4>Customer Support Team</h4>
-                        <p>Dedicated to guiding clients with transparency, legal documentation, and after-sales service.</p>
-                    </div>
-                </div>
-                <p>This strong internal structure allows us to handle every stage of real estate operations with precision, speed, and trust.</p>
-                <h3>Proven Track Record</h3>
-                <p>Our success story speaks for itself — IMAA Properties has successfully completed three major projects, each delivered on time with exceptional quality standards. These projects stand as a testament to our commitment to professionalism, honesty, and customer satisfaction.</p>
-                <h3>Our Edge in the Market</h3>
-                <ul class="project-features-list">
-                    <li><i class="fas fa-certificate"></i> Certified, legally compliant company with clear title properties.</li>
-                    <li><i class="fas fa-bullhorn"></i> Strong digital marketing reach across Facebook, Instagram, YouTube, and property portals.</li>
-                    <li><i class="fas fa-users-cog"></i> Highly skilled and diversified workforce for end-to-end real estate solutions.</li>
-                    <li><i class="fas fa-calendar-check"></i> Proven track record of on-time project completion.</li>
-                    <li><i class="fas fa-user-check"></i> Customer-first approach with long-term relationship building.</li>
-                </ul>
-                <h3>Our Mission</h3>
-                <p>To deliver quality properties that provide maximum value for our clients, backed by transparency, trust, and innovation.</p>
-                <p>At IMAA Properties Private Limited, we don't just sell plots — we build trust, value, and lasting relationships. With our growing presence, strong team, and visionary leadership, we are committed to shaping a brighter and better future in real estate.</p>
-            </div>
-        </div>
-    </section>
-    <section class="projects section-padding" id="projects">
-        <div class="container">
-            <h2 class="section-title">Our Featured Properties</h2>
-            <p class="section-subtitle">Explore our premium residential properties in prime locations across Trichy</p>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-img">
-                        <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Mars Vista Residences">
-                        <div class="project-badge">DTCP Approved</div>
-                    </div>
-                    <div class="project-content">
-                        <h3>Mars Vista Residences</h3>
-                        <div class="project-location">
-                            <i class="fas fa-map-marker-alt"></i> Cantonment, Trichy
-                        </div>
-                        <p>Premium residential layout with wide concrete roads, underground cabling, and all modern amenities. DTCP approved layout with clear titles.</p>
-                        <div class="project-features">
-                            <div class="project-feature">
-                                <div class="project-feature-value">30-40ft</div>
-                                <div class="project-feature-label">Road Width</div>
-                            </div>
-                            <div class="project-feature">
-                                <div class="project-feature-value">100+</div>
-                                <div class="project-feature-label">Plots</div>
-                            </div>
-                            <div class="project-feature">
-                                <div class="project-feature-value">DTCP</div>
-                                <div class="project-feature-label">Approved</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-img">
-                        <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Galaxy Gardens">
-                        <div class="project-badge">Gated Community</div>
-                    </div>
-                    <div class="project-content">
-                        <h3>Galaxy Gardens</h3>
-                        <div class="project-location">
-                            <i class="fas fa-map-marker-alt"></i> KK Nagar, Trichy
-                        </div>
-                        <p>Modern residential community with 24/7 security, landscaped gardens, children's play area, and clubhouse facilities. Ready to build plots.</p>
-                        <div class="project-features">
-                            <div class="project-feature">
-                                <div class="project-feature-value">Gated</div>
-                                <div class="project-feature-label">Community</div>
-                            </div>
-                            <div class="project-feature">
-                                <div class="project-feature-value">24/7</div>
-                                <div class="project-feature-label">Security</div>
-                            </div>
-                            <div class="project-feature">
-                                <div class="project-feature-value">Ready</div>
-                                <div class="project-feature-label">To Build</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-img">
-                        <img src="https://images.unsplash.com/photo-1600585154340-043788447eb1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Cosmic Heights">
-                        <div class="project-badge">Premium Township</div>
-                    </div>
-                    <div class="project-content">
-                        <h3>Cosmic Heights</h3>
-                        <div class="project-location">
-                            <i class="fas fa-map-marker-alt"></i> Woraiyur, Trichy
-                        </div>
-                        <p>Trichy's premium integrated township with luxury villa plots. DTCP & RERA approved. Featuring wide roads, parks, and premium amenities.</p>
-                        <div class="project-features">
-                            <div class="project-feature">
-                                <div class="project-feature-value">22 Acre</div>
-                                <div class="project-feature-label">Township</div>
-                            </div>
-                            <div class="project-feature">
-                                <div class="project-feature-value">Gated</div>
-                                <div class="project-feature-label">Community</div>
-                            </div>
-                            <div class="project-feature">
-                                <div class="project-feature-value">DTCP</div>
-                                <div class="project-feature-label">Approved</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="amenities section-padding" id="amenities">
-        <div class="container">
-            <h2 class="section-title">Premium Amenities</h2>
-            <p class="section-subtitle">Our residential layouts come with comprehensive amenities for modern living</p>
-            <div class="amenities-grid">
-                <div class="amenity-card">
-                    <div class="amenity-icon">
-                        <i class="fas fa-road"></i>
-                    </div>
-                    <h3>Wide Concrete Roads</h3>
-                    <p>30ft & 40ft wide concrete roads with proper storm water drainage</p>
-                </div>
-                <div class="amenity-card">
-                    <div class="amenity-icon">
-                        <i class="fas fa-bolt"></i>
-                    </div>
-                    <h3>Underground Electricity</h3>
-                    <p>Modern underground cabling system with LED street lighting</p>
-                </div>
-                <div class="amenity-card">
-                    <div class="amenity-icon">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
-                    <h3>Gated Security</h3>
-                    <p>Secure gated community with 24/7 security surveillance</p>
-                </div>
-                <div class="amenity-card">
-                    <div class="amenity-icon">
-                        <i class="fas fa-tint"></i>
-                    </div>
-                    <h3>Water Supply</h3>
-                    <p>Individual water tap connection with overhead tank provision</p>
-                </div>
-                <div class="amenity-card">
-                    <div class="amenity-icon">
-                        <i class="fas fa-tree"></i>
-                    </div>
-                    <h3>Green Spaces</h3>
-                    <p>Dedicated parks, tree plantation and walking tracks</p>
-                </div>
-                <div class="amenity-card">
-                    <div class="amenity-icon">
-                        <i class="fas fa-file-contract"></i>
-                    </div>
-                    <h3>Legal Approvals</h3>
-                    <p>DTP approved layout with clear titles and complete documentation</p>
-                </div>
-            </div>
-        </div>
-    </section>
+    
     <section class="contact section-padding" id="contact">
         <div class="container">
             <h2 class="section-title">Contact Us</h2>
@@ -2434,7 +2204,7 @@
                         <i class="fas fa-envelope"></i>
                         <div>
                             <h4>Email Us</h4>
-                            <p>rathinakumar.dop@gmail.com</p>
+                            <p>marslandtrichy@gmail.com</p>
                         </div>
                     </div>
                     <div class="contact-detail">
@@ -2503,17 +2273,18 @@
                         <li><a href="#about"><i class="fas fa-chevron-right"></i> About Us</a></li>
                         <li><a href="#completed-projects"><i class="fas fa-chevron-right"></i> Completed Projects</a></li>
                         <li><a href="#ongoing-projects"><i class="fas fa-chevron-right"></i> Ongoing Projects</a></li>
-                        <li><a href="#amenities"><i class="fas fa-chevron-right"></i> Amenities</a></li>
+                        <li><a href="#upcoming-projects"><i class="fas fa-chevron-right"></i> Upcoming Projects</a></li>
                         <li><a href="#contact"><i class="fas fa-chevron-right"></i> Contact Us</a></li>
+                        <li><a href="#privacy-policy"><i class="fas fa-chevron-right"></i> Privacy Policy</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
                     <h4>Our Projects</h4>
                     <ul class="footer-links">
-                        <li><a href="#projects"><i class="fas fa-chevron-right"></i> Mars Vista Residences</a></li>
-                        <li><a href="#projects"><i class="fas fa-chevron-right"></i> Galaxy Gardens</a></li>
-                        <li><a href="#projects"><i class="fas fa-chevron-right"></i> Cosmic Heights</a></li>
-                        <li><a href="#projects"><i class="fas fa-chevron-right"></i> Orion Commercial Hub</a></li>
+                        <li><a href="#krs-avenue"><i class="fas fa-chevron-right"></i> KRS Avenue</a></li>
+                        <li><a href="#kn-rasi-nagar"><i class="fas fa-chevron-right"></i> KN Rasi Nagar</a></li>
+                        <li><a href="#antony-garden"><i class="fas fa-chevron-right"></i> Antony Garden</a></li>
+                        <li><a href="#kumaran-nagar"><i class="fas fa-chevron-right"></i> Kumaran Nagar</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
@@ -2527,9 +2298,9 @@
                             <i class="fab fa-whatsapp"></i>
                             <span>Chat on WhatsApp</span>
                         </a>
-                        <a href="mailto:rathinakumar.dop@gmail.com">
+                        <a href="mailto:marslandtrichy@gmail.com">
                             <i class="fas fa-envelope"></i>
-                            <span>rathinakumar.dop@gmail.com</span>
+                            <span>marslandtrichy@gmail.com</span>
                         </a>
                         <a href="https://maps.google.com/?q=Marsland+Properties+Trichy,+77B,+near+Head+Post+Office,+Signal,+Cantonment,+Tiruchirappalli,+Tamil+Nadu+620001" target="_blank">
                             <i class="fas fa-map-marker-alt"></i>
@@ -2540,6 +2311,9 @@
             </div>
             <div class="copyright">
                 <p>&copy; 2023 Marsland Properties Trichy. All rights reserved. | Premium Real Estate Developer in Tiruchirappalli</p>
+                <div class="developer-credit">
+                    Website developed by InvoiceFlexi Ltd
+                </div>
             </div>
         </div>
     </footer>
@@ -2624,8 +2398,12 @@
         function closeLightbox() {
             document.getElementById('certificateLightbox').classList.remove('active');
         }
+        function openImageLightbox(imageSrc) {
+            document.getElementById('lightboxImage').src = imageSrc;
+            document.getElementById('certificateLightbox').classList.add('active');
+        }
         document.getElementById('certificateLightbox').addEventListener('click', function(e) {
-            if(e.target === this) {
+            if(e.target === this || e.target.classList.contains('close-lightbox')) {
                 closeLightbox();
             }
         });
