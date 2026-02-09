@@ -178,6 +178,9 @@
         .floating-btn:nth-child(2) {
             animation-delay: 0.5s;
         }
+        .floating-btn:nth-child(3) {
+            animation-delay: 1s;
+        }
         @keyframes float {
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(-8px); }
@@ -191,6 +194,9 @@
         }
         .floating-btn.phone {
             background: linear-gradient(135deg, var(--accent), #007B9E);
+        }
+        .floating-btn.phone2 {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
         }
         .floating-tooltip {
             position: absolute;
@@ -466,7 +472,7 @@
             gap: 15px;
             flex-wrap: wrap;
         }
-        /* Company Certification Section */
+        /* Company Certification Section - UPDATED */
         .certification-section {
             background: var(--light);
             padding: 80px 0;
@@ -488,9 +494,12 @@
         }
         .msme-badge h5 {
             color: var(--primary);
-            font-size: 1.5rem;
+            font-size: 1.1rem;
             margin-bottom: 15px;
-            line-height: 1.2;
+            line-height: 1.3;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            font-weight: 700;
         }
         .msme-badge p {
             font-size: 1rem;
@@ -561,7 +570,7 @@
             transform: scale(1.05);
             box-shadow: var(--shadow-heavy);
         }
-        /* About Us Section */
+        /* About Us Section - UPDATED for quotes */
         .about {
             background: var(--light);
             position: relative;
@@ -661,11 +670,35 @@
             line-height: 1.6;
         }
         .founder-quote {
-            font-style: italic;
-            color: var(--secondary);
             margin-top: 15px;
-            padding-left: 15px;
-            border-left: 3px solid var(--secondary);
+        }
+        .founder-quote p {
+            margin-bottom: 10px;
+            font-style: italic;
+            position: relative;
+            padding-left: 20px;
+        }
+        .founder-quote p::before {
+            content: '"';
+            position: absolute;
+            left: 0;
+            top: -5px;
+            font-size: 1.5rem;
+            color: var(--secondary);
+        }
+        .founder-quote .quote-author {
+            text-align: right;
+            font-weight: 600;
+            color: var(--primary);
+            font-style: normal;
+            border-top: 1px solid var(--gray-light);
+            padding-top: 10px;
+            margin-top: 10px;
+        }
+        .founder-quote .quote-author.no-border {
+            border-top: none;
+            padding-top: 0;
+            margin-top: 0;
         }
         .about-image {
             position: relative;
@@ -1095,6 +1128,55 @@
             height: 300px;
             box-shadow: var(--shadow);
         }
+        /* Video Container */
+        .video-container {
+            margin-top: 25px;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        .video-title {
+            text-align: center;
+            margin-bottom: 15px;
+            font-weight: 600;
+            color: var(--primary);
+        }
+        /* Hero Address */
+        .hero-address {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 20px;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.95rem;
+        }
+        .hero-address i {
+            color: var(--secondary);
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+        .hero-address a {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--secondary);
+            transition: var(--transition);
+        }
+        .hero-address a:hover {
+            color: white;
+            text-decoration: underline;
+        }
         /* Privacy Policy Section */
         .privacy-policy {
             background: var(--light);
@@ -1462,6 +1544,9 @@
             .hero {
                 background-attachment: scroll;
             }
+            .hero-address {
+                justify-content: center;
+            }
         }
         @media (max-width: 768px) {
             .mobile-toggle {
@@ -1563,7 +1648,14 @@
                 height: 200px;
             }
             .msme-badge h5 {
-                font-size: 1.3rem;
+                font-size: 1rem;
+            }
+            .founder-quote .quote-author {
+                font-size: 0.9rem;
+                word-break: keep-all;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
             }
         }
         @media (max-width: 576px) {
@@ -1614,13 +1706,24 @@
                 padding: 25px 20px;
             }
             .msme-badge h5 {
-                font-size: 1.2rem;
+                font-size: 0.95rem;
+                line-height: 1.3;
             }
             .project-gallery {
                 grid-template-columns: repeat(2, 1fr);
             }
             .project-location-map {
                 height: 180px;
+            }
+            .hero-address {
+                font-size: 0.85rem;
+                text-align: center;
+                flex-direction: column;
+                gap: 5px;
+            }
+            .founder-quote p {
+                font-size: 0.9rem;
+                padding-left: 15px;
             }
         }
     </style>
@@ -1638,6 +1741,10 @@
         <a href="tel:+919894980940" class="floating-btn phone">
             <i class="fas fa-phone-alt"></i>
             <span class="floating-tooltip">Call +91 9894980940</span>
+        </a>
+        <a href="tel:+918903087707" class="floating-btn phone2">
+            <i class="fas fa-phone-alt"></i>
+            <span class="floating-tooltip">Call +91 89030 87707</span>
         </a>
     </div>
     <header id="header">
@@ -1688,6 +1795,16 @@
             <div class="hero-content">
                 <h1>Premium Residential <span>Properties</span> in Trichy</h1>
                 <p>Marsland Properties - Creating exceptional living spaces with unmatched quality, transparency, and celestial inspiration. From initial planning to final handover, we ensure every project meets the highest standards.</p>
+                
+                <div class="hero-address">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Office Address: 77B, near Head Post Office, Signal, Cantonment, Tiruchirappalli, Tamil Nadu 620001</span>
+                    <a href="https://maps.google.com/?q=Marsland+Properties+Trichy,+77B,+near+Head+Post+Office,+Signal,+Cantonment,+Tiruchirappalli,+Tamil+Nadu+620001" target="_blank">
+                        <i class="fas fa-external-link-alt"></i>
+                        Open in Maps
+                    </a>
+                </div>
+                
                 <div class="hero-btns">
                     <a href="#completed-projects" class="btn">View Our Projects <i class="fas fa-arrow-right"></i></a>
                     <a href="#contact" class="btn btn-secondary">Contact Us <i class="fas fa-phone-alt"></i></a>
@@ -1751,9 +1868,12 @@
                                 <p class="founder-name">Ra. Rathinakumar</p>
                                 <p>The Founder & Managing Director of Marsland Properties brings in-depth knowledge and hands-on experience in real estate. Their vision, market insights, and commitment to ethical business practices inspire our entire workforce to aim higher and perform better in every project we undertake.</p>
                                 <div class="founder-quote">
-                                    <p>"Entrust Your Dreams With Us." - Ra. Rathinakumar</p>
-                                    <p>"Home is the Symbol of life..."</p>
-                                    <p>"The best investment on Earth is Earth." — Louis Glickman</p>
+                                    <p>Entrust Your Dreams With Us</p>
+                                    <p>Home is the Symbol of life...</p>
+                                    <div class="quote-author">— Ra. Rathinakumar</div>
+                                    
+                                    <p>The best investment on Earth is Earth.</p>
+                                    <div class="quote-author">— Louis Glickman</div>
                                 </div>
                             </div>
                         </div>
@@ -1789,6 +1909,15 @@
                     <p>The layout is surrounded by reputed colleges, schools, and educational institutions, making it an ideal choice for families. Its prime positioning offers a perfect balance between a peaceful living environment and urban accessibility.</p>
                     <p>The area is poised for rapid appreciation, making it an excellent investment opportunity. Wide roads, planned plots, and a well-structured layout ensure a modern and organized community.</p>
                     
+                    <h4>Amenities</h4>
+                    <ul class="project-features-list">
+                        <li><i class="fas fa-shield-alt"></i> Gated Community</li>
+                        <li><i class="fas fa-file-contract"></i> DTCP & RERA Approved</li>
+                        <li><i class="fas fa-bolt"></i> EB Facility</li>
+                        <li><i class="fas fa-tint"></i> Ground water</li>
+                        <li><i class="fas fa-road"></i> 25 ft Thar road</li>
+                    </ul>
+                    
                     <h4>Project Images:</h4>
                     <div class="project-gallery">
                         <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/krs2.jpeg" alt="KRS Avenue Image 1" onclick="openImageLightbox(this.src)">
@@ -1817,6 +1946,11 @@
                     </ul>
                     <p><strong>Special Note:</strong> Already 10 houses have been built within the layout, making it a vibrant and secure neighborhood.</p>
                     <p><em>Smart location, secure investment, bright future.</em></p>
+                    
+                    <div class="video-title">Watch Video Tour</div>
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/87v4R1EJ8Fs?si=oTxRalvTW1CzkcX9" title="KN RASI NAGAR MANNACHANALLUR" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
                     
                     <h4>Project Images:</h4>
                     <div class="project-gallery">
@@ -1862,9 +1996,7 @@
                     <h4>Location Advantage</h4>
                     <ul class="project-features-list">
                         <li><i class="fas fa-road"></i> Prime On-Road Property – Located right on Semattividuthy Four Road</li>
-                        <li><i class="fas fa-building"></i> Developed & marketed by IMAA Property Pvt. Ltd.– Pudukkottai Branch</li>
-                        <li><i class="fas fa-map-marker-alt"></i> Branch office successfully operating within Sri Lakshmi Nagar</li>
-                        <li><i class="fas fa-link"></i> Well-connected to town, schools, markets, and transport</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Well-connected to town, schools, markets, and transport</li>
                     </ul>
                     <h4>Project Highlights</h4>
                     <ul class="project-features-list">
@@ -1926,113 +2058,141 @@
             <h2 class="section-title">Ongoing Projects</h2>
             <p class="section-subtitle">Currently under development - Book your plot now!</p>
             
-            <div id="antony-garden" class="project-detail">
-                <h3>ANTONY GARDEN – Premium DTCP & RERA Approved Plots</h3>
-                <p><strong>Location:</strong> Manikandam, Trichy</p>
-                <ul class="project-features-list">
-                    <li><i class="fas fa-road"></i> Just 7 kms from IBT & Panjappur, Trichy</li>
-                    <li><i class="fas fa-highway"></i> Only 800 metres from NH – Easy registration access</li>
-                    <li><i class="fas fa-hospital"></i> Near Harshaamithra Hospital</li>
-                    <li><i class="fas fa-map-marker-alt"></i> KK Nagar, Trichy Registration Office</li>
-                    <li><i class="fas fa-university"></i> Surrounded by top institutions</li>
-                </ul>
-                <h4>Amenities</h4>
-                <ul class="project-features-list">
-                    <li><i class="fas fa-shield-alt"></i> Gated Community</li>
-                    <li><i class="fas fa-bus"></i> 24×7 Bus Facility</li>
-                    <li><i class="fas fa-road"></i> 23Ft, 30Ft Thar Road</li>
-                    <li><i class="fas fa-camera"></i> Surveillance Cameras</li>
-                    <li><i class="fas fa-bolt"></i> EB Facility</li>
-                    <li><i class="fas fa-tint"></i> Delicious Drinking Water</li>
-                    <li><i class="fas fa-file-contract"></i> 100% Clear Title</li>
-                </ul>
-                
-                <div class="project-location-map">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3918.722416696786!2d78.7000191!3d10.819317999999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTDCsDQ5JzA5LjUiTiA3OMKwNDInMDAuMSJF!5e0!3m2!1sen!2sin!4v1710000000000!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                </div>
-                
-                <h4>Project Images:</h4>
-                <div class="project-gallery">
-                    <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/antony1.png" alt="Antony Garden Image 1" onclick="openImageLightbox(this.src)">
-                    <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/anotny3.jpeg" alt="Antony Garden Image 2" onclick="openImageLightbox(this.src)">
-                    <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/antony2.jpeg" alt="Antony Garden Image 3" onclick="openImageLightbox(this.src)">
-                    <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/antony4.png" alt="Antony Garden Image 4" onclick="openImageLightbox(this.src)">
-                    <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/antonynew.png" alt="Antony Garden Image 5" onclick="openImageLightbox(this.src)">
+            <div class="projects-tabs">
+                <button class="tab-btn active" onclick="scrollToOngoingProject('antony-garden')">ANTONY GARDEN</button>
+                <button class="tab-btn" onclick="scrollToOngoingProject('kumaran-nagar')">KUMARAN NAGAR</button>
+                <button class="tab-btn" onclick="scrollToOngoingProject('arunachala-ongoing')">ARUNACHALA NAGAR</button>
+                <button class="tab-btn" onclick="scrollToOngoingProject('sairam-ongoing')">SAI RAM GARDEN</button>
+                <button class="tab-btn" onclick="scrollToOngoingProject('officers-ongoing')">OFFICER'S TOWN</button>
+            </div>
+            
+            <div id="antony-garden" class="project-tab-content">
+                <div class="project-detail">
+                    <h3>ANTONY GARDEN – Premium DTCP & RERA Approved Plots</h3>
+                    <p><strong>Location:</strong> Manikandam, Trichy</p>
+                    <ul class="project-features-list">
+                        <li><i class="fas fa-road"></i> Just 7 kms from IBT & Panjappur, Trichy</li>
+                        <li><i class="fas fa-highway"></i> Only 800 metres from NH – Easy registration access</li>
+                        <li><i class="fas fa-hospital"></i> Near Harshaamithra Hospital</li>
+                        <li><i class="fas fa-map-marker-alt"></i> KK Nagar, Trichy Registration Office</li>
+                        <li><i class="fas fa-university"></i> Surrounded by top institutions</li>
+                    </ul>
+                    <h4>Amenities</h4>
+                    <ul class="project-features-list">
+                        <li><i class="fas fa-shield-alt"></i> Gated Community</li>
+                        <li><i class="fas fa-bus"></i> 24×7 Bus Facility</li>
+                        <li><i class="fas fa-road"></i> 23Ft, 30Ft Thar Road</li>
+                        <li><i class="fas fa-camera"></i> Surveillance Cameras</li>
+                        <li><i class="fas fa-bolt"></i> EB Facility</li>
+                        <li><i class="fas fa-tint"></i> Delicious Drinking Water</li>
+                        <li><i class="fas fa-file-contract"></i> 100% Clear Title</li>
+                    </ul>
+                    
+                    <div class="video-title">Watch Video Tour</div>
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/pFaJna8rT-U?si=pYFSKxGzql0nE78F" title="Antony Garden Youtube Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                    
+                    <div class="project-location-map">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3918.722416696786!2d78.7000191!3d10.819317999999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTDCsDQ5JzA5LjUiTiA3OMKwNDInMDAuMSJF!5e0!3m2!1sen!2sin!4v1710000000000!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                    
+                    <h4>Project Images:</h4>
+                    <div class="project-gallery">
+                        <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/antony1.png" alt="Antony Garden Image 1" onclick="openImageLightbox(this.src)">
+                        <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/anotny3.jpeg" alt="Antony Garden Image 2" onclick="openImageLightbox(this.src)">
+                        <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/antony2.jpeg" alt="Antony Garden Image 3" onclick="openImageLightbox(this.src)">
+                        <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/antony4.png" alt="Antony Garden Image 4" onclick="openImageLightbox(this.src)">
+                        <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/antonynew.png" alt="Antony Garden Image 5" onclick="openImageLightbox(this.src)">
+                    </div>
                 </div>
             </div>
             
-            <div id="kumaran-nagar" class="project-detail">
-                <h3>KUMARAN NAGAR – DTCP & RERA Approved Plots</h3>
-                <p><strong>Location:</strong> Pudukkottai NH, Near Bharani Bhavan, Trichy</p>
-                <p><strong>"Three Universities… One Smart Investment!"</strong></p>
-                <p>Premium Gated Community residential plots located on the Trichy – Pudukkottai NH Road, near IIM Trichy, Anna University (BIT Campus), and Bharathidasan University</p>
-                
-                <div class="project-location-map">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3918.732416696786!2d78.7100191!3d10.818317999999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTDCsDQ5JzA5LjUiTiA3OMKwNDInMDAuMSJF!5e0!3m2!1sen!2sin!4v1710000000000!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                </div>
-                
-                <h4>Project Images:</h4>
-                <div class="project-gallery">
-                    <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/kumaran1.jpeg" alt="Kumaran Nagar Image 1" onclick="openImageLightbox(this.src)">
-                    <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/kumaran3.jpeg" alt="Kumaran Nagar Image 2" onclick="openImageLightbox(this.src)">
-                    <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/kumaran4.jpeg" alt="Kumaran Nagar Image 3" onclick="openImageLightbox(this.src)">
-                    <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/kumarn2.jpeg" alt="Kumaran Nagar Image 4" onclick="openImageLightbox(this.src)">
-                </div>
-            </div>
-            
-            <div id="arunachala-ongoing" class="project-detail">
-                <h3>ARUNACHALA NAGAR – DTCP & RERA Approved Plots</h3>
-                <p><strong>Location:</strong> Panjappur - Thuvakudi Ring Road, Trichy</p>
-                
-                <div class="project-location-map">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3918.742416696786!2d78.7200191!3d10.817317999999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTDCsDQ5JzA5LjUiTiA3OMKwNDInMDAuMSJF!5e0!3m2!1sen!2sin!4v1710000000000!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                </div>
-                
-                <h4>Project Images:</h4>
-                <div class="project-gallery">
-                    <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/arunachalm1.jpeg" alt="Arunachala Nagar Image 1" onclick="openImageLightbox(this.src)">
-                    <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/arunachalm2.jpeg" alt="Arunachala Nagar Image 2" onclick="openImageLightbox(this.src)">
-                    <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/arunachalm3.jpeg" alt="Arunachala Nagar Image 3" onclick="openImageLightbox(this.src)">
-                    <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/arunachalm4.jpeg" alt="Arunachala Nagar Image 4" onclick="openImageLightbox(this.src)">
+            <div id="kumaran-nagar" class="project-tab-content">
+                <div class="project-detail">
+                    <h3>KUMARAN NAGAR – DTCP & RERA Approved Plots</h3>
+                    <p><strong>Location:</strong> Pudukkottai NH, Near Bharani Bhavan, Trichy</p>
+                    <p><strong>"Three Universities… One Smart Investment!"</strong></p>
+                    <p>Premium Gated Community residential plots located on the Trichy – Pudukkottai NH Road, near IIM Trichy, Anna University (BIT Campus), and Bharathidasan University</p>
+                    
+                    <div class="project-location-map">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3918.732416696786!2d78.7100191!3d10.818317999999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTDCsDQ5JzA5LjUiTiA3OMKwNDInMDAuMSJF!5e0!3m2!1sen!2sin!4v1710000000000!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                    
+                    <h4>Project Images:</h4>
+                    <div class="project-gallery">
+                        <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/kumaran1.jpeg" alt="Kumaran Nagar Image 1" onclick="openImageLightbox(this.src)">
+                        <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/kumaran3.jpeg" alt="Kumaran Nagar Image 2" onclick="openImageLightbox(this.src)">
+                        <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/kumaran4.jpeg" alt="Kumaran Nagar Image 3" onclick="openImageLightbox(this.src)">
+                        <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/kumarn2.jpeg" alt="Kumaran Nagar Image 4" onclick="openImageLightbox(this.src)">
+                    </div>
                 </div>
             </div>
             
-            <div id="sairam-ongoing" class="project-detail">
-                <h3>SAI RAM GARDEN – 2BHK & 3BHK Apartments (Ready to Move)</h3>
-                <p><strong>Location:</strong> Near Famous Vayalur Murugan Kovil, Trichy</p>
-                
-                <div class="project-location-map">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3918.752416696786!2d78.7300191!3d10.816317999999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTDCsDQ5JzA5LjUiTiA3OMKwNDInMDAuMSJF!5e0!3m2!1sen!2sin!4v1710000000000!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                </div>
-                
-                <h4>Project Images:</h4>
-                <div class="project-gallery">
-                    <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/sairamnew1.jpg" alt="Sai Ram Garden Image 1" onclick="openImageLightbox(this.src)">
-                    <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/sairamnew2.png" alt="Sai Ram Garden Image 2" onclick="openImageLightbox(this.src)">
-                    <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/sairamnew3.png" alt="Sai Ram Garden Image 3" onclick="openImageLightbox(this.src)">
-                    <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/sairamnew4.png" alt="Sai Ram Garden Image 4" onclick="openImageLightbox(this.src)">
-                    <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/sairamnew5.jpg" alt="Sai Ram Garden Image 5" onclick="openImageLightbox(this.src)">
-                    <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/sairamnew6.jpg" alt="Sai Ram Garden Image 6" onclick="openImageLightbox(this.src)">
-                    <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/sairamnew7.jpg" alt="Sai Ram Garden Image 7" onclick="openImageLightbox(this.src)">
-                    <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/sairamnew8.png" alt="Sai Ram Garden Image 8" onclick="openImageLightbox(this.src)">
+            <div id="arunachala-ongoing" class="project-tab-content">
+                <div class="project-detail">
+                    <h3>ARUNACHALA NAGAR – DTCP & RERA Approved Plots</h3>
+                    <p><strong>Location:</strong> Panjappur - Thuvakudi Ring Road, Trichy</p>
+                    
+                    <div class="project-location-map">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3918.742416696786!2d78.7200191!3d10.817317999999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTDCsDQ5JzA5LjUiTiA3OMKwNDInMDAuMSJF!5e0!3m2!1sen!2sin!4v1710000000000!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                    
+                    <h4>Project Images:</h4>
+                    <div class="project-gallery">
+                        <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/arunachalm1.jpeg" alt="Arunachala Nagar Image 1" onclick="openImageLightbox(this.src)">
+                        <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/arunachalm2.jpeg" alt="Arunachala Nagar Image 2" onclick="openImageLightbox(this.src)">
+                        <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/arunachalm3.jpeg" alt="Arunachala Nagar Image 3" onclick="openImageLightbox(this.src)">
+                        <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/arunachalm4.jpeg" alt="Arunachala Nagar Image 4" onclick="openImageLightbox(this.src)">
+                    </div>
                 </div>
             </div>
             
-            <div id="officers-ongoing" class="project-detail">
-                <h3>OFFICER'S TOWN – DTCP & RERA Approved Plots</h3>
-                <p><strong>Location:</strong> Alampattipudur, Trichy–Dindigul NH Road</p>
-                
-                <div class="project-location-map">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3918.762416696786!2d78.7400191!3d10.815317999999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTDCsDQ5JzA5LjUiTiA3OMKwNDInMDAuMSJF!5e0!3m2!1sen!2sin!4v1710000000000!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <div id="sairam-ongoing" class="project-tab-content">
+                <div class="project-detail">
+                    <h3>SAI RAM GARDEN – 2BHK & 3BHK Apartments (Ready to Move)</h3>
+                    <p><strong>Location:</strong> Near Famous Vayalur Murugan Kovil, Trichy</p>
+                    
+                    <div class="video-title">Watch Video Tour</div>
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/fcBUxN2G5fc?si=K8FfQh2hYH56o4Bq" title="Sairam Garden Apartment" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                    
+                    <div class="project-location-map">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3918.752416696786!2d78.7300191!3d10.816317999999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTDCsDQ5JzA5LjUiTiA3OMKwNDInMDAuMSJF!5e0!3m2!1sen!2sin!4v1710000000000!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                    
+                    <h4>Project Images:</h4>
+                    <div class="project-gallery">
+                        <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/sairamnew1.jpg" alt="Sai Ram Garden Image 1" onclick="openImageLightbox(this.src)">
+                        <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/sairamnew2.png" alt="Sai Ram Garden Image 2" onclick="openImageLightbox(this.src)">
+                        <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/sairamnew3.png" alt="Sai Ram Garden Image 3" onclick="openImageLightbox(this.src)">
+                        <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/sairamnew4.png" alt="Sai Ram Garden Image 4" onclick="openImageLightbox(this.src)">
+                        <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/sairamnew5.jpg" alt="Sai Ram Garden Image 5" onclick="openImageLightbox(this.src)">
+                        <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/sairamnew6.jpg" alt="Sai Ram Garden Image 6" onclick="openImageLightbox(this.src)">
+                        <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/sairamnew7.jpg" alt="Sai Ram Garden Image 7" onclick="openImageLightbox(this.src)">
+                        <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/sairamnew8.png" alt="Sai Ram Garden Image 8" onclick="openImageLightbox(this.src)">
+                    </div>
                 </div>
-                
-                <h4>Project Images:</h4>
-                <div class="project-gallery">
-                    <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/officers1.png" alt="Officer's Town Image 1" onclick="openImageLightbox(this.src)">
-                    <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/officers3.png" alt="Officer's Town Image 2" onclick="openImageLightbox(this.src)">
-                    <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/officers4.png" alt="Officer's Town Image 3" onclick="openImageLightbox(this.src)">
-                    <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/officers5.png" alt="Officer's Town Image 4" onclick="openImageLightbox(this.src)">
-                    <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/officers6.png" alt="Officer's Town Image 5" onclick="openImageLightbox(this.src)">
+            </div>
+            
+            <div id="officers-ongoing" class="project-tab-content">
+                <div class="project-detail">
+                    <h3>OFFICER'S TOWN – DTCP & RERA Approved Plots</h3>
+                    <p><strong>Location:</strong> Alampattipudur, Trichy–Dindigul NH Road</p>
+                    
+                    <div class="project-location-map">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3918.762416696786!2d78.7400191!3d10.815317999999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTDCsDQ5JzA5LjUiTiA3OMKwNDInMDAuMSJF!5e0!3m2!1sen!2sin!4v1710000000000!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                    
+                    <h4>Project Images:</h4>
+                    <div class="project-gallery">
+                        <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/officers1.png" alt="Officer's Town Image 1" onclick="openImageLightbox(this.src)">
+                        <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/officers3.png" alt="Officer's Town Image 2" onclick="openImageLightbox(this.src)">
+                        <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/officers4.png" alt="Officer's Town Image 3" onclick="openImageLightbox(this.src)">
+                        <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/officers5.png" alt="Officer's Town Image 4" onclick="openImageLightbox(this.src)">
+                        <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/officers6.png" alt="Officer's Town Image 5" onclick="openImageLightbox(this.src)">
+                    </div>
                 </div>
             </div>
         </div>
@@ -2203,7 +2363,7 @@
                 <h3>Contact Information</h3>
                 <p>If you have any questions about this Privacy Policy, please contact us at:</p>
                 <p><strong>Email:</strong> marslandtrichy@gmail.com</p>
-                <p><strong>Phone:</strong> +91 9894980940</p>
+                <p><strong>Phone:</strong> +91 9894980940, +91 89030 87707</p>
                 
                 <p><em>This policy was last updated on March 2024.</em></p>
             </div>
@@ -2228,7 +2388,7 @@
                         <i class="fas fa-phone-alt"></i>
                         <div>
                             <h4>Call Us Directly</h4>
-                            <p>+91 9894980940</p>
+                            <p>+91 9894980940<br>+91 89030 87707</p>
                         </div>
                     </div>
                     <div class="contact-detail">
@@ -2292,7 +2452,7 @@
                     <p>Premium real estate developers in Trichy creating exceptional living spaces with quality, transparency, and celestial inspiration.</p>
                     <div class="social-icons">
                         <a href="https://www.facebook.com/webseedlands/" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                        <a href="https://www.instagram.com/marslandproperties/?fbclid=IwY2xjawPztYxleHRuA2FlbQIxMQBicmlkETFNVVF0R3hUZkZ4anozWTV6c3J0YwZhcHBfaWQBMAABHtkfW536NhZVunOm5I1nGLre8OjDiWj7vBQa5u13zkbp3_j97Xlm_ceFWPL1_aem_K6aBetSJ-BWiQ0FaqMLy7Q" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.instagram.com/marslandproperties/?fbclid=IwY2xjawPztYxleHRuA2FlbQIxMQBicmlkETFNVVF0R3hUZkZ4anozWTV6c3J0YwZhcPBfaWQBMAABHtkfW536NhZVunOm5I1nGLre8OjDiWj7vBQa5u13zkbp3_j97Xlm_ceFWPL1_aem_K6aBetSJ-BWiQ0FaqMLy7Q" target="_blank"><i class="fab fa-instagram"></i></a>
                         <a href="https://www.linkedin.com/in/rethinakumar-rajarethinam-5317453ab/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
                         <a href="https://marslandpropertiestrichy.quora.com/" target="_blank"><i class="fab fa-quora"></i></a>
                         <a href="https://www.pinterest.com/marslandtrichy/" target="_blank"><i class="fab fa-pinterest-p"></i></a>
@@ -2327,6 +2487,10 @@
                         <a href="tel:+919894980940">
                             <i class="fas fa-phone-alt"></i>
                             <span>+91 9894980940</span>
+                        </a>
+                        <a href="tel:+918903087707">
+                            <i class="fas fa-phone-alt"></i>
+                            <span>+91 89030 87707</span>
                         </a>
                         <a href="https://wa.me/919894980940" target="_blank">
                             <i class="fab fa-whatsapp"></i>
@@ -2421,11 +2585,26 @@
                     behavior: 'smooth'
                 });
             }
-            document.querySelectorAll('.tab-btn').forEach(btn => {
+            document.querySelectorAll('.projects-tabs .tab-btn').forEach(btn => {
                 btn.classList.remove('active');
             });
             event.currentTarget.classList.add('active');
         }
+        
+        function scrollToOngoingProject(projectId) {
+            const projectElement = document.getElementById(projectId);
+            if (projectElement) {
+                window.scrollTo({
+                    top: projectElement.offsetTop - 100,
+                    behavior: 'smooth'
+                });
+            }
+            document.querySelectorAll('#ongoing-projects .projects-tabs .tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.currentTarget.classList.add('active');
+        }
+        
         function openLightbox() {
             document.getElementById('certificateLightbox').classList.add('active');
         }
