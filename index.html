@@ -195,8 +195,8 @@
         .floating-btn.phone {
             background: linear-gradient(135deg, var(--accent), #007B9E);
         }
-        .floating-btn.phone2 {
-            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+        .floating-btn.map {
+            background: linear-gradient(135deg, #34A853, #0F9D58);
         }
         .floating-tooltip {
             position: absolute;
@@ -410,13 +410,6 @@
             min-height: 90vh;
             display: flex;
             align-items: center;
-        }
-        /* FIX FOR DESKTOP BACKGROUND IMAGE */
-        @media (min-width: 769px) {
-            .hero {
-                background-size: cover;
-                background-position: center 30%;
-            }
         }
         .hero::before {
             content: '';
@@ -1186,7 +1179,7 @@
             font-weight: 600;
             color: var(--primary);
         }
-        /* Hero Address */
+        /* Hero Address - REMOVED */
         .hero-address {
             display: flex;
             align-items: center;
@@ -1578,9 +1571,6 @@
             .hero {
                 background-attachment: scroll;
             }
-            .hero-address {
-                justify-content: center;
-            }
         }
         @media (max-width: 768px) {
             .mobile-toggle {
@@ -1746,12 +1736,6 @@
             .project-location-map {
                 height: 180px;
             }
-            .hero-address {
-                font-size: 0.85rem;
-                text-align: center;
-                flex-direction: column;
-                gap: 5px;
-            }
             .quote-card {
                 padding: 20px 15px;
             }
@@ -1776,9 +1760,9 @@
             <i class="fas fa-phone-alt"></i>
             <span class="floating-tooltip">Call +91 9894980940</span>
         </a>
-        <a href="tel:+918903087707" class="floating-btn phone2">
-            <i class="fas fa-phone-alt"></i>
-            <span class="floating-tooltip">Call +91 89030 87707</span>
+        <a href="https://maps.google.com/?q=77B,+near+Head+Post+Office,+Signal,+Cantonment,+Tiruchirappalli,+Tamil+Nadu+620001" target="_blank" class="floating-btn map">
+            <i class="fas fa-map-marker-alt"></i>
+            <span class="floating-tooltip">Open in Google Maps</span>
         </a>
     </div>
     <header id="header">
@@ -1789,7 +1773,7 @@
                 </div>
                 <div class="logo-text">
                     <h1>MARSLAND PROPERTIES</h1>
-                    <span>Entrust your dreams with us</span>
+                    <span>'Entrust your dreams with us</span>
                 </div>
             </div>
             <nav>
@@ -1829,15 +1813,6 @@
             <div class="hero-content">
                 <h1>Premium Residential <span>Properties</span> in Trichy</h1>
                 <p>Marsland Properties - Creating exceptional living spaces with unmatched quality, transparency, and celestial inspiration. From initial planning to final handover, we ensure every project meets the highest standards.</p>
-                
-                <div class="hero-address">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <span>Office Address: 77B, near Head Post Office, Signal, Cantonment, Tiruchirappalli, Tamil Nadu 620001</span>
-                    <a href="https://maps.google.com/?q=Marsland+Properties+Trichy,+77B,+near+Head+Post+Office,+Signal,+Cantonment,+Tiruchirappalli,+Tamil+Nadu+620001" target="_blank">
-                        <i class="fas fa-external-link-alt"></i>
-                        Open in Maps
-                    </a>
-                </div>
                 
                 <div class="hero-btns">
                     <a href="#completed-projects" class="btn">View Our Projects <i class="fas fa-arrow-right"></i></a>
@@ -1959,12 +1934,14 @@
                     
                     <h4>Project Images:</h4>
                     <div class="project-gallery">
-                        <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/krs2.jpeg" alt="KRS Avenue Image 1" onclick="openImageLightbox(this.src)">
-                        <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/krs1.jpeg" alt="KRS Avenue Image 2" onclick="openImageLightbox(this.src)">
-                        <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/krs3.jpeg" alt="KRS Avenue Image 3" onclick="openImageLightbox(this.src)">
-                        <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/krs4.jpeg" alt="KRS Avenue Image 4" onclick="openImageLightbox(this.src)">
-                        <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/krs5.jpeg" alt="KRS Avenue Image 5" onclick="openImageLightbox(this.src)">
-                        <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/krs6.jpeg" alt="KRS Avenue Image 6" onclick="openImageLightbox(this.src)">
+                        <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/krnew1.png" alt="KRS Avenue Image 1" onclick="openImageLightbox(this.src)">
+                        <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/krnew2.jpeg" alt="KRS Avenue Image 2" onclick="openImageLightbox(this.src)">
+                        <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/krnew3.jpeg" alt="KRS Avenue Image 3" onclick="openImageLightbox(this.src)">
+                        <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/krnew4.jpeg" alt="KRS Avenue Image 4" onclick="openImageLightbox(this.src)">
+                        <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/krnew5.jpeg" alt="KRS Avenue Image 5" onclick="openImageLightbox(this.src)">
+                        <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/krnew6.jpeg" alt="KRS Avenue Image 6" onclick="openImageLightbox(this.src)">
+                        <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/krnew7.jpeg" alt="KRS Avenue Image 7" onclick="openImageLightbox(this.src)">
+                        <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/krnew8.jpeg" alt="KRS Avenue Image 8" onclick="openImageLightbox(this.src)">
                     </div>
                 </div>
             </div>
@@ -2138,11 +2115,11 @@
                     
                     <h4>Project Images:</h4>
                     <div class="project-gallery">
-                        <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/antony1.png" alt="Antony Garden Image 1" onclick="openImageLightbox(this.src)">
-                        <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/anotny3.jpeg" alt="Antony Garden Image 2" onclick="openImageLightbox(this.src)">
-                        <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/antony2.jpeg" alt="Antony Garden Image 3" onclick="openImageLightbox(this.src)">
-                        <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/antony4.png" alt="Antony Garden Image 4" onclick="openImageLightbox(this.src)">
-                        <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/antonynew.png" alt="Antony Garden Image 5" onclick="openImageLightbox(this.src)">
+                        <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/ant1.png" alt="Antony Garden Image 1" onclick="openImageLightbox(this.src)">
+                        <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/ant2.png" alt="Antony Garden Image 2" onclick="openImageLightbox(this.src)">
+                        <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/ant3.png" alt="Antony Garden Image 3" onclick="openImageLightbox(this.src)">
+                        <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/ant4.png" alt="Antony Garden Image 4" onclick="openImageLightbox(this.src)">
+                        <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/ant5.png" alt="Antony Garden Image 5" onclick="openImageLightbox(this.src)">
                     </div>
                 </div>
             </div>
@@ -2492,7 +2469,7 @@
                     <p>Premium real estate developers in Trichy creating exceptional living spaces with quality, transparency, and celestial inspiration.</p>
                     <div class="social-icons">
                         <a href="https://www.facebook.com/webseedlands/" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                        <a href="https://www.instagram.com/marslandproperties/?fbclid=IwY2xjawPztYxleHRuA2FlbQIxMQBicmlkETFNVVF0R3hUZkZ4anozWTV6c3J0YwZhcPBfaWQBMAABHtkfW536NhZVunOm5I1nGLre8OjDiWj7vBQa5u13zkbp3_j97Xlm_ceFWPL1_aem_K6aBetSJ-BWiQ0FaqMLy7Q" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.instagram.com/marslandproperties/?fbclid=IwY2xjawPztYxleHRuA2FlbQIxMQBicmlkETFNVVF0R3hUZkZ4anozWTV6c3J0YwZycPBfaWQBMAABHtkfW536NhZVunOm5I1nGLre8OjDiWj7vBQa5u13zkbp3_j97Xlm_ceFWPL1_aem_K6aBetSJ-BWiQ0FaqMLy7Q" target="_blank"><i class="fab fa-instagram"></i></a>
                         <a href="https://www.linkedin.com/in/rethinakumar-rajarethinam-5317453ab/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
                         <a href="https://marslandpropertiestrichy.quora.com/" target="_blank"><i class="fab fa-quora"></i></a>
                         <a href="https://www.pinterest.com/marslandtrichy/" target="_blank"><i class="fab fa-pinterest-p"></i></a>
