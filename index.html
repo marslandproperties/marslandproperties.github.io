@@ -411,6 +411,13 @@
             display: flex;
             align-items: center;
         }
+        /* FIX FOR DESKTOP BACKGROUND IMAGE */
+        @media (min-width: 769px) {
+            .hero {
+                background-size: cover;
+                background-position: center 30%;
+            }
+        }
         .hero::before {
             content: '';
             position: absolute;
@@ -629,6 +636,63 @@
             margin-bottom: 10px;
             color: var(--primary);
         }
+        /* FOUNDER QUOTE CARDS - NEW STYLISH DESIGN */
+        .quote-cards {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px;
+            margin-top: 30px;
+        }
+        .quote-card {
+            background: white;
+            padding: 25px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            border-left: 4px solid var(--secondary);
+            position: relative;
+            transition: var(--transition);
+        }
+        .quote-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-heavy);
+        }
+        .quote-card .quote-text {
+            font-size: 1.1rem;
+            font-style: italic;
+            color: var(--dark);
+            line-height: 1.7;
+            margin-bottom: 15px;
+            position: relative;
+            padding-left: 25px;
+        }
+        .quote-card .quote-text::before {
+            content: '"';
+            position: absolute;
+            left: 0;
+            top: -5px;
+            font-size: 2.5rem;
+            color: var(--secondary);
+            font-family: Georgia, serif;
+            line-height: 1;
+        }
+        .quote-card .quote-author {
+            font-weight: 700;
+            color: var(--primary);
+            text-align: right;
+            font-size: 1rem;
+            border-top: 1px solid var(--gray-light);
+            padding-top: 15px;
+            margin-top: 15px;
+        }
+        .quote-card .quote-author::before {
+            content: '— ';
+        }
+        .quote-card:nth-child(1) {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(10, 23, 78, 0.05));
+        }
+        .quote-card:nth-child(2) {
+            background: linear-gradient(135deg, rgba(10, 23, 78, 0.05), rgba(212, 175, 55, 0.1));
+        }
         .about-founder {
             background: white;
             padding: 30px;
@@ -669,37 +733,7 @@
             color: var(--gray);
             line-height: 1.6;
         }
-        .founder-quote {
-            margin-top: 15px;
-        }
-        .founder-quote p {
-            margin-bottom: 10px;
-            font-style: italic;
-            position: relative;
-            padding-left: 20px;
-        }
-        .founder-quote p::before {
-            content: '"';
-            position: absolute;
-            left: 0;
-            top: -5px;
-            font-size: 1.5rem;
-            color: var(--secondary);
-        }
-        .founder-quote .quote-author {
-            text-align: right;
-            font-weight: 600;
-            color: var(--primary);
-            font-style: normal;
-            border-top: 1px solid var(--gray-light);
-            padding-top: 10px;
-            margin-top: 10px;
-        }
-        .founder-quote .quote-author.no-border {
-            border-top: none;
-            padding-top: 0;
-            margin-top: 0;
-        }
+        /* REMOVED OLD FOUNDER QUOTE STYLES - REPLACED WITH QUOTE CARDS */
         .about-image {
             position: relative;
         }
@@ -1650,12 +1684,9 @@
             .msme-badge h5 {
                 font-size: 1rem;
             }
-            .founder-quote .quote-author {
-                font-size: 0.9rem;
-                word-break: keep-all;
-                white-space: nowrap;
-                overflow: hidden;
-                text-overflow: ellipsis;
+            .quote-card .quote-text {
+                font-size: 1rem;
+                padding-left: 20px;
             }
         }
         @media (max-width: 576px) {
@@ -1721,8 +1752,11 @@
                 flex-direction: column;
                 gap: 5px;
             }
-            .founder-quote p {
-                font-size: 0.9rem;
+            .quote-card {
+                padding: 20px 15px;
+            }
+            .quote-card .quote-text {
+                font-size: 0.95rem;
                 padding-left: 15px;
             }
         }
@@ -1858,6 +1892,7 @@
                             <p>Clear pricing, no hidden costs, financial transparency</p>
                         </div>
                     </div>
+                    
                     <div class="about-founder">
                         <div class="founder-info">
                             <div class="founder-image">
@@ -1867,13 +1902,17 @@
                                 <h3>Founder & Managing Director</h3>
                                 <p class="founder-name">Ra. Rathinakumar</p>
                                 <p>The Founder & Managing Director of Marsland Properties brings in-depth knowledge and hands-on experience in real estate. Their vision, market insights, and commitment to ethical business practices inspire our entire workforce to aim higher and perform better in every project we undertake.</p>
-                                <div class="founder-quote">
-                                    <p>Entrust Your Dreams With Us</p>
-                                    <p>Home is the Symbol of life...</p>
-                                    <div class="quote-author">— Ra. Rathinakumar</div>
-                                    
-                                    <p>The best investment on Earth is Earth.</p>
-                                    <div class="quote-author">— Louis Glickman</div>
+                                
+                                <!-- MOVED QUOTE CARDS HERE -->
+                                <div class="quote-cards">
+                                    <div class="quote-card">
+                                        <div class="quote-text">Entrust Your Dreams With Us. Home is the Symbol of life...</div>
+                                        <div class="quote-author">Ra. Rathinakumar</div>
+                                    </div>
+                                    <div class="quote-card">
+                                        <div class="quote-text">The best investment on Earth is Earth.</div>
+                                        <div class="quote-author">Louis Glickman</div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -1949,7 +1988,8 @@
                     
                     <div class="video-title">Watch Video Tour</div>
                     <div class="video-container">
-                        <iframe src="https://www.youtube.com/embed/87v4R1EJ8Fs?si=oTxRalvTW1CzkcX9" title="KN RASI NAGAR MANNACHANALLUR" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        <!-- FIXED YOUTUBE EMBED URL -->
+                        <iframe src="https://www.youtube.com/embed/87v4R1EJ8Fs" title="KN RASI NAGAR MANNACHANALLUR" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                     
                     <h4>Project Images:</h4>
@@ -2009,13 +2049,10 @@
                     
                     <h4>Project Images:</h4>
                     <div class="project-gallery">
-                        <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/sr1.png" alt="Sri Lakshmi Nagar Image 1" onclick="openImageLightbox(this.src)">
-                        <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/sr2.png" alt="Sri Lakshmi Nagar Image 2" onclick="openImageLightbox(this.src)">
-                        <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/sr3.png" alt="Sri Lakshmi Nagar Image 3" onclick="openImageLightbox(this.src)">
-                        <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/sr4.png" alt="Sri Lakshmi Nagar Image 4" onclick="openImageLightbox(this.src)">
-                        <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/sr5.png" alt="Sri Lakshmi Nagar Image 5" onclick="openImageLightbox(this.src)">
-                        <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/sr6.png" alt="Sri Lakshmi Nagar Image 6" onclick="openImageLightbox(this.src)">
-                        <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/sr7.png" alt="Sri Lakshmi Nagar Image 7" onclick="openImageLightbox(this.src)">
+                        <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/srnew1.png" alt="Sri Lakshmi Nagar Image 1" onclick="openImageLightbox(this.src)">
+                        <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/srnew3.png" alt="Sri Lakshmi Nagar Image 2" onclick="openImageLightbox(this.src)">
+                        <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/srnew4.png" alt="Sri Lakshmi Nagar Image 3" onclick="openImageLightbox(this.src)">
+                        <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/srnsrnew2.png" alt="Sri Lakshmi Nagar Image 4" onclick="openImageLightbox(this.src)">
                     </div>
                 </div>
             </div>
@@ -2058,6 +2095,7 @@
             <h2 class="section-title">Ongoing Projects</h2>
             <p class="section-subtitle">Currently under development - Book your plot now!</p>
             
+            <!-- TAB IMPLEMENTATION ADDED HERE -->
             <div class="projects-tabs">
                 <button class="tab-btn active" onclick="scrollToOngoingProject('antony-garden')">ANTONY GARDEN</button>
                 <button class="tab-btn" onclick="scrollToOngoingProject('kumaran-nagar')">KUMARAN NAGAR</button>
@@ -2090,7 +2128,8 @@
                     
                     <div class="video-title">Watch Video Tour</div>
                     <div class="video-container">
-                        <iframe src="https://www.youtube.com/embed/pFaJna8rT-U?si=pYFSKxGzql0nE78F" title="Antony Garden Youtube Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        <!-- FIXED YOUTUBE EMBED URL -->
+                        <iframe src="https://www.youtube.com/embed/pFaJna8rT-U" title="Antony Garden Youtube Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                     
                     <div class="project-location-map">
@@ -2126,7 +2165,6 @@
                         <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/kumaran4.jpeg" alt="Kumaran Nagar Image 3" onclick="openImageLightbox(this.src)">
                         <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/kumarn2.jpeg" alt="Kumaran Nagar Image 4" onclick="openImageLightbox(this.src)">
                     </div>
-                </div>
             </div>
             
             <div id="arunachala-ongoing" class="project-tab-content">
@@ -2155,7 +2193,8 @@
                     
                     <div class="video-title">Watch Video Tour</div>
                     <div class="video-container">
-                        <iframe src="https://www.youtube.com/embed/fcBUxN2G5fc?si=K8FfQh2hYH56o4Bq" title="Sairam Garden Apartment" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        <!-- FIXED YOUTUBE EMBED URL -->
+                        <iframe src="https://www.youtube.com/embed/fcBUxN2G5fc" title="Sairam Garden Apartment" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                     
                     <div class="project-location-map">
@@ -2187,11 +2226,12 @@
                     
                     <h4>Project Images:</h4>
                     <div class="project-gallery">
-                        <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/officers1.png" alt="Officer's Town Image 1" onclick="openImageLightbox(this.src)">
-                        <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/officers3.png" alt="Officer's Town Image 2" onclick="openImageLightbox(this.src)">
-                        <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/officers4.png" alt="Officer's Town Image 3" onclick="openImageLightbox(this.src)">
-                        <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/officers5.png" alt="Officer's Town Image 4" onclick="openImageLightbox(this.src)">
-                        <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/officers6.png" alt="Officer's Town Image 5" onclick="openImageLightbox(this.src)">
+                        <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/ofc2.png" alt="Officer's Town Image 1" onclick="openImageLightbox(this.src)">
+                        <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/ofc3.png" alt="Officer's Town Image 2" onclick="openImageLightbox(this.src)">
+                        <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/ofc4.png" alt="Officer's Town Image 3" onclick="openImageLightbox(this.src)">
+                        <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/ofc5.png" alt="Officer's Town Image 4" onclick="openImageLightbox(this.src)">
+                        <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/ofc6.png" alt="Officer's Town Image 5" onclick="openImageLightbox(this.src)">
+                        <img src="https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/ofc7.png" alt="Officer's Town Image 6" onclick="openImageLightbox(this.src)">
                     </div>
                 </div>
             </div>
