@@ -293,6 +293,18 @@
             letter-spacing: 0.5px;
             text-align: center;
             margin-top: 2px;
+            position: relative;
+            padding-left: 15px;
+        }
+        .logo-text span::before {
+            content: '"';
+            position: absolute;
+            left: 0;
+            top: -2px;
+            font-size: 1.5rem;
+            color: var(--secondary);
+            font-family: Georgia, serif;
+            line-height: 1;
         }
         nav {
             display: flex;
@@ -395,9 +407,9 @@
             border: none;
             padding: 5px;
         }
-        /* Hero Section - Updated with new banner and fixed background */
+        /* Hero Section - Updated with desktop/mobile images */
         .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url('https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/bannerfinalized.jpeg');
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url('https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/marslanddesktopimage.png');
             background-size: cover;
             background-position: center center;
             background-repeat: no-repeat;
@@ -410,6 +422,17 @@
             min-height: 90vh;
             display: flex;
             align-items: center;
+        }
+        @media (max-width: 768px) {
+            .hero {
+                background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url('https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/bannerfinalized.jpeg');
+                background-size: cover;
+                background-position: center center;
+                background-attachment: scroll;
+                background-repeat: no-repeat;
+                padding: 120px 0 80px;
+                min-height: 85vh;
+            }
         }
         .hero::before {
             content: '';
@@ -1179,31 +1202,6 @@
             font-weight: 600;
             color: var(--primary);
         }
-        /* Hero Address - REMOVED */
-        .hero-address {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-top: 20px;
-            color: rgba(255, 255, 255, 0.9);
-            font-size: 0.95rem;
-        }
-        .hero-address i {
-            color: var(--secondary);
-            font-size: 1.1rem;
-            flex-shrink: 0;
-        }
-        .hero-address a {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            color: var(--secondary);
-            transition: var(--transition);
-        }
-        .hero-address a:hover {
-            color: white;
-            text-decoration: underline;
-        }
         /* Privacy Policy Section */
         .privacy-policy {
             background: var(--light);
@@ -1633,11 +1631,6 @@
             .header-contact {
                 display: none;
             }
-            .hero {
-                padding: 120px 0 80px;
-                margin-top: 70px;
-                background-attachment: scroll;
-            }
             .hero h1 {
                 font-size: 2.3rem;
             }
@@ -1760,7 +1753,7 @@
             <i class="fas fa-phone-alt"></i>
             <span class="floating-tooltip">Call +91 9894980940</span>
         </a>
-        <a href="https://maps.google.com/?q=77B,+near+Head+Post+Office,+Signal,+Cantonment,+Tiruchirappalli,+Tamil+Nadu+620001" target="_blank" class="floating-btn map">
+        <a href="https://maps.google.com/?q=Marsland+Properties+Trichy,+77B,+near+Head+Post+Office,+Signal,+Cantonment,+Tiruchirappalli,+Tamil+Nadu+620001" target="_blank" class="floating-btn map">
             <i class="fas fa-map-marker-alt"></i>
             <span class="floating-tooltip">Open in Google Maps</span>
         </a>
@@ -1773,7 +1766,7 @@
                 </div>
                 <div class="logo-text">
                     <h1>MARSLAND PROPERTIES</h1>
-                    <span>'Entrust your dreams with us</span>
+                    <span>Entrust Your Dreams With Us.</span>
                 </div>
             </div>
             <nav>
