@@ -1341,6 +1341,13 @@
             font-size: 0.8rem;
             color: rgba(255, 255, 255, 0.6);
         }
+		.developer-credit a {
+    display: inline-block;
+    cursor: pointer;
+    pointer-events: auto;
+    z-index: 1;
+    position: relative;
+}
         /* Reviews Section */
         .reviews {
             background: white;
@@ -1738,15 +1745,6 @@
             }
         }
     </style>
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-CDG473BMP7"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-CDG473BMP7');
-</script>
 </head>
 <body>
     <div class="lightbox" id="certificateLightbox">
@@ -2541,7 +2539,15 @@
             <div class="copyright">
                 <p>&copy; 2023 Marsland Properties Trichy. All rights reserved. | Premium Real Estate Developer in Tiruchirappalli</p>
                 <div class="developer-credit">
-                    Website developed by InvoiceFlexi Ltd
+                    Website developed by <a 
+            href="https://www.invoiceflexi.com/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            style="color: #007bff; text-decoration: none; cursor: pointer;"
+            "
+        >
+            InvoiceFlexi Ltd
+        </a>
                 </div>
             </div>
         </div>
