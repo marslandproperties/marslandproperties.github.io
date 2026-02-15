@@ -230,7 +230,7 @@
             opacity: 1;
             visibility: visible;
         }
-        /* Header with white background */
+        /* Header with white background – slightly increased height for logo visibility */
         header {
             background: white;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
@@ -239,7 +239,7 @@
             top: 0;
             z-index: 1000;
             transition: var(--transition);
-            height: 70px;
+            height: 80px; /* increased from 70px to 80px for better logo visibility */
             display: flex;
             align-items: center;
         }
@@ -247,7 +247,7 @@
             background: white;
             backdrop-filter: blur(10px);
             box-shadow: 0 6px 25px rgba(0, 0, 0, 0.1);
-            height: 65px;
+            height: 75px; /* increased slightly as well */
         }
         .header-container {
             display: flex;
@@ -263,8 +263,8 @@
             gap: 10px;
         }
         .logo-icon {
-            width: 45px;
-            height: 45px;
+            width: 50px;  /* slightly larger for better visibility */
+            height: 50px;
             background: transparent;
             border-radius: 10px;
             display: flex;
@@ -282,12 +282,12 @@
             flex-direction: column;
         }
         .logo-text h1 {
-            font-size: 1.5rem;
+            font-size: 1.6rem; /* slightly larger */
             color: var(--primary);
             line-height: 1.1;
         }
         .logo-text span {
-            font-size: 0.7rem;
+            font-size: 0.75rem; /* slightly larger */
             color: var(--gray);
             font-weight: 500;
             letter-spacing: 0.5px;
@@ -416,7 +416,7 @@
             background-attachment: fixed;
             color: white;
             padding: 150px 0 100px;
-            margin-top: 70px;
+            margin-top: 80px; /* adjusted for increased header height */
             position: relative;
             overflow: hidden;
             min-height: 90vh;
@@ -432,6 +432,7 @@
                 background-repeat: no-repeat;
                 padding: 120px 0 80px;
                 min-height: 85vh;
+                margin-top: 80px; /* keep consistent */
             }
         }
         .hero::before {
@@ -489,6 +490,27 @@
             opacity: 0.95;
             max-width: 600px;
             text-shadow: 0 1px 8px rgba(0, 0, 0, 0.4);
+        }
+        /* --- bullet point styling for hero description --- */
+        .hero-description {
+            list-style: none;
+            margin-bottom: 35px;
+        }
+        .hero-description li {
+            font-size: 1.2rem;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            opacity: 0.95;
+            text-shadow: 0 1px 8px rgba(0, 0, 0, 0.4);
+        }
+        .hero-description li i {
+            color: var(--secondary);
+            font-size: 1.3rem;
+            margin-top: 3px;
+            min-width: 24px;
+            text-align: center;
         }
         .hero-btns {
             display: flex;
@@ -1583,7 +1605,7 @@
             }
             .nav-links {
                 position: fixed;
-                top: 70px;
+                top: 80px; /* adjusted for increased header */
                 left: 0;
                 width: 100%;
                 background: white;
@@ -1641,7 +1663,7 @@
             .hero h1 {
                 font-size: 2.3rem;
             }
-            .hero p {
+            .hero p, .hero-description li {
                 font-size: 1.1rem;
             }
             .hero-btns {
@@ -1686,7 +1708,7 @@
             .hero h1 {
                 font-size: 2rem;
             }
-            .hero p {
+            .hero p, .hero-description li {
                 font-size: 1rem;
             }
             .amenities-grid {
@@ -1812,8 +1834,12 @@
         <div class="container hero-container">
             <div class="hero-content">
                 <h1>Premium Residential <span>Properties</span> in Trichy</h1>
-                <p>Marsland Properties - Creating exceptional living spaces with unmatched quality, transparency, and celestial inspiration. From initial planning to final handover, we ensure every project meets the highest standards.</p>
-                
+                <!-- Bullet points as requested -->
+                <ul class="hero-description">
+                    <li><i class="fas fa-check-circle"></i> Marsland Properties – Creating exceptional living spaces with unmatched quality, transparency</li>
+                    <li><i class="fas fa-check-circle"></i> From initial planning to final handover</li>
+                    <li><i class="fas fa-check-circle"></i> We ensure every project meets the highest standards</li>
+                </ul>
                 <div class="hero-btns">
                     <a href="#completed-projects" class="btn">View Our Projects <i class="fas fa-arrow-right"></i></a>
                     <a href="#contact" class="btn btn-secondary">Contact Us <i class="fas fa-phone-alt"></i></a>
