@@ -230,7 +230,7 @@
             opacity: 1;
             visibility: visible;
         }
-        /* Header with white background – slightly increased height for logo visibility */
+        /* Header with white background – improved logo visibility */
         header {
             background: white;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
@@ -239,7 +239,7 @@
             top: 0;
             z-index: 1000;
             transition: var(--transition);
-            height: 80px; /* increased from 70px to 80px for better logo visibility */
+            height: 85px; /* increased from 80px to 85px for better logo visibility */
             display: flex;
             align-items: center;
         }
@@ -247,7 +247,7 @@
             background: white;
             backdrop-filter: blur(10px);
             box-shadow: 0 6px 25px rgba(0, 0, 0, 0.1);
-            height: 75px; /* increased slightly as well */
+            height: 80px; /* slightly increased as well */
         }
         .header-container {
             display: flex;
@@ -260,11 +260,11 @@
         .logo {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px; /* slightly increased for breathing */
         }
         .logo-icon {
-            width: 50px;  /* slightly larger for better visibility */
-            height: 50px;
+            width: 55px;  /* increased from 50px for better clarity */
+            height: 55px;
             background: transparent;
             border-radius: 10px;
             display: flex;
@@ -282,29 +282,19 @@
             flex-direction: column;
         }
         .logo-text h1 {
-            font-size: 1.6rem; /* slightly larger */
+            font-size: 1.7rem; /* slightly larger */
             color: var(--primary);
             line-height: 1.1;
+            font-weight: 800;
+            letter-spacing: -0.02em;
         }
         .logo-text span {
-            font-size: 0.75rem; /* slightly larger */
+            font-size: 0.8rem; /* slightly larger */
             color: var(--gray);
             font-weight: 500;
             letter-spacing: 0.5px;
-            text-align: center;
             margin-top: 2px;
-            position: relative;
-            padding-left: 15px;
-        }
-        .logo-text span::before {
-            
-            position: absolute;
-            left: 0;
-            top: -2px;
-            font-size: 1.5rem;
-            color: var(--secondary);
-            font-family: Georgia, serif;
-            line-height: 1;
+            padding-left: 0;
         }
         nav {
             display: flex;
@@ -407,7 +397,7 @@
             border: none;
             padding: 5px;
         }
-        /* Hero Section - Updated with desktop/mobile images */
+        /* Hero Section - Updated with desktop/mobile images and fixed bullet points */
         .hero {
             background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url('https://raw.githubusercontent.com/marslandproperties/marslandproperties.github.io/refs/heads/main/finaldesktoplogo.jpeg');
             background-size: cover;
@@ -416,7 +406,7 @@
             background-attachment: fixed;
             color: white;
             padding: 150px 0 100px;
-            margin-top: 80px; /* adjusted for increased header height */
+            margin-top: 85px; /* adjusted for increased header height */
             position: relative;
             overflow: hidden;
             min-height: 90vh;
@@ -432,7 +422,7 @@
                 background-repeat: no-repeat;
                 padding: 120px 0 80px;
                 min-height: 85vh;
-                margin-top: 80px; /* keep consistent */
+                margin-top: 85px; /* keep consistent */
             }
         }
         .hero::before {
@@ -491,26 +481,22 @@
             max-width: 600px;
             text-shadow: 0 1px 8px rgba(0, 0, 0, 0.4);
         }
-        /* --- bullet point styling for hero description --- */
+        /* --- bullet point styling for hero description (fixed: removed ticks, added disc) --- */
         .hero-description {
-            list-style: none;
+            list-style: disc;        /* standard bullet */
             margin-bottom: 35px;
+            padding-left: 20px;       /* left indent for bullets */
+            color: white;
+            text-shadow: 0 1px 8px rgba(0, 0, 0, 0.4);
         }
         .hero-description li {
             font-size: 1.2rem;
             margin-bottom: 12px;
-            display: flex;
-            align-items: flex-start;
-            gap: 10px;
-            opacity: 0.95;
-            text-shadow: 0 1px 8px rgba(0, 0, 0, 0.4);
+            text-align: left;         /* ensures left alignment */
         }
+        /* remove any extra icons or pseudo */
         .hero-description li i {
-            color: var(--secondary);
-            font-size: 1.3rem;
-            margin-top: 3px;
-            min-width: 24px;
-            text-align: center;
+            display: none;            /* remove check icon */
         }
         .hero-btns {
             display: flex;
@@ -1363,13 +1349,13 @@
             font-size: 0.8rem;
             color: rgba(255, 255, 255, 0.6);
         }
-		.developer-credit a {
-    display: inline-block;
-    cursor: pointer;
-    pointer-events: auto;
-    z-index: 1;
-    position: relative;
-}
+        .developer-credit a {
+            display: inline-block;
+            cursor: pointer;
+            pointer-events: auto;
+            z-index: 1;
+            position: relative;
+        }
         /* Reviews Section */
         .reviews {
             background: white;
@@ -1605,7 +1591,7 @@
             }
             .nav-links {
                 position: fixed;
-                top: 80px; /* adjusted for increased header */
+                top: 85px; /* adjusted for increased header */
                 left: 0;
                 width: 100%;
                 background: white;
@@ -1700,6 +1686,14 @@
                 font-size: 1rem;
                 padding-left: 20px;
             }
+            /* Hero description bullet left alignment fix for mobile */
+            .hero-description {
+                padding-left: 20px;
+                text-align: left;
+            }
+            .hero-description li {
+                text-align: left;
+            }
         }
         @media (max-width: 576px) {
             .section-title {
@@ -1763,6 +1757,9 @@
             }
             .quote-card .quote-text {
                 font-size: 0.95rem;
+                padding-left: 15px;
+            }
+            .hero-description {
                 padding-left: 15px;
             }
         }
@@ -1834,11 +1831,11 @@
         <div class="container hero-container">
             <div class="hero-content">
                 <h1>Premium Residential <span>Properties</span> in Trichy</h1>
-                <!-- Bullet points as requested -->
+                <!-- Bullet points as requested - fixed: no icons, left aligned with disc bullets -->
                 <ul class="hero-description">
-                    <li><i class="fas fa-check-circle"></i> Marsland Properties – Creating exceptional living spaces with unmatched quality, transparency</li>
-                    <li><i class="fas fa-check-circle"></i> From initial planning to final handover</li>
-                    <li><i class="fas fa-check-circle"></i> We ensure every project meets the highest standards</li>
+                    <li>Marsland Properties – Creating exceptional living spaces with unmatched quality, transparency</li>
+                    <li>From initial planning to final handover</li>
+                    <li>We ensure every project meets the highest standards</li>
                 </ul>
                 <div class="hero-btns">
                     <a href="#completed-projects" class="btn">View Our Projects <i class="fas fa-arrow-right"></i></a>
@@ -1907,10 +1904,8 @@
                                 <!-- MOVED QUOTE CARDS HERE -->
                                 <div class="quote-cards">
                                     <div class="quote-card">
-                                        <div class="quote-text">Entrust Your Dreams With Us...
-                                         </div>
+                                        <div class="quote-text">Entrust Your Dreams With Us...</div>
                                         <div class="quote-text">Home is the Symbol of life...</div>
-
                                         <div class="quote-author">Ra. Rathinakumar</div>
                                     </div>
                                     <div class="quote-card">
@@ -2565,15 +2560,7 @@
             <div class="copyright">
                 <p>&copy; 2023 Marsland Properties Trichy. All rights reserved. | Premium Real Estate Developer in Tiruchirappalli</p>
                 <div class="developer-credit">
-                    Website developed by <a 
-            href="https://www.invoiceflexi.com/" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            style="color: #007bff; text-decoration: none; cursor: pointer;"
-            "
-        >
-            InvoiceFlexi Ltd
-        </a> 
+                    Website developed by <a href="https://www.invoiceflexi.com/" target="_blank" rel="noopener noreferrer" style="color: #007bff; text-decoration: none; cursor: pointer;">InvoiceFlexi Ltd</a> 
                 </div>
             </div>
         </div>
