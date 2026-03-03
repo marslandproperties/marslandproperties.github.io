@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marsland Properties | Premium RERA Approved Plots for Sale in Trichy</title>
+    <meta name="description" content="Explore DTCP & RERA approved residential plots for sale in Trichy by Marsland Properties. 100% clear title, gated communities, bank loan facility. Call +91 98949 80940.">
+    <!-- Google Fonts for stylish typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons (free version via CDN) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: "Inter", sans-serif;
+            background-color: #f4f8fc;
+            color: #1b2f40;
+            line-height: 1.6;
+        }
+        .page-wrapper {
+            max-width: 1400px;
+            margin: 30px auto;
+            background: #ffffff;
+            border-radius: 48px 48px 40px 40px;
+            box-shadow: 0 30px 60px rgba(0, 30, 45, 0.12);
+            overflow: hidden;
+        }
+        .container {
+            padding: 40px 45px 30px 45px;
+        }
+        /* typography */
+        h1, h2, h3, h4 {
+            font-family: "Playfair Display", serif;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+        }
+        h1 {
+            font-size: 3.4rem;
+            line-height: 1.15;
+            color: #0b2b3b;
+            margin: 20px 0 25px 0;
+        }
+        h1 span {
+            color: #b48c3a;
+            border-bottom: 4px solid #e8d5b5;
+            display: inline-block;
+            padding-bottom: 8px;
+        }
+        h2 {
+            font-size: 2.6rem;
+            color: #0b2b3b;
+            margin: 50px 0 25px 0;
+            position: relative;
+        }
+        h2:after {
+            content: "";
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: #c9a14b;
+            margin-top: 12px;
+            border-radius: 4px;
+        }
+        h3 {
+            font-size: 1.9rem;
+            color: #163a47;
+            margin-bottom: 15px;
+        }
+        p {
+            font-size: 1.08rem;
+            color: #2a4356;
+            margin-bottom: 1.4rem;
+        }
+        .hero-tag {
+            display: inline-block;
+            background: #0b2b3b;
+            color: #e9d6a8;
+            padding: 10px 28px;
+            border-radius: 60px;
+            font-weight: 600;
+            font-size: 1rem;
+            border: 1px solid #c9a14b;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+        /* certification badges */
+        .cert-badge-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 25px 0 15px;
+        }
+        .cert-item {
+            background: #eef4f9;
+            border-radius: 80px;
+            padding: 12px 30px;
+            font-weight: 600;
+            color: #0b2b3b;
+            border-left: 4px solid #c9a14b;
+            box-shadow: 0 5px 12px rgba(0,0,0,0.02);
+        }
+        .cert-item i {
+            color: #c9a14b;
+            margin-right: 12px;
+            font-size: 1.4rem;
+            vertical-align: middle;
+        }
+        /* stats section */
+        .stats-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            background: linear-gradient(115deg, #f0f7fd, #ffffff);
+            border-radius: 80px;
+            padding: 35px 40px;
+            margin: 45px 0;
+            border: 1px solid #cddeec;
+        }
+        .stat-item {
+            text-align: center;
+            flex: 1 1 150px;
+        }
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #b48c3a;
+            font-family: "Playfair Display", serif;
+        }
+        .stat-label {
+            font-weight: 600;
+            color: #1b5065;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        /* project cards premium */
+        .project-showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 35px;
+            margin: 40px 0;
+        }
+        .project-card {
+            background: #ffffff;
+            border-radius: 38px;
+            padding: 28px;
+            box-shadow: 0 20px 35px -8px rgba(20, 50, 70, 0.12);
+            border: 1px solid #d5e6f2;
+            transition: all 0.3s ease;
+        }
+        .project-card:hover {
+            transform: translateY(-10px);
+            border-color: #c9a14b;
+            box-shadow: 0 30px 45px -10px #a38b4f40;
+        }
+        .card-location {
+            color: #b48c3a;
+            font-weight: 700;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+        }
+        .card-title {
+            font-size: 1.9rem;
+            font-family: "Playfair Display", serif;
+            font-weight: 600;
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+        .amenities-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 20px 0 15px;
+        }
+        .amenity {
+            background: #eaf2f9;
+            padding: 6px 18px;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #1a4d60;
+        }
+        .badge-rera {
+            background: #0b2b3b;
+            color: #ffd98c;
+            padding: 5px 12px;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-right: 8px;
+        }
+        /* image placeholder (seo friendly) */
+        .project-media {
+            background: #e3f0f9;
+            border-radius: 28px;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #163a47;
+            font-weight: 500;
+            font-size: 1rem;
+            border: 2px dashed #c9a14b80;
+            margin: 20px 0 10px;
+        }
+        /* contact luxury panel */
+        .contact-palace {
+            background: linear-gradient(125deg, #0b2b3b 0%, #1f4f69 100%);
+            border-radius: 70px;
+            padding: 55px 50px;
+            margin: 60px 0 40px;
+            color: white;
+            border: 3px solid #c9a14b;
+            box-shadow: 0 25px 40px #0b2b3b60;
+        }
+        .contact-palace h3 {
+            color: #ffdfa7;
+            font-size: 3rem;
+            font-family: "Playfair Display", serif;
+            margin-bottom: 30px;
+        }
+        .contact-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px 40px;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .contact-detail {
+            background: rgba(255,255,255,0.06);
+            backdrop-filter: blur(10px);
+            padding: 18px 35px;
+            border-radius: 100px;
+            border: 1.5px solid #c9a14b;
+            font-size: 1.4rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .contact-detail i {
+            font-size: 2rem;
+            color: #c9a14b;
+        }
+        .btn-radiant {
+            background: #c9a14b;
+            border: none;
+            color: #0b2b3b;
+            padding: 18px 50px;
+            border-radius: 80px;
+            font-weight: 800;
+            font-size: 1.4rem;
+            cursor: pointer;
+            transition: 0.2s;
+            border: 2px solid #c9a14b;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .btn-radiant:hover {
+            background: transparent;
+            color: white;
+        }
+        /* testimonial */
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin: 45px 0;
+        }
+        .testimonial-card {
+            background: #f3faff;
+            border-radius: 40px;
+            padding: 35px 30px;
+            border: 1px solid #cfdbe8;
+        }
+        .stars {
+            color: #c9a14b;
+            font-size: 1.8rem;
+            margin-bottom: 18px;
+        }
+        .testimonial-text {
+            font-style: italic;
+            font-size: 1.1rem;
+        }
+        .author {
+            font-weight: 700;
+            margin-top: 20px;
+            color: #0b2b3b;
+        }
+        .author small {
+            font-weight: 400;
+            color: #5a6f7e;
+        }
+        /* table for quick overview */
+        .project-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0 15px;
+            margin: 40px 0;
+        }
+        .project-table tr {
+            background: #f9fcff;
+            border-radius: 60px;
+        }
+        .project-table td {
+            padding: 20px 25px;
+            border-bottom: 1px solid #dae8f2;
+        }
+        .project-table td:first-child {
+            font-weight: 700;
+            color: #163a47;
+            border-radius: 60px 0 0 60px;
+        }
+        .project-table td:last-child {
+            border-radius: 0 60px 60px 0;
+        }
+        .loc-icon {
+            color: #c9a14b;
+            margin-right: 8px;
+        }
+        hr {
+            border: none;
+            height: 2px;
+            background: linear-gradient(90deg, #ffffff, #c9a14b, #ffffff);
+            margin: 40px 0;
+        }
+        .footer {
+            background: #0b2b3b;
+            color: #bcd3e0;
+            padding: 30px 45px;
+            border-radius: 40px 40px 0 0;
+            font-size: 0.95rem;
+        }
+        @media (max-width: 900px) {
+            h1 { font-size: 2.5rem; }
+            .container { padding: 25px; }
+            .testimonial-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+<div class="page-wrapper">
+    <div class="container">
+
+        <!-- Hero section with trust indicators -->
+        <div class="hero-tag"><i class="fas fa-check-circle"></i> INDIA'S MOST TRUSTED REAL ESTATE DEVELOPER - TRICHY</div>
+        <h1>Your Search for the Perfect <span>Plot for Sale in Trichy</span> Ends at Marsland Properties</h1>
+        <p style="font-size:1.35rem; max-width: 85%;">We offer <strong>DTCP approved & RERA registered residential plots</strong> with clear titles, modern amenities, and strategic locations. Experience transparency and quality since 2019.</p>
+
+        <!-- Certification row (EEAT) -->
+        <div class="cert-badge-row">
+            <span class="cert-item"><i class="fas fa-building"></i> MSME UDYAM REGISTERED</span>
+            <span class="cert-item"><i class="fas fa-certificate"></i> RERA APPROVED PROJECTS</span>
+            <span class="cert-item"><i class="fas fa-water"></i> 100% CLEAR TITLE</span>
+            <span class="cert-item"><i class="fas fa-shield-alt"></i> DTCP APPROVED LAYOUTS</span>
+        </div>
+
+        <!-- Stats / Experience block -->
+        <div class="stats-grid">
+            <div class="stat-item"><span class="stat-number">5+</span> <div class="stat-label">Years Excellence</div></div>
+            <div class="stat-item"><span class="stat-number">12+</span> <div class="stat-label">Projects</div></div>
+            <div class="stat-item"><span class="stat-number">500+</span> <div class="stat-label">Happy Families</div></div>
+            <div class="stat-item"><span class="stat-number">100%</span> <div class="stat-label">Legal Compliance</div></div>
+        </div>
+
+        <!-- Why Marsland (rich content) -->
+        <h2>Why Marsland Properties? The Epitome of Trust in Trichy Real Estate</h2>
+        <p>Founded by <strong>Ra. Rathinakumar</strong>, Marsland Properties has become synonymous with ethical practices and quality infrastructure. Every <strong>plot for sale in Trichy</strong> from Marsland comes with an ironclad promise: transparent pricing, no hidden costs, and complete handover documentation. Our philosophy, <em>"Entrust Your Dreams With Us"</em>, is reflected in our customer testimonials and legal compliance. We are not just sellers; we are community builders.</p>
+
+        <!-- ========== COMPREHENSIVE PROJECT PORTFOLIO (LONG CONTENT) ========== -->
+        <h2>Our Premium <strong>Plots for Sale in Trichy</strong> – Choose Your Dream Location</h2>
+        <p>We have strategically developed plots across Trichy’s fastest-growing corridors. From university zones to airport proximity, each project offers unique advantages.</p>
+
+        <!-- project cards expanded with more details -->
+        <div class="project-showcase">
+            <!-- Alamelu Mangai Nagar -->
+            <div class="project-card">
+                <div class="card-location"><i class="fas fa-map-marker-alt loc-icon"></i> Suriyur · Trichy</div>
+                <div class="card-title">Alamelu Mangai Nagar</div>
+                <div><span class="badge-rera"><i class="fas fa-check"></i> DTCP & RERA Approved</span> <span class="badge-rera"><i class="fas fa-lock"></i> Gated</span></div>
+                <div class="project-media"><i class="fas fa-tree" style="margin-right:10px;"></i> 50 acres near Olympic Academy, Jallikattu Stadium, International Airport, IIM Trichy, Anna University. 20 ft wide roads, water, fencing. Proposed Metro station adjacency.</div>
+                <div class="amenities-list">
+                    <span class="amenity">Gated Community</span><span class="amenity">24x7 Transport</span><span class="amenity">Clear Title</span><span class="amenity">EB</span><span class="amenity">Drinking Water</span>
+                </div>
+                <p><i class="fas fa-university"></i> <strong>Near:</strong> IIM, Anna University, BHEL, IT Park, Sacred Heart School.</p>
+            </div>
+            <!-- KN Rasi Nagar -->
+            <div class="project-card">
+                <div class="card-location"><i class="fas fa-map-marker-alt loc-icon"></i> Manachanallur</div>
+                <div class="card-title">KN RASI NAGAR</div>
+                <div><span class="badge-rera"><i class="fas fa-check"></i> DTCP & RERA</span> <span class="badge-rera"><i class="fas fa-home"></i> 10+ houses built</span></div>
+                <div class="project-media"><i class="fas fa-bus" style="margin-right:10px;"></i> Just 200 m from Manachanallur Bus Stand. Cauvery water supply, flood-free, schools & colleges nearby. 30ft & 23ft tar roads, bank loan facility.</div>
+                <div class="amenities-list">
+                    <span class="amenity">Tasty Groundwater</span><span class="amenity">Electricity</span><span class="amenity">Compound Wall</span><span class="amenity">Bank Loan</span>
+                </div>
+            </div>
+            <!-- Antony Garden ongoing -->
+            <div class="project-card">
+                <div class="card-location"><i class="fas fa-map-marker-alt loc-icon"></i> Manikandam (7km from IBT)</div>
+                <div class="card-title">ANTONY GARDEN</div>
+                <div><span class="badge-rera"><i class="fas fa-check"></i> DTCP & RERA Approved</span> <span class="badge-rera"><i class="fas fa-video"></i> CCTV</span></div>
+                <div class="project-media"><i class="fas fa-hospital-alt"></i> 800 m from NH, near Harshaamithra Hospital, KK Nagar Registration Office. 23ft/30ft tar roads, gated, surveillance cameras, drinking water.</div>
+                <div class="amenities-list">
+                    <span class="amenity">Gated</span><span class="amenity">24x7 Bus</span><span class="amenity">CCTV</span><span class="amenity">EB</span><span class="amenity">Clear Title</span>
+                </div>
+            </div>
+            <!-- Kumaran Nagar -->
+            <div class="project-card">
+                <div class="card-location"><i class="fas fa-map-marker-alt loc-icon"></i> Pudukkottai NH (near IIM)</div>
+                <div class="card-title">KUMARAN NAGAR</div>
+                <div><span class="badge-rera"><i class="fas fa-check"></i> Premium Gated</span> <span class="badge-rera"><i class="fas fa-graduation-cap"></i> 3 Universities</span></div>
+                <div class="project-media"><i class="fas fa-university"></i> Opposite IIM Trichy, near Anna University (BIT) & Bharathidasan University. Smart investment on NH road.</div>
+                <div class="amenities-list">
+                    <span class="amenity">Gated Community</span><span class="amenity">NH Road</span><span class="amenity">University Zone</span>
+                </div>
+            </div>
+            <!-- Tamil Garden (farm) -->
+            <div class="project-card">
+                <div class="card-location"><i class="fas fa-map-marker-alt loc-icon"></i> Viralimalai (24 km from Trichy)</div>
+                <div class="card-title">TAMIL GARDEN</div>
+                <div><span class="badge-rera"><i class="fas fa-check"></i> DTCP Farm Land</span></div>
+                <div class="project-media"><i class="fas fa-swimming-pool"></i> Farm plots with swimming pool, children's play zone, herbal garden, meditation zone, party hall, open air theatre, fishing pond.</div>
+                <div class="amenities-list">
+                    <span class="amenity">Swimming Pool</span><span class="amenity">Meditation</span><span class="amenity">Play Zone</span><span class="amenity">Flower Garden</span>
+                </div>
+            </div>
+            <!-- KRS Avenue -->
+            <div class="project-card">
+                <div class="card-location"><i class="fas fa-map-marker-alt loc-icon"></i> Near Chennai NH · Trichy</div>
+                <div class="card-title">KRS AVENUE</div>
+                <div><span class="badge-rera"><i class="fas fa-check"></i> DTCP Approved</span></div>
+                <div class="project-media"><i class="fas fa-road"></i> 3 km from Chennai National Highway, surrounded by reputed colleges. Wide roads, underground wiring, EB, groundwater.</div>
+                <div class="amenities-list">
+                    <span class="amenity">Gated</span><span class="amenity">25ft Tar road</span><span class="amenity">Near colleges</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Additional projects table format for more text / keywords -->
+        <h3>More Approved <strong>Plots for Sale in Trichy</strong> – Marsland Portfolio</h3>
+        <table class="project-table">
+            <tr><td><i class="fas fa-seedling loc-icon"></i> SRI LAKSHMI NAGAR</td><td>Alangudi – Sammattividuthy Road, on-road, 30/25ft roads, compound wall, EB, DTCP.</td></tr>
+            <tr><td><i class="fas fa-city loc-icon"></i> OFFICER'S TOWN</td><td>Alampattipudur, Trichy–Dindigul NH Road. DTCP & RERA approved gated plots.</td></tr>
+            <tr><td><i class="fas fa-mountain loc-icon"></i> ARUNACHALA NAGAR</td><td>Panjappur - Thuvakudi Ring Road, Trichy. Plots with modern infrastructure.</td></tr>
+            <tr><td><i class="fas fa-building loc-icon"></i> SAI RAM GARDEN</td><td>2BHK & 3BHK apartments near Vayalur Murugan Kovil (Ready to move).</td></tr>
+        </table>
+
+        <!-- UPCOMING PROJECTS with detailed description -->
+        <h3>Upcoming Premium Projects – Register Interest</h3>
+        <div style="display:flex; gap:30px; flex-wrap:wrap; margin-bottom:40px;">
+            <div style="flex:1; background:#f6faff; border-radius:50px; padding:30px;">
+                <h4 style="font-size:2rem;">IMAA ACCORD</h4>
+                <p><i class="fas fa-map-pin"></i> Mathur Roundana — A premium gated community with clubhouse, swimming pool, children's play area, 24/7 security. <strong>Coming soon, registrations opening shortly.</strong></p>
+            </div>
+            <div style="flex:1; background:#f6faff; border-radius:50px; padding:30px;">
+                <h4 style="font-size:2rem;">ROYAL ESTATE</h4>
+                <p><i class="fas fa-map-pin"></i> Bharathidasan University Backside — Premium farmland with fertile soil, water facilities, peaceful environment. Perfect for weekend retreat or agriculture. <strong>Launching soon.</strong></p>
+            </div>
+        </div>
+
+        <!-- ========== CONTACT SECTION (LUXURY VISIBLE) ========== -->
+        <div class="contact-palace">
+            <h3><i class="fas fa-phone-alt"></i> Take the First Step Toward Your Dream Plot</h3>
+            <div class="contact-grid">
+                <div class="contact-detail"><i class="fas fa-mobile-alt"></i> +91 98949 80940</div>
+                <div class="contact-detail"><i class="fas fa-mobile-alt"></i> +91 89030 87707</div>
+                <div class="contact-detail"><i class="fas fa-envelope"></i> marslandtrichy@gmail.com</div>
+            </div>
+            <div style="margin: 30px 0 20px; display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
+                <span class="contact-detail" style="font-size:1.2rem;"><i class="fas fa-map-marked-alt"></i> 77B, near Head Post Office, Cantonment, Trichy - 620001</span>
+            </div>
+            <div style="text-align:center;">
+                <a href="https://marslandproperties.com" class="btn-radiant"><i class="fas fa-globe"></i> Visit Official Website</a>
+                <p style="margin-top:25px; color:#ffe6b3;">📅 Site visits Mon-Sun 10am–6pm | Walk-ins welcome</p>
+            </div>
+        </div>
+
+        <!-- Testimonials -->
+        <h2>What Our Plot Owners Say About Marsland Properties</h2>
+        <div class="testimonial-grid">
+            <div class="testimonial-card"><div class="stars">★★★★★</div><div class="testimonial-text">"Genuine plots at fair prices, clear guidance. Professional and trustworthy. I'm happy with my investment."</div><div class="author">Rajesh Kumar <small>Cantonment</small></div></div>
+            <div class="testimonial-card"><div class="stars">★★★★★</div><div class="testimonial-text">"Marsland makes affordable real estate dreams come true. Transparent dealings, highly recommended."</div><div class="author">Shiva Prasad <small>KK Nagar</small></div></div>
+            <div class="testimonial-card"><div class="stars">★★★★★</div><div class="testimonial-text">"Excellent service, smooth property deal. Very responsive and honest. Best real estate service."</div><div class="author">Karthik Murali <small>TVS Tollgate</small></div></div>
+        </div>
+
+        <!-- Legal documentation / handover (EEAT strong) -->
+        <div style="background:#ecf6fd; border-radius:60px; padding:40px; margin:45px 0;">
+            <h3 style="margin-top:0;">100% Legal Compliance – Documented Proof</h3>
+            <p>Marsland Properties provides complete handover documentation: DTCP approval letters, RERA registration certificates, patta, and sale deeds. Recent handovers: Cantonment (Mr. Rajesh Kumar), KK Nagar (Mrs. Shanta Devi), Woraiyur (Mr. Arun Prasad). We believe in total transparency.</p>
+            <div style="display:flex; gap:20px; margin-top:25px;">
+                <span class="cert-item"><i class="fas fa-file-signature"></i> DTCP Approved</span>
+                <span class="cert-item"><i class="fas fa-file-contract"></i> RERA Registered</span>
+                <span class="cert-item"><i class="fas fa-check-circle"></i> Clear Title</span>
+            </div>
+        </div>
+
+        <!-- Location insights for Trichy (long tail) -->
+        <h2>Why Invest in a Plot for Sale in Trichy Now?</h2>
+        <p>Trichy is witnessing unprecedented growth: international airport expansion, proposed metro rail, new industrial corridors (HAPP, OFT, BHEL), and educational hubs (IIM, NIT, Anna University). Marsland Properties' plots are strategically located in these growth belts: <strong>Suriyur (Airport/IIM), Manikandam (NH connectivity), Manachanallur (emerging suburb), and Pudukkottai NH (university zone)</strong>. Land in Trichy appreciates consistently, and with RERA approval, your investment is future-proof.</p>
+
+        <!-- final subtle image seo block -->
+        <div style="display:flex; gap:25px; margin:50px 0 20px;">
+            <div style="background:#ebf5fb; border-radius:40px; padding:25px; flex:1; text-align:center; border:1px dashed #b48c3a;"><i class="fas fa-camera" style="font-size:2rem;"></i> <span style="font-weight:600;">DTCP approved plot for sale in Trichy - Alamelu Mangai Nagar</span></div>
+            <div style="background:#ebf5fb; border-radius:40px; padding:25px; flex:1; text-align:center; border:1px dashed #b48c3a;"><i class="fas fa-camera" style="font-size:2rem;"></i> <span style="font-weight:600;">Gated community plots Trichy - Antony Garden</span></div>
+        </div>
+
+        <hr>
+        <!-- Footer -->
+        <div class="footer">
+            <div style="display:flex; flex-wrap:wrap; justify-content:space-between;">
+                <div><strong>© 2025 Marsland Properties</strong> — Entrust Your Dreams With Us</div>
+                <div>📞 +91 98949 80940 | 📧 marslandtrichy@gmail.com</div>
+            </div>
+            <div style="margin-top:15px; font-size:0.9rem;">Office: 77B, near Head Post Office, Signal, Cantonment, Trichy - 620001. All projects subject to RERA/DTCP norms. Images are representative.</div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
